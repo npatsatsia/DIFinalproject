@@ -1,0 +1,252 @@
+.user-section-page {
+    background-image: url('../../../Assets/images/logBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.user-section-page .user-container {
+    padding-right: 8%;
+    padding-left: 8%;
+    padding-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-section-page .user-container .container {
+    padding: 44px 44px 80px 44px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 40px;
+    width: 37%;
+    min-width: 500px;
+}
+
+.user-section-page .user-container .container .text-link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-section-page .user-container .container .text-link .link div {
+    cursor: pointer;
+}
+
+.user-section-page .user-container .container .text-link .welcome span{
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .text-link .welcome span span {
+    color: #779341;
+    font-family: 'Poppins';
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .text-link .welcome h1 {
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .text-link .link {
+    padding-top: 6px;
+}
+
+.user-section-page .user-container .container .text-link .link span {
+    color: #8D8D8D;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .text-link .link div {
+    color: #779341;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .user-login-form {
+    padding-top: 50px;
+}
+
+.user-section-page .user-container .container .user-login-form .inpt {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.user-section-page .user-container .container label {
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .user-login-form .login-password {
+    padding-top: 38px;
+}
+
+.user-section-page .user-container .container .inpt input {
+    height: 57px;
+    border-radius: 9px;
+    outline: 1px solid #4285F4;
+    border: 1px solid #ADADAD;
+    background: #FFF;
+    outline: none;
+    padding-left: 1.5rem;
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .inpt input:focus {
+    outline: none;
+    border: 1px solid #4285F4;
+}
+
+.user-section-page .user-container .container .user-login-form, .user-sigup-form .inpt input {
+    width: 100%; 
+}
+
+.user-section-page .user-container .container .user-login-form span {
+    float: right;
+    padding-top: 12px;
+    color: #4285F4;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-section-page .user-container .container .sign-btn-container {
+    padding-top: 76px;
+    width: 100%;
+}
+
+.user-section-page .user-container .container .sign-btn-container .sign-btn {
+    float: right;
+    width: 43.7%;
+    height: 54px;
+    border: none;
+    border-radius: 10px;
+    background: #779341;
+    box-shadow: 0px 4px 19px 0px rgba(119, 147, 65, 0.30);
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.social-login {
+    display: flex;
+    gap: 44px;
+    padding-top: 43px;
+}
+
+
+.user-sigup-form {
+    padding-top: 45px;
+}
+
+.user-section-page .user-container .container .signup-user-contact {
+    display: flex;
+    gap: 19px;
+    padding-top: 35px;
+}
+
+.user-section-page .user-container .container .signup-user-contact > div{
+    width: 50%;
+}
+
+.user-section-page .user-container .container .signup-password {
+    padding-top: 35px;
+}
+
+@media (max-width: 1024px) {
+    .user-section-page .user-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .user-section-page .user-container {
+        justify-content: center;
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .user-section-page .user-container .container {
+        width: 100%;
+        min-width: 0;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .user-section-page .user-container .container .text-link .welcome span{
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .user-section-page .user-container .container .text-link .welcome h1 {
+        font-size: 40px;
+        white-space: nowrap;
+    }
+    .user-section-page .user-container .container .text-link .link {
+        font-size: 13px;
+        padding-left: 20px;
+    }
+    .user-section-page .user-container .container .inpt input {
+        padding-left: 0.3rem;
+    }
+    .user-section-page .user-container .container .inpt input::placeholder {
+        font-size: 13px;
+    }
+    .social-login {
+        gap: 0;
+    }
+    .social-login .hover span {
+        font-size: 13px;
+    }
+    .user-section-page .user-container .container label {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .user-section-page .user-container .container .user-login-form span {
+        font-size: 11px;
+    }
+    .user-section-page .user-container .container .signup-user-contact {
+        gap: 2px;
+    }
+
+}
+
+@media (max-height: 825px) {
+    .user-section-page {
+        height: fit-content;
+    }
+}

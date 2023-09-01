@@ -1,0 +1,129 @@
+.text-btn {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.text-title {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+.text-info {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.2px;
+}
+.text-base {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.text-small {
+    font-family: 'Inter';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.text-normal {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+}
+.text-link {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+}
+.h5-title {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.org {
+    color: #FF9017;
+}
+.drk {
+    color: #1C1C1C;
+}
+.blu {
+    color: #0D6EFD;
+}
+.red {
+    color: #FA3434;
+}
+.gr5 {
+    color: #8B96A5;
+}
+.gr6 {
+    color: #505050;
+}
+.gr8 {
+    color: #606060;
+}
+ .bkg2 {
+    background: #EFF2F4;
+ }
+ .pl10{
+    padding-left: 10px;
+ }
+ .w17 {
+    width: 40%;
+ }
+ .wh20 {
+    width: 20px;
+    height: 20px;
+ }
+ .ptb107 {
+    padding-top: 10px;
+    padding-bottom: 7px;
+ }
+ .bbw1px {
+    border-bottom: 1px solid #E0E7E9;
+ }
+ .title-h6 {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+ }
+.title-h4 {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+}
+.pt9 {
+    padding-top: 9px;
+}
+.wht {
+    color: white;
+}
+.title-h3 {
+    font-family: 'Inter';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+  }

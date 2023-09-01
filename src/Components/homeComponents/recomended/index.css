@@ -1,0 +1,159 @@
+.homepg-recommended-items-section {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 16px;
+}
+
+.recommended-items-container .title-container {
+    padding-bottom: 24px;
+}
+
+.recommended-items-container .title-container h3 {
+    font-family: 'Inter';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+}
+
+.recommended-items-list-container .recomended-items-ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 19px;
+}
+
+.recommended-items-list-container .recomended-items-ul li {
+    height: 310px;
+    border: 1px solid #E0E0E0;
+    list-style-type: none;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.recommended-items-list-container .recomended-items-ul li .recommended-single-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recommended-items-list-container .recomended-items-ul li .recommended-single-item {
+    padding-top: 9px;
+}
+
+.recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about {
+    width: 100%;
+    padding: 14px 18px 9px 16px ;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about :nth-child(1) {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    color: #1c1c1c;
+}
+
+.recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about :nth-child(2) {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #8B96A5;
+}
+
+ @media (min-width: 576px){
+    .homepg-recommended-items-section {
+        max-width: 100%;
+    }
+ }
+
+ @media (min-width: 768px){
+    .homepg-recommended-items-section {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 892px){
+    .homepg-recommended-items-section {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 992px){
+    .homepg-recommended-items-section {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 1024px){
+    .homepg-recommended-items-section {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 1200px){
+    .homepg-recommended-items-section {
+        max-width: 1180px;
+    }
+ }
+
+ @media (min-width: 1441px){
+    .homepg-recommended-items-section {
+        max-width: 1180px;
+    }
+ }
+
+ @media (min-width: 1600px){
+    .homepg-recommended-items-section {
+        max-width: 1440px;
+    }
+ }
+
+ @media (max-width: 575px) {
+    .recommended-items-container .title-container h3 {
+        font-size: 18px;
+        padding-left: 10px;
+    }
+    .recommended-items-list-container {
+        padding: 0 12px;
+    }
+    .recommended-items-list-container .recomended-items-ul {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+    }
+    .recommended-items-list-container .recomended-items-ul li {
+        height: 280px;
+    }
+    .recommended-items-list-container .recomended-items-ul .recommended-single-item img {
+        width: 142px;
+        height: 142px;
+    }
+ }
+
+ @media (max-width: 407px) {
+    .recommended-items-list-container .recomended-items-ul .recommended-single-item img {
+        width: 142px;
+        height: 142px;
+    }
+    .recommended-items-list-container .recomended-items-ul li {
+        height: 250px;
+    }
+    .recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about {
+        padding: 14px 4px 9px 16px;
+    }
+    .recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about :nth-child(2) {
+        font-size: 13px;
+    }
+ }

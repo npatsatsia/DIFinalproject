@@ -1,0 +1,70 @@
+.detail-related-section {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    border: 1px solid #DEE2E7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.detail-related-section .detail-related-container {
+    padding: 20px 24px 33px 22px;
+}
+
+.detail-related-section .detail-related-container .related-products-container ul {
+    padding: 0;
+    padding-top: 15px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.detail-related-section .detail-related-container .related-products-container ul li .related-info {
+    width: 175px;
+    padding-bottom: 9px;
+    padding-top: 23px;
+}
+
+.related-img {
+    background-color: #eee;
+    padding: 18px 20px 20px 18px;
+    border-radius: 6px;
+    width: 172px;
+    height: 172px;
+}
+
+.related-img div{
+    width: 133.644px;
+    height: 133.644px;
+    mix-blend-mode: multiply;
+    background-image: url('../../../Assets/images/tablet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 576px){
+    .detail-related-section {
+       max-width: 98%;
+   }
+}
+
+@media (min-width: 768px){
+    .detail-related-section {
+       max-width: 94%;
+   }
+}
+
+@media (min-width: 1200px){
+    .detail-related-section {
+       max-width: 1180px;
+   }
+}
+
+@media (min-width: 1600px){
+    .detail-related-section {
+       max-width: 1440px;
+   }
+}

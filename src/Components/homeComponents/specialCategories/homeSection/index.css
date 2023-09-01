@@ -1,0 +1,270 @@
+.homepg-home-categories {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-top: 23px;
+    width: 100%;
+    background: #fff;
+}
+
+.homepg-home-categories-container {
+    width: 100%;
+    display: flex;
+}
+
+.home-outdoor-header-active {
+    padding: 0 0 15px 16px;
+    display: none;
+}
+
+.home-outdoor-header-active h1 {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #1C1C1C;
+}
+
+.homepg-home-categories-container .home-outdoor-img-container {
+    background-image: url('../../../../Assets/images/homeAndOutdoorBKG.png');
+    opacity: 0.8;
+    /* background: linear-gradient(0deg, rgba(255, 232, 186, 0.40) 0%, rgba(255, 232, 186, 0.40) 100%), url('../../../../../assets/images/homeAndOutdoorBKG.png'), lightgray -0.026px -35.875px / 111.262% 116.216% no-repeat; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25%;
+    height: 300px;
+    position: relative;
+}
+
+.home-outdoor-img-container div {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.home-outdoor-img-container div span {
+    display: block;
+    width: 130px;
+    color: #1C1C1C;
+    font-family: 'Inter';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px; /* 130% */
+    letter-spacing: -0.2px;
+    padding-bottom: 18px;
+}
+.home-outdoor-img-container div button {
+    font-family: 'Inter';
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #1C1C1C;
+    text-align: center;
+    padding: 0.6rem 0.84rem;
+    border-radius: 0.4rem;
+    border: none;
+    border: 1px solid #FFF;
+    background: #FFF;
+}
+
+.home-outdoor-categories-container {
+    width: 75%;
+
+}
+
+.home-outdoor-categories-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+
+}
+
+.home-outdoor-categories-container ul li {
+    width: 25%;
+    height: 150px;
+    border: 1px solid #DEE2E7;
+}
+
+.home-outdoor-categories-container ul li .home-single-category {
+    padding-top: 25px;
+}
+
+.home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(1) {
+    display: block;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #1C1C1C;
+}
+
+.home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(3) {
+    font-family: 'Inter';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #8B96A5;
+}
+
+.home-outdoor-categories-container ul li .home-single-category .home-single-category-text {
+    padding-left: 16px;
+}
+
+.home-outdoor-categories-container ul li .home-single-category img {
+    width: 100px;
+    float: right;
+}
+
+.homepg-home-categories-container .sourceing-container-active {
+    display: none;
+    border-bottom: 1px solid  #DEE2E7;
+    border-left: 1px solid  #DEE2E7;
+    border-right: 1px solid  #DEE2E7;
+    width: 100%;
+    padding: 9px 0 10px 9px;
+}
+
+.homepg-home-categories-container .sourceing-container-active div {
+    color: #0D6EFD;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 9px 9px 13px;
+}
+
+ @media (min-width: 576px){
+    .homepg-home-categories {
+        max-width: 100%;
+    }
+ }
+
+ @media (min-width: 768px){
+    .homepg-home-categories {
+        max-width: 94%;
+    }
+ }
+
+ @media (max-width: 768px){
+    .home-outdoor-img-container {
+        display: none;
+    }
+    .home-outdoor-header-active {
+        display: block;
+    }
+    .home-outdoor-categories-container ul li {
+        width: calc(100% / 2);
+    }
+
+    .homepg-home-categories-container .sourceing-container-active {
+        display: block;
+    }
+ }
+
+ @media (max-width: 426px){
+    .home-outdoor-categories-container ul {
+        display: grid;
+        width: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    .home-outdoor-categories-container ul li {
+        grid-row: 1;
+        width: 130px;
+        height: unset;
+    }
+
+    .home-outdoor-categories-container ul li .home-single-category .home-single-category-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(2) {
+        order: -1;
+    }
+
+    .home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(1){
+        padding-top: 7px;
+    }
+    
+    .home-outdoor-categories-container ul li .home-single-category .home-single-category-text span .from-br{
+        display: none;
+    }
+
+    .home-outdoor-categories-container ul li .home-single-category {
+        padding: 7px;
+    }
+    .home-outdoor-categories-container ul li .home-single-category .home-single-category-text{
+        padding: 0;
+    }
+ }
+
+ @media (min-width: 892px){
+    .homepg-home-categories {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 992px){
+    .homepg-home-categories {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 1024px){
+    .homepg-home-categories {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 1200px){
+    .homepg-home-categories {
+        max-width: 1180px;
+    }
+ }
+
+ @media (max-width: 1200px){
+    .homepg-home-categories-container {
+        flex-wrap: wrap;
+    }
+    .homepg-home-categories-container .home-outdoor-img-container {
+        width: 100%;
+        background-position: unset;
+    }
+    .home-outdoor-categories-container {
+        width: 100%;
+    }
+    .home-outdoor-img-container div {
+        top: 40%;
+    }
+    .home-outdoor-img-container div :nth-child(1) {
+        font-size: calc(1.3rem + 0.6vw);
+        width: 100%;
+    }
+ }
+
+ @media (min-width: 1441px){
+    .homepg-home-categories {
+        max-width: 1180px;
+    }
+ }
+
+ @media (min-width: 1600px){
+    .homepg-home-categories {
+        max-width: 1440px;
+    }
+ }

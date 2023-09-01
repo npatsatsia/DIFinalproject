@@ -1,0 +1,38 @@
+.social-text {
+    display: none;
+}
+
+.social-google {
+    display: flex;
+    height: 55px;
+    align-items: center;
+}
+
+.hover {
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.hover svg {
+    width: 40px;
+    padding-right: 9px;
+}
+
+.hover::before {
+    background: #4285F4;
+}
+
+.hover:hover {
+    border-radius: 9px;
+    background: #E9F1FF;
+    width: 80%;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.hover:hover span{
+    display: block;
+}

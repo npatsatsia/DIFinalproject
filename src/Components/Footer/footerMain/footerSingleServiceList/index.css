@@ -1,0 +1,30 @@
+.footer-title-toggle .footer-chevron {
+    display: none;
+}
+.footer-title {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    color: #1c1c1c;
+}
+
+@media (max-width: 767px) {
+    .footer-main-section .footer-main-container .footer-toggle {
+        display: none;
+    }
+    .footer-title-toggle {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-title-toggle .footer-chevron {
+        display: block;
+    }
+    .footer-main-section .footer-main-container .footer-toggle.active {
+        display: block;
+    }
+    .footer-main-section .footer-main-container .footer-title-toggle .footer-chevron.rotate {
+        transform: rotate(180deg);
+    }
+ }

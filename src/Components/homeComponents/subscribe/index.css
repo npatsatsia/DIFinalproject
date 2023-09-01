@@ -1,0 +1,101 @@
+.homepg-subscribe-section {
+    width: 100%;
+    background-color: #EFF2F4;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-texts {
+    padding-top: 38px;
+    text-align: center;
+}
+
+.homepg-subscribe-section .subscribe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-texts :nth-child(1) {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    color: #1c1c1c;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-texts :nth-child(2) {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #606060;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-inputs-form {
+    padding-top: 21px;
+    padding-bottom: 39px;
+    width: 100%;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container .subscribe-mail {
+    display: flex;
+    align-items: center;
+    border: 1px solid #DEE2E7;
+    border-radius: 6px;
+    background-color: #fff;
+    height: 40px;
+    width: 19%;
+    gap: 6px;
+    padding-left: 8px;
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container .subscribe-mail input {
+    outline: none;
+    border: none;
+    width: 100%;
+    color: #8B96A5;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container .subscribe-button button {
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    height: 40px;
+    padding: 0px 16px;
+    background: var(--primary-gradient, linear-gradient(180deg, #127FFF 0%, #0067FF 100%));
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .homepg-subscribe-section .subscribe-container .subscribe-inputs-form .subscribe-inputs-container .subscribe-mail {
+        width: 30%;
+        min-width: 230px;
+    }
+}

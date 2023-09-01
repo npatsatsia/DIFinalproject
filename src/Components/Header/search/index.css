@@ -87,3 +87,9 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .header-search-container span {
+        font-size: 14px;
+    }
+}
+

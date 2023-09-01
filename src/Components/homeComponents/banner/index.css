@@ -6,7 +6,6 @@
     margin-right: auto;
     border: 1px solid #DEE2E7;
     background-color: #fff;
-    margin-top: 20px;
     border-radius: 5px;
 }
 
@@ -306,11 +305,7 @@
         align-items: center;
     }
     .home-category-container ul {
-        display: grid;
-        width: 100%;
-        overflow-x: scroll;
-        gap: 10px;
-        scroll-snap-type: x mandatory;  
+        display: none; 
     }
     
     .home-category-container ul li {

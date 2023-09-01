@@ -12,54 +12,21 @@ import CategoriesSlider from '../Components/extra/mobileVersion/categoriesSlider
 
 const Layout = () => {
 const [show, setShow] = useState(false)
-const [categoriesArr, setCategoriesArr] = useState([])
-const [headerSettings, setHeaderSettings] = useState({
-  brand: false,
-  burgermenu: false,
-  pagetitle: false,
-  back: false,
-  cartAndProfile: false,
-  search: false,
-  categories: false
-})
 
-const location = useLocation()
-
-const fetchData = async () => {
-    try {
-      const result = await fetch('https://digital-react-project.azurewebsites.net/api/product/categories');
-      const data = await result.json();
-      setCategoriesArr([...data])
-      return data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
-    }
-  };
-
-    useEffect(() => {
-      fetchData()
-      
-    }, [])
-
-    useEffect(() => {
-      console.log(location)
-      
-    }, [location])
+const locate = useLocation()
+const authLocation = locate.pathname === '/auth'
 
   return (
     <>
       <Sidebar setShow={setShow} show={show}/>
-      <header>
+      <header style={authLocation? {display: 'none'} : {display: 'block'}}>
         <Header show={show} setShow={setShow}/>
-        <HeaderMobile show={show} setShow={setShow} headerSettings={headerSettings} setHeaderSettings={setHeaderSettings}/>
-        <SearchBox headerSettings={headerSettings}/>
-        <CategoriesSlider categoriesArr={categoriesArr} headerSettings={headerSettings}/>
+        <HeaderMobile show={show} setShow={setShow} />
       </header>
       <main>
-        <Router categoriesArr={categoriesArr} headerSettings={headerSettings} setHeaderSettings={setHeaderSettings}/>
+        <Router />
       </main>
-      <footer>
+      <footer style={authLocation?{display: 'none'} : {display: 'block'}}>
         <FooterMain/>
         <FooterOwner/>
       </footer>

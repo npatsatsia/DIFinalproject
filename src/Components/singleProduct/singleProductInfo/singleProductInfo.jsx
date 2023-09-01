@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import './index.css'
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import tshirt1 from '../../../Assets/images/tshirtone.png'
@@ -11,6 +11,7 @@ import italy from '../../../Assets/images/italy.png'
 const SingleProductInfo = () => {
     const [more, setMore] = useState(false)
 
+    const slideRef = useRef()
     const imageRef = useRef()
 
     const handleShowMore = () => {
@@ -20,6 +21,9 @@ const SingleProductInfo = () => {
     const handleImageChange = (image) => {
         imageRef.current.setAttribute('src', image)
     }
+    useEffect(() => {
+        console.log(slideRef.current.children[1])
+    }, [handleImageChange])
 
   return (
     <section className='detail-info-section'>
@@ -28,21 +32,15 @@ const SingleProductInfo = () => {
                     <div className='detail-main-image'>
                         <img src={tshirt1} alt="product" ref={imageRef} />
                     </div>
-                    <div className='detail-additional-images'>
+                    <div className='detail-additional-images' ref={slideRef}>
                         <div className='wh60br5'>
                             <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
                         </div>
                         <div className='wh60br5'>
-                            <img src={tshirt1} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))}/>
-                        </div>
-                        <div className='wh60br5'>
-                            <img src={tshirt2} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
+                            <img src={tshirt1} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
                         </div>
                         <div className='wh60br5'>
                             <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
-                        </div>
-                        <div className='wh60br5'>
-                            <img src={tshirt4} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
                         </div>
                         <div className='responsive-photo-slider'>
                             <div className='lrslider'>

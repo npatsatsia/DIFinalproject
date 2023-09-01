@@ -7,17 +7,17 @@ const ProductsList = ({setHeaderSettings}) => {
   const [showfilters, setShowFilters] = useState(false)
   const [listView, setListview] = useState(false)
 
-  useEffect(() => {
-    setHeaderSettings({
-      brand: false,
-      burgermenu: false,
-      cartAndProfile: true,
-      back: true,
-      pagetitle: true,
-      search: true,
-      categories: true
-    })
-  }, [])
+  // useEffect(() => {
+  //   setHeaderSettings({
+  //     brand: false,
+  //     burgermenu: false,
+  //     cartAndProfile: true,
+  //     back: true,
+  //     pagetitle: true,
+  //     search: true,
+  //     categories: true
+  //   })
+  // }, [])
 
   return (
     <section className='products-section'>

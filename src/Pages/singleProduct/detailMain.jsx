@@ -7,17 +7,6 @@ import SinglesRelatedProducts from '../../Components/singleProduct/singlesRealat
 import Subscribe from '../../Components/homeComponents/subscribe/subscribe';
 
 const DetailMain = ({setHeaderSettings}) => {
-  useEffect(() => {
-    setHeaderSettings({
-      brand: false,
-      burgermenu: false,
-      cartAndProfile: true,
-      back: true,
-      pagetitle: false,
-      search: false,
-      categories: false
-    })
-  }, [])
 
   return (
     <>

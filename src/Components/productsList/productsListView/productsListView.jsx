@@ -5,7 +5,6 @@ import { productsListArray } from '../../../Static/productsList'
 
 const ProductsListView = ({listView, setListview}) => {
 
-
   return (
     <section className='products-list-section'>
       <div className='products-list-info-container'>
@@ -46,7 +45,7 @@ const ProductsListView = ({listView, setListview}) => {
           <ul className={`products-list-ul ${!listView? 'grid' : '' }`}>
             {
               productsListArray.map((item) => {
-                return <li className={`${!listView? 'grid-list-li' : ''}`} key={item.id}>
+                return <li key={item.id}>
                   {listView?
                   <div className='list-single-item-container'>
                     <div className='list-single-image-container'>
@@ -96,7 +95,6 @@ const ProductsListView = ({listView, setListview}) => {
                   </div>
                   :
                   <div className='grid-single-item-container'>
-                  <div className='.grid-single-item-container'></div>
                     <div className='grid-product-image-container'>
                       <img src={item.image} alt="product-image" />
                     </div>

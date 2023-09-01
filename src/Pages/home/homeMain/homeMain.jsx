@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useLocation } from 'react-router-dom'
 import './index.css'
 import Banner from '../../../Components/homeComponents/banner/banner'
 import Offers from '../../../Components/homeComponents/offers/offers'
@@ -10,18 +11,36 @@ import ExtraServices from '../../../Components/homeComponents/extraServices/extr
 import Regions from '../../../Components/homeComponents/regions/regions'
 import Subscribe from '../../../Components/homeComponents/subscribe/subscribe'
 
-const HomeMain = ({setHeaderSettings, categoriesArr}) => {
+const HomeMain = () => {
+  const [categoriesArr, setCategoriesArr] = useState([])
+  // useEffect(() => {
+  //   setHeaderSettings({
+  //     brand: true,
+  //     burgermenu: true,
+  //     cartAndProfile: true,
+  //     back: false,
+  //     pagetitle: false,
+  //     search: true,
+  //     categories: true
+  //   })
+  // }, [])
+
+  const fetchData = async () => {
+    try {
+      const result = await fetch('https://digital-react-project.azurewebsites.net/api/product/categories');
+      const data = await result.json();
+      setCategoriesArr([...data])
+      return data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return [];
+    }
+  };
+
   useEffect(() => {
-    setHeaderSettings({
-      brand: true,
-      burgermenu: true,
-      cartAndProfile: true,
-      back: false,
-      pagetitle: false,
-      search: true,
-      categories: true
-    })
+    fetchData()
   }, [])
+
   return (
     <>
         <Banner categoriesArr={categoriesArr}/>

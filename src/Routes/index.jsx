@@ -8,9 +8,9 @@ import ProductsList from '../Pages/productsList/productsList'
 const Router = ({headerSettings, setHeaderSettings, categoriesArr}) => {
   return (
     <Routes>
-        <Route path='/' element={<HomeMain headerSettings={headerSettings} setHeaderSettings={setHeaderSettings} categoriesArr={categoriesArr}/>}/>
-        <Route path='/products' element={<ProductsList headerSettings={headerSettings} setHeaderSettings={setHeaderSettings}/>}/>
-        <Route path='/product/*' element={<DetailMain headerSettings={headerSettings} setHeaderSettings={setHeaderSettings}/>}/>
+        <Route path='/' element={<HomeMain/>}/>
+        <Route path='/products' element={<ProductsList/>}/>
+        <Route path='/product/*' element={<DetailMain/>}/>
         <Route path='/auth' element={<Login/>}/>
     </Routes>
   )

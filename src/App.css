@@ -57,6 +57,55 @@
     font-weight: 600;
     line-height: normal;
 }
+
+.h6-title {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.h3-title {
+    font-family: 'Inter';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+}
+
+.h4-title {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+}
+.text-btn-small {
+    font-family: 'Inter';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.text-btn-normal {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.text-btn-large {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.wht {
+    color: #FFF;
+}
 .org {
     color: #FF9017;
 }
@@ -68,6 +117,9 @@
 }
 .red {
     color: #FA3434;
+}
+.gr4 {
+    color: #A9ACB0;
 }
 .gr5 {
     color: #8B96A5;

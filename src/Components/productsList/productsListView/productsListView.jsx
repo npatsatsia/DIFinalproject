@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './index.css'
 import { productsListArray } from '../../../Static/productsList'
 
 
 const ProductsListView = ({listView, setListview}) => {
+
+  const renderCount = useRef(0)
+
+  renderCount.current = renderCount.current + 1
+
+  console.log(renderCount.current)
 
   return (
     <section className='products-list-section'>
@@ -44,10 +50,9 @@ const ProductsListView = ({listView, setListview}) => {
         <div className='products-list-container'>
           <ul className={`products-list-ul ${!listView? 'grid' : '' }`}>
             {
-              productsListArray.map((item) => {
+              listView ? productsListArray.map(item => {
                 return <li key={item.id}>
-                  {listView?
-                  <div className='list-single-item-container'>
+                    <div className='list-single-item-container'>
                     <div className='list-single-image-container'>
                       <img src={item.image} alt="item-image" />
                     </div>
@@ -93,8 +98,10 @@ const ProductsListView = ({listView, setListview}) => {
                       </div>
                     </div>
                   </div>
-                  :
-                  <div className='grid-single-item-container'>
+                </li>
+              }) : productsListArray.map(item => {
+                return <li key={item.id}>
+                                      <div className='grid-single-item-container'>
                     <div className='grid-product-image-container'>
                       <img src={item.image} alt="product-image" />
                     </div>
@@ -126,9 +133,7 @@ const ProductsListView = ({listView, setListview}) => {
                       </div>
                     </div>
                   </div>
-                  }
                 </li>
-                
               })
             }
           </ul>
@@ -138,4 +143,4 @@ const ProductsListView = ({listView, setListview}) => {
   )
 }
 
-export default ProductsListView
+export default React.memo(ProductsListView)

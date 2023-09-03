@@ -11,6 +11,7 @@ import italy from '../../../Assets/images/italy.png'
 const SingleProductInfo = () => {
     const [more, setMore] = useState(false)
 
+    const containerRef = useRef(null)
     const slideRef = useRef()
     const imageRef = useRef()
 
@@ -21,9 +22,24 @@ const SingleProductInfo = () => {
     const handleImageChange = (image) => {
         imageRef.current.setAttribute('src', image)
     }
-    useEffect(() => {
-        console.log(slideRef.current.children[1])
-    }, [handleImageChange])
+
+
+
+  const scrollPhoto = (direction) => {
+    if (containerRef.current) {
+      const container = containerRef.current;
+      const scrollAmount = slideRef.current.clientWidth;
+      const newScrollLeft =
+        direction === 'forward'
+          ? container.scrollLeft + scrollAmount
+          : container.scrollLeft - scrollAmount;
+
+          container.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth',
+          });
+    }
+  };
 
   return (
     <section className='detail-info-section'>
@@ -32,22 +48,22 @@ const SingleProductInfo = () => {
                     <div className='detail-main-image'>
                         <img src={tshirt1} alt="product" ref={imageRef} />
                     </div>
-                    <div className='detail-additional-images' ref={slideRef}>
+                    <div className='detail-additional-images' ref={containerRef}>
                         <div className='wh60br5'>
-                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
+                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
                         </div>
                         <div className='wh60br5'>
-                            <img src={tshirt1} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
+                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
                         </div>
                         <div className='wh60br5'>
-                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} />
+                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
                         </div>
                         <div className='responsive-photo-slider'>
                             <div className='lrslider'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('backward'))} >
                                     <path d="M13.3337 7.33329H5.22033L8.94699 3.60663L8.00033 2.66663L2.66699 7.99996L8.00033 13.3333L8.94033 12.3933L5.22033 8.66663H13.3337V7.33329Z" fill="white"/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('forward'))}>
                                     <path d="M8.00033 2.66663L7.06033 3.60663L10.7803 7.33329H2.66699V8.66663H10.7803L7.06033 12.3933L8.00033 13.3333L13.3337 7.99996L8.00033 2.66663Z" fill="white"/>
                                 </svg>
                             </div>

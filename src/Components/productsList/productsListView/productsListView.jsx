@@ -143,4 +143,4 @@ const ProductsListView = ({listView, setListview}) => {
   )
 }
 
-export default React.memo(ProductsListView)
+export default ProductsListView

@@ -9,6 +9,10 @@
     display: none;
 }
 
+.go-back, .mobile-header-burgermenu, .mobile-header-logo-container, .mobile-header-right {
+    cursor: pointer;
+}
+
 .go-back.active, .mobile-header-page-history.active, .mobile-header-burgermenu.active, .mobile-header-logo-container.active{
     display: block;
 }
@@ -18,8 +22,9 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    
 }
+
+
 
 @media (min-width: 768px){
     .mobile-header-container {

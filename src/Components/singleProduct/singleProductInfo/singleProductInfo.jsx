@@ -1,10 +1,8 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef} from 'react'
 import './index.css'
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import tshirt1 from '../../../Assets/images/tshirtone.png'
-import tshirt2 from '../../../Assets/images/tshirttwo.png'
 import tshirt3 from '../../../Assets/images/tshirtthree.png'
-import tshirt4 from '../../../Assets/images/tshirtfour.png'
 import italy from '../../../Assets/images/italy.png'
 
 
@@ -173,7 +171,7 @@ const SingleProductInfo = () => {
                             <div className='supplier-more'>
                                 <div className='supplier-country'>
                                     <img src={italy} alt="italy" />
-                                    <span className='text-normal gr5'>Italy<span className='mb-none'>, milano</span></span>
+                                    <span className='text-normal gr5'>Italy<span className='mb-none'>, Milano</span></span>
                                 </div>
                                 <div className='supplier-verified'>
                                     <BsShieldCheck className='gr5 wh20'/>

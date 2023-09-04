@@ -13,7 +13,7 @@
 }
 
 .homepg-gadgets-header-active {
-    padding: 0 0 15px 16px;
+    padding: 15px 0 15px 16px;
     display: none;
 }
 
@@ -68,6 +68,7 @@
     border: none;
     border: 1px solid #FFF;
     background: #FFF;
+    cursor: pointer;
 }
 
 .home-gadgets-categories-container {
@@ -114,12 +115,14 @@
 
 .home-gadgets-categories-container ul li .homepg-gadgets-single-category .homepg-gadgets-single-category-text {
     padding-left: 16px;
+    cursor: pointer;
 }
 
 .home-gadgets-categories-container ul li .homepg-gadgets-single-category img {
     width: 82px;
     height: 82px;
     float: right;
+    cursor: pointer;
 }
 
 .homepg-gadgets-categories-container .sourceing-container-active {

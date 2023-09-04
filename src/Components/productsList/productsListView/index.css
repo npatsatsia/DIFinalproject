@@ -47,18 +47,21 @@
 
 .verified-check {
     gap: 8px;
+    cursor: pointer;
 }
 .right-selectbox {
     border: 1px solid #DEE2E7;
     border-radius: 6px;
     gap: 60px;
     padding: 8px 10px 8px 10px;
+    cursor: pointer;
 }
 
 .products-list-view .grid-view, .list-view {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .grid-view {
@@ -66,6 +69,7 @@
     border: 1px solid #DEE2E7;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    cursor: pointer;
 }
 
 .list-view {
@@ -73,6 +77,7 @@
     border: 1px solid #DEE2E7;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+    cursor: pointer;
 }
 
 .list-view.active {
@@ -103,6 +108,7 @@
     width: 195px;
     height: 195px;
     padding: 17px 12px 13px 13px;
+    cursor: pointer;
 }
 
 .list-single-item-info {
@@ -124,6 +130,9 @@
     padding-top: 1px;
     align-items: center;
 }
+.list-product-title span {
+    cursor: pointer;
+}
 
 .products-list-desc {
     padding-top: 8px;
@@ -132,6 +141,9 @@
 
 .product-link-btn {
     padding-top: 5px;
+}
+.product-link-btn span {
+    cursor: pointer;
 }
 
 .favorite-icon-container {
@@ -190,6 +202,7 @@
     width: 220px;
     height: 220px;
     padding: 13px 13px 14px 14px;
+    cursor: pointer;
 }
 .grid-info-heart-container {
     padding: 17px 20px 18px 20px;

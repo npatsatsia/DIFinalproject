@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './index.css'
 import avatar from '../../../Assets/images/Avatar.png'
 
@@ -15,7 +15,6 @@ const Banner = ({categoriesArr}) => {
                 </ul>
             </div>
             <div className='home-latest-trending'>
-                {/* <img src={banner} className='background-container' alt='banner'/> */}
                 <div className='banner-info'>
                     <span>Latest trending</span>
                     <span>Electronic items</span>

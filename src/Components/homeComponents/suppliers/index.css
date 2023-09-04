@@ -98,6 +98,9 @@
     display: flex;
     gap: 8px;
 }
+.inquiry-form-quantity  button{
+    cursor: pointer;
+}
 
 .home-supplier-background .home-supplier-container form .inquiry-form button {
     font-family: 'Inter';

@@ -189,8 +189,8 @@ const ItemsAndPayment = () => {
               </div>
               <div className='cart-checkout text-btn-large wht'>Checkout</div>
               <div className='cart-payment-methods'>
-                {paymentMethods.map(item => {
-                  return item
+                {paymentMethods.map((item, index) => {
+                  return <div key={index + 98714231}>{item}</div>
                 })}
               </div>
             </div>

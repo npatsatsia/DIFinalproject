@@ -24,7 +24,7 @@ const Pricerange = () => {
           </div>
         </div>
         <div className='slider-apply-btn'>
-          <button className='blu'>Apply</button>
+          <button className='text-btn-normal blu'>Apply</button>
         </div>
       </div>
     </div>

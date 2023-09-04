@@ -86,6 +86,10 @@
     font-weight: 500;
     line-height: normal;
     color: #FFF;
+    cursor: pointer;
+}
+.subscribe-button {
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {

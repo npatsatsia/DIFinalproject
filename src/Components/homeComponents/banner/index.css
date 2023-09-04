@@ -9,8 +9,6 @@
     border-radius: 5px;
 }
 
-
-
 .home-latest-trending{
     position: relative;
     background-image: url('../../../Assets/images/Banner-board-800x420\ 2.png');
@@ -20,9 +18,7 @@
     width: 57.5%;
     height: 90%;
     margin: 22px 0 10px 0;
-
 }
-
 
 .home-latest-trending .banner-info {
     position: absolute;
@@ -40,7 +36,6 @@
     font-weight: 400;
     line-height: normal;
     color: #1C1C1C;
-
 }
 
 .home-latest-trending .banner-info :nth-child(2) {
@@ -51,7 +46,6 @@
     line-height: normal;
     color: #1C1C1C;
     padding-bottom: 17px;
-
 }
 
 .home-latest-trending .banner-info button {
@@ -66,6 +60,7 @@
     border-radius: 6px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .home-latest-trending img {
@@ -175,6 +170,7 @@
     text-align: center;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .user-login-button {
@@ -192,6 +188,7 @@
     text-align: center;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .new-supplier {

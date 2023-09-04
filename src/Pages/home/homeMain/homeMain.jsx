@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import { useLocation } from 'react-router-dom'
 import './index.css'
 import Banner from '../../../Components/homeComponents/banner/banner'
 import Offers from '../../../Components/homeComponents/offers/offers'
@@ -13,17 +12,6 @@ import Subscribe from '../../../Components/homeComponents/subscribe/subscribe'
 
 const HomeMain = () => {
   const [categoriesArr, setCategoriesArr] = useState([])
-  // useEffect(() => {
-  //   setHeaderSettings({
-  //     brand: true,
-  //     burgermenu: true,
-  //     cartAndProfile: true,
-  //     back: false,
-  //     pagetitle: false,
-  //     search: true,
-  //     categories: true
-  //   })
-  // }, [])
 
   const fetchData = async () => {
     try {

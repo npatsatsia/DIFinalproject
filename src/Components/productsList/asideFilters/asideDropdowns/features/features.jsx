@@ -34,6 +34,7 @@ const Features = () => {
             <div className='filter-seeall pdtb7'>
                 <span className='text-base blu pdtb9'>See all</span>
             </div>
+            <span className='text-base red'style={{display: 'block'}}>filter has no function</span>
         </div>
     </div>
   )

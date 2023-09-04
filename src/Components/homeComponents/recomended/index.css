@@ -39,12 +39,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.recommended-items-list-container .recomended-items-ul li .recommended-single-item {
     padding-top: 9px;
 }
-
+.recommended-single-item img {
+    cursor: pointer;
+}
 .recommended-items-list-container .recomended-items-ul li .recommended-single-item .recommended-price-about {
     width: 100%;
     padding: 14px 18px 9px 16px ;
@@ -70,6 +69,7 @@
     line-height: 24px;
     letter-spacing: -0.2px;
     color: #8B96A5;
+    cursor: pointer;
 }
 
  @media (min-width: 576px){

@@ -13,7 +13,7 @@
 }
 
 .home-outdoor-header-active {
-    padding: 0 0 15px 16px;
+    padding: 15px 0 15px 16px;
     display: none;
 }
 
@@ -69,6 +69,7 @@
     border: none;
     border: 1px solid #FFF;
     background: #FFF;
+    cursor: pointer;
 }
 
 .home-outdoor-categories-container {
@@ -115,11 +116,13 @@
 
 .home-outdoor-categories-container ul li .home-single-category .home-single-category-text {
     padding-left: 16px;
+    cursor: pointer;
 }
 
 .home-outdoor-categories-container ul li .home-single-category img {
     width: 100px;
     float: right;
+    cursor: pointer;
 }
 
 .homepg-home-categories-container .sourceing-container-active {

@@ -3,7 +3,7 @@
     margin-right: auto;
     border-radius: 6px;
     border: 1px solid #DEE2E7;
-    background: #FFF;
+    background: #F7FAFC;
     padding: 20px 20px 23px;
 }
 
@@ -12,7 +12,7 @@
 
 }
 .cart-most-demand-title {
-    padding-bottom: 22px;
+    padding-bottom: 20px;
 }
 
 .cart-most-demand-ul {
@@ -35,6 +35,7 @@
 
 .cart-most-demand-ul .cart-most-demand-li .cart-md-image img {
     width: 225px;
+    cursor: pointer;
 }
 .cart-md-price {
     padding-top: 10px;
@@ -45,6 +46,10 @@
     padding-bottom: 12px;
 }
 
+.cart-md-product-name span {
+    cursor: pointer;
+}
+
 .cart-md-add-btn {
     display: flex;
     align-items: center;
@@ -53,6 +58,7 @@
     border: 1px solid #DEE2E7;
     width: 70%;
     gap: 12px;
+    cursor: pointer;
 }
 
 .cart-md-add-btn span {
@@ -115,9 +121,16 @@
  }
 
    @media (max-width: 430px){
+    .cart-most-demand-section {
+        background-color: none;
+    }
+    .cart-most-demand-title {
+        padding-left: 12px;
+    }
     .cart-most-demand-ul .cart-most-demand-li {
         width: 100%;
         border: 1px solid #DEE2E7;
+        background-color: #FFF;
         padding-bottom: 0;
         margin-bottom: 18px;
         border-radius: 6px;
@@ -131,6 +144,7 @@
     }
     .cart-most-demand-ul .cart-most-demand-li .cart-md-container {
         display: flex;
+        overflow: hidden;
     }
     .cart-md-add-btn {
         display: none;

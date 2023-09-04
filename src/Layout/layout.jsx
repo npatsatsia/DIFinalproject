@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './index.css'
 import Header from '../Components/Header/header'
 import SearchBox from '../Components/extra/mobileVersion/searchBox/searchBox'
@@ -12,21 +12,24 @@ import CategoriesSlider from '../Components/extra/mobileVersion/categoriesSlider
 
 const Layout = () => {
 const [show, setShow] = useState(false)
+const [notFound, setNotFound] = useState(false)
 
 const locate = useLocation()
 const authLocation = locate.pathname === '/auth'
 
+const navigate = useNavigate()
+
   return (
     <>
       <Sidebar setShow={setShow} show={show}/>
-      <header style={authLocation? {display: 'none'} : {display: 'block'}}>
+      <header style={authLocation || notFound? {display: 'none'} : {display: 'block'}}>
         <Header show={show} setShow={setShow}/>
         <HeaderMobile show={show} setShow={setShow} />
       </header>
       <main>
-        <Router />
+        <Router setNotFound={setNotFound}/>
       </main>
-      <footer style={authLocation?{display: 'none'} : {display: 'block'}}>
+      <footer style={authLocation || notFound?{display: 'none'} : {display: 'block'}}>
         <FooterMain/>
         <FooterOwner/>
       </footer>

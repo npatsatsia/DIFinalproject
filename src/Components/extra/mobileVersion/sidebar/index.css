@@ -29,6 +29,10 @@ display: none;
     
 }
 
+.sb-user-links span {
+    cursor: pointer;
+}
+
 .sidebar-aside .sidebar-container .sidebar-user {
     padding: 20px 0 20px 20px;
     background-color: #EFF2F4;
@@ -66,6 +70,7 @@ display: none;
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
+    cursor: pointer;
 }
 
 .sidebar-aside .sidebar-container .sidebar-single-item.with-icon :nth-child(1) {
@@ -75,6 +80,7 @@ display: none;
 
 .sidebar-aside .sidebar-container .sidebar-info .sidebar-single-item {
     padding: 16px 0 13px 53px;
+    cursor: pointer;
 }
 
 .sidebar-close {

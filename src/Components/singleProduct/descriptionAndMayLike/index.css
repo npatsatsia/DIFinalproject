@@ -112,6 +112,9 @@
     display: flex;
     gap: 11px;
 }
+.like-info, .like-img {
+    cursor: pointer;
+}
 
 @media (min-width: 576px){
     .detail-desc-like-section {

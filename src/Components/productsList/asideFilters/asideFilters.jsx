@@ -41,8 +41,8 @@ const AsideFilters = ({showfilters, setShowFilters, listView, setListview}) => {
       <aside className={`products-aside-filters ${showfilters? 'active' : ''}`}>
         <Category/>
         <Brands/>
-        <Features/>
         <Pricerange/>
+        <Features/>
         <Condition/>
         <Ratings/>
       </aside>

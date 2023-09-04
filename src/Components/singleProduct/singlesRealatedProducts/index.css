@@ -26,6 +26,7 @@
     width: 175px;
     padding-bottom: 9px;
     padding-top: 23px;
+    cursor: pointer;
 }
 
 .related-img {
@@ -34,6 +35,7 @@
     border-radius: 6px;
     width: 172px;
     height: 172px;
+    cursor: pointer;
 }
 
 .related-img div{

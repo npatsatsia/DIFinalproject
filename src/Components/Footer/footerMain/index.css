@@ -35,6 +35,10 @@
     gap: 10px;
 }
 
+.footer-social-icons svg {
+    cursor: pointer;
+}
+
 .footer-main-section .footer-main-container .footer-social .footer-social-icons .footer-icon{
     color: #BDC4CD;
     width: 32px;
@@ -70,6 +74,9 @@
     padding-top: 15px;
 }
 
+.footer-apple, .footer-android {
+    cursor: pointer;
+}
 
 @media (min-width: 576px){
     .footer-main-section {
@@ -140,5 +147,8 @@
     .footer-download .app-stores {
         display: flex;
         justify-content: space-between;
+    }
+    .footer-title {
+        cursor: pointer;
     }
  }

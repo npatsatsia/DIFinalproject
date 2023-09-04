@@ -58,9 +58,8 @@ const Ratings = () => {
               <path fillRule="evenodd" clipRule="evenodd" d="M9.3 14.4663L15.0474 18L13.5222 11.34L18.6 6.85895L11.9133 6.28105L9.3 0L6.6867 6.28105L0 6.85895L5.0778 11.34L3.5526 18L9.3 14.4663Z" fill="#FF9017"/>
             </svg>
           </label>
+          <span className='text-base red' style={{display: 'block'}}>radio buttons has no function</span>
         </div>
-        
-
       </div>
     </div>
   )

@@ -5,8 +5,9 @@ import DetailMain from '../Pages/singleProduct/detailMain'
 import Login from '../Pages/user/login/login'
 import ProductsList from '../Pages/productsList/productsList'
 import Cart from '../Pages/cart/cart'
+import NotFound from '../Components/notFound/notFound'
 
-const Router = ({headerSettings, setHeaderSettings, categoriesArr}) => {
+const Router = ({setNotFound}) => {
   return (
     <Routes>
         <Route path='/' element={<HomeMain/>}/>
@@ -14,6 +15,7 @@ const Router = ({headerSettings, setHeaderSettings, categoriesArr}) => {
         <Route path='/product/*' element={<DetailMain/>}/>
         <Route path='/auth' element={<Login/>}/>
         <Route path='/cart' element={<Cart/>} />
+        <Route path='*' element={<NotFound setNotFound={setNotFound} />} />
     </Routes>
   )
 }

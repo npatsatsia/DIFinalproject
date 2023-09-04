@@ -272,11 +272,12 @@
 }
 
 .detail-supplier-container .detail-heart-item {
-    padding-top: 25px;
+    margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .wh24 {
@@ -361,6 +362,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .wh60br5 img {

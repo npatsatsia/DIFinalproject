@@ -37,6 +37,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 11px;
+    cursor: pointer;
 }
 
 .homepg-regions-section .homepg-regions-container .regions-list-container .regions-list-ul li .signle-region .regions-info {
@@ -71,6 +72,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 22px;
+    cursor: pointer;
 }
 
  @media (min-width: 576px){

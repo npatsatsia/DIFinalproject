@@ -11,7 +11,7 @@ const Router = ({setNotFound}) => {
   return (
     <Routes>
         <Route path='/' element={<HomeMain/>}/>
-        <Route path='/products' element={<ProductsList/>}/>
+        <Route path='/products/*' element={<ProductsList/>}/>
         <Route path='/product/*' element={<DetailMain/>}/>
         <Route path='/auth' element={<Login/>}/>
         <Route path='/cart' element={<Cart/>} />

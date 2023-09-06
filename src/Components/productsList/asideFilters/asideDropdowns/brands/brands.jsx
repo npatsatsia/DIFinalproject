@@ -1,7 +1,22 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const Brands = () => {
+
+const Brands = ({setFilterStr, filterStr}) => {
     const [show, setShow] = useState(false)
+
+    const navigate = useNavigate();
+
+    const handleCheckboxChange = (brand, event) => {
+        if (event.target.checked) {
+          setFilterStr([...filterStr, brand]);
+        } else {
+          setFilterStr(filterStr.filter(item => item !== brand));
+        }
+
+      };
+      
+
   return (
     <div className='list-brands-container'>
         <div className='products-filters-title' onClick={() => (setShow(prev => !prev))}>
@@ -12,23 +27,38 @@ const Brands = () => {
         </div>
         <div className={`products-brands-filter ${show? 'show-filters' : ''}`}>
             <div className='single-check-container pdtb7'>
-                <input type="checkbox" id='samsung' className='checkbox'/>
-                <label htmlFor="samsung" className='text-base drk pl10'>Samsung</label>
+                <input type="checkbox" id='Samsung' className='checkbox'
+                onChange={(e) => (handleCheckboxChange(e.target.id, e))}
+                checked={filterStr.includes('Samsung')}
+                />
+                <label htmlFor="Samsung" className='text-base drk pl10'>Samsung</label>
             </div>
             <div className='single-check-container pdtb7'>
-                <input type="checkbox" id='apple' className='checkbox'/>
-                <label htmlFor="apple" className='text-base drk pl10'>Apple</label>
+                <input type="checkbox" id='Apple' className='checkbox'
+                onChange={(e) => (handleCheckboxChange(e.target.id, e))}
+                checked={filterStr.includes('Apple')}
+                />
+                <label htmlFor="Apple" className='text-base drk pl10'>Apple</label>
             </div>
             <div className='single-check-container pdtb7'>
-                <input type="checkbox" id='huawei' className='checkbox'/>
-                <label htmlFor="huawei" className='text-base drk pl10'>Huawei</label>
+                <input type="checkbox" id='Huawei' className='checkbox'
+                onChange={(e) => (handleCheckboxChange(e.target.id, e))}
+                checked={filterStr.includes('Huawei')}
+                />
+                <label htmlFor="Huawei" className='text-base drk pl10'>Huawei</label>
             </div>
             <div className='single-check-container pdtb7'>
-                <input type="checkbox" id='pocco' className='checkbox'/>
+                <input type="checkbox" id='pocco' className='checkbox'
+                onChange={(e) => (handleCheckboxChange(e.target.id, e))}
+                checked={filterStr.includes('pocco')}
+                />
                 <label htmlFor="pocco" className='text-base drk pl10'>Pocco</label>
             </div>
             <div className='single-check-container pdtb7'>
-                <input type="checkbox" id='lenovo' className='checkbox'/>
+                <input type="checkbox" id='lenovo' className='checkbox'
+                onChange={(e) => (handleCheckboxChange(e.target.id, e))}
+                checked={filterStr.includes('lenovo')}
+                />
                 <label htmlFor="lenovo" className='text-base drk pl10'>Lenovo</label>
             </div>
             <div className='filter-seeall pdtb7'>

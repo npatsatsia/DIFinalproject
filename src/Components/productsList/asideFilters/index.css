@@ -93,6 +93,12 @@
     border: 1px solid #DEE2E7;
     border-radius: 5px;
     outline: none;
+
+}
+
+.slider-inputs-container input::-webkit-outer-spin-button, .slider-inputs-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .input-min, .input-max {

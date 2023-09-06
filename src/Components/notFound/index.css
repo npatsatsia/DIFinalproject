@@ -18,16 +18,16 @@ height: 100vh;
 .not-found-bkg h1 {
     font-family: 'Tektur', cursive;
     font-weight: 800;
-    font-size: 165px;
+    font-size: 157px;
     padding-left: 50px;
-    color: #FBC629;
+    color: #1E2328;
 }
 .not-found-bkg h3 {
     font-family: 'Tektur', cursive;
     font-weight: 500;
     font-size: 45px;
     padding-left: 50px;
-    color: #FBC629;
+    color: #1E2328;
 }
 
 .error-back-home {
@@ -42,7 +42,7 @@ height: 100vh;
     cursor: pointer;
 }
 .error-buttons {
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 @media (max-width: 885px) {

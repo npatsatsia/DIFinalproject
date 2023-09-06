@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Slider } from 'antd';
 
-const Pricerange = () => {
+const Pricerange = (priceRange, setPriceRange) => {
   const [show, setShow] = useState(false)
+  const [minValue, setMinValue] = useState(0)
+  const [maxValue, setMaxValue] = useState(4999)
+
+  const handlePriceRange = () => {
+    if(minValue !== '' && +minValue >= 0 && maxValue !== '' && +maxValue > 0 && +minValue < +maxValue){
+      priceRange.setPriceRange([parseInt(minValue), parseInt(maxValue)]);
+      console.log(typeof(priceRange.priceRange[1]))
+    }
+  }
+
+  const handleSliderRange = (value) => {
+    setMinValue(+value[0])
+    setMaxValue(+value[1])
+  }
+  
   return (
     <div className='list-range-container'>
       <div className='products-filters-title' onClick={() => (setShow(prev => !prev))}>
@@ -11,22 +26,28 @@ const Pricerange = () => {
             <path d="M12 8.29504L6 14.295L7.41 15.705L12 11.125L16.59 15.705L18 14.295L12 8.29504Z" fill="#8B96A5"/>
         </svg>
       </div>
-      <div className={`slider-filter ${show? 'show-filters' : ''}`}>
-        <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} min={30} max={420} className='filters-ant-slider'/>
+      <form onSubmit={(e) => (e.preventDefault())} className={`slider-filter ${show? 'show-filters' : ''}`}>
+        <Slider range={{ draggableTrack: true }}
+          defaultValue={[parseInt(minValue), parseInt(maxValue)]}
+          value={[parseInt(minValue), parseInt(maxValue)]}
+          min={0} max={5000}
+          className='filters-ant-slider'
+          onChange={(value) => (handleSliderRange(value))}
+          />
         <div className='slider-inputs-container'>
           <div className='input-min'>
             <label htmlFor="input-min" className='font-family-inter'>Min</label>
-            <input type="text" placeholder='0' id='input-min'/>
+            <input type="number" placeholder={`0`} value={minValue} id='input-min' onChange={(e) => (setMinValue(e.target.value))}/>
           </div>
           <div className='input-max'>
             <label htmlFor="input-max" className='font-family-inter'>Max</label>
-            <input type="text" placeholder='99999' id='input-max'/>
+            <input type="number" placeholder={`4999`} value={maxValue} id='input-max' onChange={(e) => (setMaxValue(e.target.value))}/>
           </div>
         </div>
         <div className='slider-apply-btn'>
-          <button className='text-btn-normal blu'>Apply</button>
+          <button className='text-btn-normal blu' type='submit' onClick={handlePriceRange}>Apply</button>
         </div>
-      </div>
+      </form>
     </div>
   )
 }

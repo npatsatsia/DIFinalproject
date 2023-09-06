@@ -10,8 +10,14 @@
     width: 100%;
     background: #fff;
     display: flex;
+    justify-content: space-between;
     border: 1px solid #DEE2E7;
     border-radius: 9px;
+}
+
+.list-single-item-container .for-right-setup {
+    display: flex;
+
 }
 
 .products-list-section .products-list-info-container .products-view{
@@ -89,6 +95,42 @@
 
 .list-view-icon {
     transform: rotate(90deg);
+}
+
+.products-filter-history-container {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content:  space-between;
+    align-items: center;
+}
+
+.products-filter-history-container .filters-history-ul {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory; 
+}
+
+.products-filter-history-container .filters-history-ul .single-filter-li{
+    border-radius: 5px;
+    border: 1px solid #0D6EFD;
+    background: #FFF;
+}
+.products-single-filter {
+    padding: 6px 6px 6px 10px;
+    display: flex;
+    gap: 9px;
+}
+.products-clear-filters {
+    margin-left: 20px;
+    width: 130px;
+}
+.products-clear-filters span {
+    white-space: nowrap;
 }
 
 .products-list-container .products-list-ul{
@@ -207,6 +249,7 @@
 .grid-info-heart-container {
     padding: 17px 20px 18px 20px;
     display: flex;
+    justify-content: space-between;
 }
 .favorite-icon-container.forgrid {
     padding: 0;
@@ -216,6 +259,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.grid-products-name span {
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
 }
 
 /* responsive ---------------------------------------------------------- */
@@ -262,6 +313,13 @@
     .products-list-ul.grid {
         grid-column-gap: 15px;
         grid-template-columns: repeat(2, 48.6%);
+    }
+    .products-clear-filters {
+        display: none;
+    }
+    .products-filter-history-container {
+        margin-top: 20px;
+        margin-left: -9px;
     }
 }
 
@@ -359,6 +417,7 @@
     }
     .list-single-item-info {
         padding: 0;
+        justify-content: center;
     }
     .list-product-about span{
         font-size: 13px;

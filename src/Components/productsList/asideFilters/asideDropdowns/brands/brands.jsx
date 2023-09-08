@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-const Brands = ({setFilterStr, filterStr}) => {
+const Brands = ({setFilterStr, filterStr, setCurrentPageNumber}) => {
     const [show, setShow] = useState(false)
 
     const navigate = useNavigate();
@@ -10,6 +10,7 @@ const Brands = ({setFilterStr, filterStr}) => {
     const handleCheckboxChange = (brand, event) => {
         if (event.target.checked) {
           setFilterStr([...filterStr, brand]);
+          setCurrentPageNumber([1])
         } else {
           setFilterStr(filterStr.filter(item => item !== brand));
         }

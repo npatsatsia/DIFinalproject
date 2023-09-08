@@ -9,35 +9,7 @@ import Pricerange from './asideDropdowns/pricerange/pricerange'
 import Features from './asideDropdowns/features/features'
 import Condition from './asideDropdowns/condition/condition'
 
-const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFilterStr, filterStr, priceRange, setPriceRange}) => {
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    searchParams.set('priceRange', priceRange.join('-'));
-    searchParams.set('brands', filterStr.join(','));
-    const newURL = `${window.location.pathname}?${searchParams.toString()}`;
-    window.history.pushState({ path: newURL }, '', newURL);
-  }, [filterStr, priceRange]);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const brandsParam = searchParams.get('brands');
-    
-    if (brandsParam) {
-      const selectedBrands = brandsParam.split(',');
-      setFilterStr(selectedBrands);
-    }
-
-    const priceRangeParam = searchParams.get('priceRange');
-    
-    if (priceRangeParam) {
-      const parsedPriceRange = priceRangeParam.split('-');
-      setPriceRange(parsedPriceRange);
-    }
-  }, [location.search, setFilterStr]);
-
+const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFilterStr, filterStr, priceRange, setPriceRange, setCurrentPageNumber, minValue, maxValue, setMinValue, setMaxValue}) => {
 
   return (
     <>
@@ -71,8 +43,18 @@ const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFi
       </div>
       <aside className={`products-aside-filters ${showfilters? 'active' : ''}`}>
         <Category/>
-        <Brands setFilterStr={setFilterStr} filterStr={filterStr}/>
-        <Pricerange priceRange={priceRange} setPriceRange={setPriceRange}/>
+        <Brands 
+          setFilterStr={setFilterStr} 
+          filterStr={filterStr} 
+          setCurrentPageNumber={setCurrentPageNumber}/>
+        <Pricerange 
+          setCurrentPageNumber={setCurrentPageNumber} 
+          priceRange={priceRange} 
+          setPriceRange={setPriceRange}
+          minValue={minValue}
+          setMinValue={setMinValue}
+          maxValue={maxValue}
+          setMaxValue={setMaxValue}/>
         <Features/>
         <Condition/>
         <Ratings/>

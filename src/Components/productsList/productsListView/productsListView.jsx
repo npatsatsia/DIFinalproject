@@ -1,24 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 import './index.css'
+import { Pagination } from 'antd';
 
 
-const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setPriceRange, setFilterStr, priceRange}) => {
-  
-  let data = products
-  
-  if(priceRange !== []) {
-    data = data.filter((item) => (+item.price > +priceRange[0] && +item.price < +priceRange[1]))
-  }
-  if(filterStr.length > 0) {
-    data = data.filter((item) => (filterStr.includes(item.brand)))
-  }
-  
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setProducts, setFilterStr, priceRange, currentPageNumber, setCurrentPageNumber}) => {
 
-  if (error) {
-    return <div>Error: {error}</div>;
+    let qty = (listView? 10 : 9) * currentPageNumber
+    let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
+
+    let data = products.slice(nextQty, qty)
+    console.log(data)
+
+
+  const handlePageChange = (pageNum, pageSize) => {
+    setCurrentPageNumber([pageNum])
   }
 
   const handleClearFilters = () => {
@@ -28,6 +24,16 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
   const handleDeletefilter = (filterName) => {
     let newFilters = filterStr.filter((item) => (item !== filterName))
     setFilterStr([...newFilters])
+    setCurrentPageNumber([1])
+  }
+
+    
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -35,7 +41,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
       <div className='products-list-info-container'>
         <div className='products-view'>
           <div className='quantity-found-products'>
-            <span className='text-base drk'>{`${data.length} items in`}</span>
+            <span className='text-base drk'>{`${products.length} items in`}</span>
             <span className='title-h6 drk'>{` Mobile Accessory`}</span>
           </div>
           <div className='list-info-right'>
@@ -94,7 +100,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                       <div className='list-single-item-container'>
                         <div className='for-right-setup'>
                           <div className='list-single-image-container'>
-                            <img src={item.images[3]} alt="item-image" />
+                            <img src={item.images[0]} alt="item" />
                           </div>
                           <div className='list-single-item-info'>
                             <div className='list-product-title'>
@@ -144,7 +150,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                 return <li key={item.id}>
                                       <div className='grid-single-item-container'>
                     <div className='grid-product-image-container'>
-                      <img src={item.images[3]} alt="product-image" />
+                      <img src={item.images[0]} alt="product" />
                     </div>
                     <div className='grid-info-heart-container'>
                       <div className='grid-products-info'>
@@ -178,6 +184,16 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
               })
             }
           </ul>
+        </div>
+        <div className='products-pagination-container'>
+        <Pagination
+          defaultCurrent={currentPageNumber}
+          // current={currentPageNumber}
+          total={products.length}
+          defaultPageSize={!listView? 9 : 10}
+          onChange={(defaultCurrent, defaultPageSize, total) => (handlePageChange(defaultCurrent, defaultPageSize))}
+          // showSizeChanger
+          />
         </div>
       </div>
     </section>

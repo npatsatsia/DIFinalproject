@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, {useState} from 'react'
 
 
 const Brands = ({setFilterStr, filterStr, setCurrentPageNumber}) => {
     const [show, setShow] = useState(false)
-
-    const navigate = useNavigate();
 
     const handleCheckboxChange = (brand, event) => {
         if (event.target.checked) {

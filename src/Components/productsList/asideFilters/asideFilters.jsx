@@ -1,6 +1,4 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import './index.css'
 import Category from './asideDropdowns/category/category'
 import Ratings from './asideDropdowns/ratings/ratings'

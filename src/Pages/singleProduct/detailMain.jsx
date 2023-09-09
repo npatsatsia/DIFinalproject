@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './index.css'
 import SingleProductInfo from '../../Components/singleProduct/singleProductInfo/singleProductInfo';
 import DescriptionAndMayLike from '../../Components/singleProduct/descriptionAndMayLike/descriptionAndMayLike';
@@ -6,7 +6,7 @@ import SinglesRelatedProducts from '../../Components/singleProduct/singlesRealat
 // import SinglesDiscount from '../../Components/singleProduct/singlesDiscount/singlesDiscount';
 import Subscribe from '../../Components/homeComponents/subscribe/subscribe';
 
-const DetailMain = ({setHeaderSettings}) => {
+const DetailMain = () => {
 
   return (
     <>

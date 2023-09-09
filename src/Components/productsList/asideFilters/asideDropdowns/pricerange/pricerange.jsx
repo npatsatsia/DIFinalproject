@@ -4,15 +4,11 @@ import { Slider } from 'antd';
 const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, maxValue, setMinValue, setMaxValue}) => {
   const [show, setShow] = useState(false)
 
-  // useEffect(() => {
-  //   // Store the current minValue and maxValue in localStorage
-  //   JSON.parse.localStorage.getItem('minValue', minValue);
-  //   JSON.parse.localStorage.getItem('maxValue', maxValue);
-  //   console.log(localStorage.getItem('minValue', minValue))
-  // }, []);
-  console.log(typeof(+minValue), typeof(+maxValue))
+  useEffect(() => {
+    setMinValue(+priceRange[0])
+    setMaxValue(+priceRange[1])
+  }, [priceRange, setMinValue, setMaxValue])
 
-  
   const handlePriceRange = () => {
     if(
       minValue !== '' &&
@@ -21,19 +17,15 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
       +maxValue > 0 &&
       +minValue < +maxValue
       ){
-        // setMinValue()
-      // setPriceRange([parseInt(minValue), parseInt(maxValue)]);
-      // localStorage.setItem('minValue', minValue);
-      // localStorage.setItem('maxValue', maxValue);
+      setPriceRange([+minValue, +maxValue]);
+
       setCurrentPageNumber([1])
     }
   }
 
-  
   const handleSliderRange = (value) => {
     setMinValue(value[0])
     setMaxValue(value[1])
-    console.log(typeof(value[0]), typeof(value[1]), value)
   }
   
   return (
@@ -56,11 +48,11 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
         <div className='slider-inputs-container'>
           <div className='input-min'>
             <label htmlFor="input-min" className='font-family-inter'>Min</label>
-            <input type="number" placeholder={`0`} value={+minValue} id='input-min' onChange={(e) => (setMinValue([+e.target.value]))}/>
+            <input type="number" placeholder={`0`} value={minValue} id='input-min' onChange={(e) => (setMinValue([e.target.value]))}/>
           </div>
           <div className='input-max'>
             <label htmlFor="input-max" className='font-family-inter'>Max</label>
-            <input type="number" placeholder={`4999`} value={+maxValue} id='input-max' onChange={(e) => (setMaxValue([+e.target.value]))}/>
+            <input type="number" placeholder={`4999`} value={maxValue} id='input-max' onChange={(e) => (setMaxValue([e.target.value]))}/>
           </div>
         </div>
         <div className='slider-apply-btn'>

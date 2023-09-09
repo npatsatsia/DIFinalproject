@@ -5,7 +5,7 @@ import './index.css'
 const NotFound = ({setNotFound}) => {
   useEffect(() => {
     setNotFound(true)
-  }, [])
+  }, [setNotFound])
   
   return (
     <div className='not-found-main'>

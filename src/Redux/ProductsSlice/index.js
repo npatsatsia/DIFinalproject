@@ -4,7 +4,7 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     data: [],
-    filters: [],
+    brands: [],
     loading: false,
     error: null
   },
@@ -15,6 +15,7 @@ const productsSlice = createSlice({
     },
     fetchDataSuccess: (state, action) => {
       state.data = action.payload
+      state.brands = action.payload.map((item) => (item.brand))
       state.loading = false;
       state.error = null;
     },
@@ -25,6 +26,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { fetchDataStart, fetchDataSuccess, fetchDataFailure, setFilters, clearFilters } = productsSlice.actions;
+export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } = productsSlice.actions;
 
 export default productsSlice.reducer;

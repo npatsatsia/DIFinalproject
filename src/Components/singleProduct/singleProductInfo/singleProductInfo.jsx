@@ -1,17 +1,29 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSingleProduct } from '../../../API/productsAPI';
 import './index.css'
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
-import tshirt1 from '../../../Assets/images/tshirtone.png'
-import tshirt3 from '../../../Assets/images/tshirtthree.png'
 import italy from '../../../Assets/images/italy.png'
 
 
 const SingleProductInfo = () => {
     const [more, setMore] = useState(false)
 
+    const {productId} = useParams()
+    const navigate = useNavigate()
+
     const containerRef = useRef(null)
     const slideRef = useRef()
     const imageRef = useRef()
+
+    const dispatch = useDispatch()
+
+    const {singleProduct, images, loading, error} = useSelector((state) => state.singleProduct)
+
+    useEffect(() => {
+        dispatch(fetchSingleProduct(productId));
+      }, [dispatch, productId]);
 
     const handleShowMore = () => {
         setMore((prev) => (!prev))
@@ -21,7 +33,14 @@ const SingleProductInfo = () => {
         imageRef.current.setAttribute('src', image)
     }
 
+    if(loading) {
+        return <div>loading...</div>
+    }
 
+    if(error) {
+        navigate('*')
+    }
+    
 
   const scrollPhoto = (direction) => {
     if (containerRef.current) {
@@ -39,23 +58,24 @@ const SingleProductInfo = () => {
     }
   };
 
+  
+
+
   return (
     <section className='detail-info-section'>
             <div className='detail-container'>
                 <div className='detail-images-container'>
                     <div className='detail-main-image'>
-                        <img src={tshirt1} alt="product" ref={imageRef} />
+                        <img src={singleProduct.thumbnail} alt="product" ref={imageRef} />
                     </div>
                     <div className='detail-additional-images' ref={containerRef}>
-                        <div className='wh60br5'>
-                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
-                        </div>
-                        <div className='wh60br5'>
-                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
-                        </div>
-                        <div className='wh60br5'>
-                            <img src={tshirt3} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
-                        </div>
+                        {images.map((item) => {
+                            return (
+                                    <div className='wh60br5' key={singleProduct.id + 99284662891234}>
+                                        <img src={item} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
+                                    </div>
+                            )
+                        })}
                         <div className='responsive-photo-slider'>
                             <div className='lrslider'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('backward'))} >
@@ -74,10 +94,10 @@ const SingleProductInfo = () => {
                         <span className='text-normal grn'>In stock</span>
                     </div>
                     <div className='detail-title'>
-                        <h4>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h4>
+                        <h4>{singleProduct.title}</h4>
                     </div>
                     <div className='detail-mobile-price amp'>
-                        <span className='title-h6 red'>$129.95</span>
+                        <span className='title-h6 red'>${singleProduct.price}</span>
                     </div>
                     <div className='detail-mobile-inquiry amb'>
                         <div className='supplier-btn btn-blue'>Send inquiry</div>
@@ -107,15 +127,15 @@ const SingleProductInfo = () => {
                     </div>
                     <div className='detail-price-box'>
                         <div className='small-q'>
-                            <h5 className='h5-title'>$98.00</h5>
+                            <h5 className='h5-title'>${singleProduct.price}</h5>
                             <span className='text-small gr8'>50-100 pcs</span>
                         </div>
                         <div className='medium-q'>
-                            <h5 className='h5-title'>$90.00</h5>
+                            <h5 className='h5-title'>${singleProduct.price - singleProduct.price / 100 * 10}</h5>
                             <span className='text-small gr8'>100-700 pcs</span>
                         </div>
                         <div className='big-q'>
-                            <h5 className='h5-title'>$78.00</h5>
+                            <h5 className='h5-title'>${singleProduct.price - singleProduct.price / 100 * 15}</h5>
                             <span className='text-small gr8'>700+ pcs</span>
                         </div>
                     </div>
@@ -152,8 +172,8 @@ const SingleProductInfo = () => {
                         </div>
                     </div>
                     <div className='detail-mobile-description'>
-                        <span className={`gr6 m-readmore ${more? 'more' : ''}`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        <span className={`gr6 m-readmore ${more? 'more' : ''}`}>
+                            {singleProduct.description}
                         </span>
                         <div onClick={() => (handleShowMore())}>{more? 'Read less' : 'Read more'}</div>
                     </div>

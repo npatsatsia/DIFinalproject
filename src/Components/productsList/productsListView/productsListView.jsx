@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom';
 import './index.css'
 import { Pagination } from 'antd';
 
 
-const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setProducts, setFilterStr, priceRange, currentPageNumber, setCurrentPageNumber}) => {
+const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, brands}) => {
 
     let qty = (listView? 10 : 9) * currentPageNumber
     let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
-
     let data = products.slice(nextQty, qty)
-    console.log(data)
-
+    
 
   const handlePageChange = (pageNum, pageSize) => {
     setCurrentPageNumber([pageNum])
@@ -61,7 +59,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                   <path d="M11 3H3V11H11V3Z" fill="#1C1C1C"/>
                   <path d="M11 13H3V21H11V13Z" fill="#1C1C1C"/>
                   <path d="M21 3H13V11H21V3Z" fill="#1C1C1C"/>
-                  <pat h d="M21 13H13V21H21V13Z" fill="#1C1C1C"/>
+                  <path d="M21 13H13V21H21V13Z" fill="#1C1C1C"/>
                 </svg>
               </div>
               <div className={`list-view ${listView? 'active' : ''}`} onClick={() => {setListview(true)}}>
@@ -100,7 +98,9 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                       <div className='list-single-item-container'>
                         <div className='for-right-setup'>
                           <div className='list-single-image-container'>
-                            <img src={item.images[0]} alt="item" />
+                            <Link to={`/product/${item.id}`}>
+                              <img src={item.images[0]} alt="item" />
+                            </Link>
                           </div>
                           <div className='list-single-item-info'>
                             <div className='list-product-title'>
@@ -150,7 +150,9 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                 return <li key={item.id}>
                                       <div className='grid-single-item-container'>
                     <div className='grid-product-image-container'>
-                      <img src={item.images[0]} alt="product" />
+                      <Link to={`/product/${item.id}`}>
+                        <img src={item.images[0]} alt="item" />
+                      </Link>
                     </div>
                     <div className='grid-info-heart-container'>
                       <div className='grid-products-info'>

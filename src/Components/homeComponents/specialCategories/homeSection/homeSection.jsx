@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import { Link } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa6'
 import { specialCategoriesArray } from '../../../../Static/homeStartingArrays'
 
@@ -13,7 +14,9 @@ const HomeSection = () => {
         <div className='home-outdoor-img-container'>
             <div>
                 <span>Home and outdoor</span>
-                <button>Source now</button>
+                <Link to={'/products'} >
+                  <button>Source now</button>
+                </Link>
             </div>
         </div>
         <div className='home-outdoor-categories-container'>

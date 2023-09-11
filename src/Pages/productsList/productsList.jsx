@@ -15,6 +15,7 @@ const [currentPageNumber, setCurrentPageNumber] = useState([1])
 const [minValue, setMinValue] = useState(0)
 const [maxValue, setMaxValue] = useState(4999)
 const [priceRange, setPriceRange] = useState([minValue, maxValue])
+const [currentCategory, setCurrentCategory] = useState()
 
 const dispatch = useDispatch()
 
@@ -24,62 +25,73 @@ const {data, loading, error, brands} = useSelector((state) => state.products);
 
 let products = data
 
+let trueFilters = filterStr.filter((item) => (brands.includes(item)))
+
 useEffect(() => {
   dispatch(fetchProducts());
 }, [dispatch]);
 
 useEffect(() => {
-
-}, [minValue, maxValue])
-
-
-useEffect(() => {
   const searchParams = new URLSearchParams(location.search);
   searchParams.set('priceRange', priceRange.join('-'));
-  searchParams.set('brands', filterStr.join(','));
+  searchParams.set('brands', trueFilters.join('&'));
   searchParams.set('pageNumber', currentPageNumber.join('='));
+  searchParams.set('currentCategory', currentCategory);
   const newURL = `${window.location.pathname}?${searchParams.toString()}`;
   window.history.pushState({ path: newURL }, '', newURL);
-}, [filterStr, priceRange, currentPageNumber, location.search]);
+}, [trueFilters, priceRange, currentPageNumber, currentCategory, location.search]);
 
 useEffect(() => {
   const searchParams = new URLSearchParams(location.search);
 
-  const brandsParam = searchParams.get('brands');
-  
-  if (brandsParam) {
-    const selectedBrands = brandsParam.split(',');
-    setFilterStr(selectedBrands);
+  const categoryParam = searchParams.get('currentCategory');
+
+  if (categoryParam) {
+    const selectedCategory = categoryParam;
+    setCurrentCategory(selectedCategory)
   }
 
+  const brandsParam = searchParams.get('brands');
+
+  if (brandsParam) {
+    const selectedBrands = brandsParam.split(',');
+    setFilterStr(selectedBrands)    
+  }
+  
   const priceRangeParam = searchParams.get('priceRange');
   
   if (priceRangeParam) {
     const parsedPriceRange = priceRangeParam.split('-');
     setPriceRange(parsedPriceRange);
   }
-
+  
   const pageParams = searchParams.get('pageNumber');
 
   if (pageParams) {
     const selectedPage = pageParams.split('=');
     setCurrentPageNumber(selectedPage);
   }
+
 }, [location.search, setFilterStr]);
 
-if(filterStr.length > 0) {
-  products = products.filter((item) => (filterStr.includes(item.brand)))
-
+if(trueFilters.length > 0) {
+  products = products.filter((item) => (trueFilters.includes(item.brand)))
+  }else {
+   products = data
   }
 
   let filteredByPrice = products.filter((item) => (+item.price > +priceRange[0] && +item.price < +priceRange[1]))
   products = filteredByPrice
 
-
+  if(currentCategory) {
+    products = products.filter((item) => (item.categoryId === currentCategory))
+  }
 
   return (
     <section className='products-section'>
       <AsideFilters
+        setCurrentCategory={setCurrentCategory}
+        brands={brands}
         minValue={minValue}
         setMinValue={setMinValue}
         maxValue={maxValue}
@@ -95,7 +107,7 @@ if(filterStr.length > 0) {
         listView={listView} 
         setListview={setListview}/>
       <ProductsListView
-        brands={brands}
+        trueFilters={trueFilters}
         data={data}
         currentPageNumber = {currentPageNumber}
         setCurrentPageNumber = {setCurrentPageNumber}

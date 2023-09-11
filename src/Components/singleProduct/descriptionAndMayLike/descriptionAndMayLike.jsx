@@ -5,7 +5,7 @@ import SingleProductNav from '../../extra/singlePDescriptionNav/singlePDescNav';
 import { navLinks } from '../../../Static/singleProductNav'
 import { weMayLikeArr } from '../../../Static/singleProductMayLike';
 
-const DescriptionAndMayLike = () => {
+const DescriptionAndMayLike = ({singleProduct}) => {
     const [navact, setNavact] = useState('poiuy')
   return (
     <section className='detail-desc-like-section'>
@@ -19,7 +19,7 @@ const DescriptionAndMayLike = () => {
                     </ul>
                 </nav>
                 <div className='detail-desc-container'>
-                    <span className='text-normal gr6'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </span>
+                    <span className='text-normal gr6'>{singleProduct.description}</span>
                 </div>
                 <table className='detail-desc-table'>
                     <tbody>

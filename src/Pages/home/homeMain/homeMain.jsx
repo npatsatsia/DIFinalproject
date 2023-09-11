@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './index.css'
 import Banner from '../../../Components/homeComponents/banner/banner'
 import Offers from '../../../Components/homeComponents/offers/offers'
@@ -11,27 +11,10 @@ import Regions from '../../../Components/homeComponents/regions/regions'
 import Subscribe from '../../../Components/homeComponents/subscribe/subscribe'
 
 const HomeMain = () => {
-  const [categoriesArr, setCategoriesArr] = useState([])
-
-  const fetchData = async () => {
-    try {
-      const result = await fetch('https://digital-react-project.azurewebsites.net/api/product/categories');
-      const data = await result.json();
-      setCategoriesArr([...data])
-      return data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
-    }
-  };
-
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   return (
     <>
-        <Banner categoriesArr={categoriesArr}/>
+        <Banner/>
         <Offers/>
         <HomeSection/>
         <GadgetsSection/>

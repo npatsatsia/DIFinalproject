@@ -1,7 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Loader from '../../../../extra/loader/loader'
+import { fetchCategories } from '../../../../../API/productsAPI'
 
-const Category = () => {
+const Category = ({setCurrentCategory}) => {
   const [show, setShow] = useState(false)
+  const [seeAll, setSeeAll] = useState(false)
+
+  const {categories, loading, error} = useSelector((state) => state.categories)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+  if(loading) {
+    return <Loader/>
+  }
+  if (error) {
+      return <div>{error.message}</div>
+  } 
+
   return (
     <div className='list-category-container'>
         <div className='products-filters-title' onClick={() => (setShow(prev => !prev))}>
@@ -11,14 +31,14 @@ const Category = () => {
           </svg>
         </div>
         <div className={`products-category-filter ${show? 'show-filters' : ''}`}>
-          <ul className='products-filter-ul'>
-              <li className='single-filter-li text-base gr6 pdtb7'>Mobile accessory</li>
-              <li className='single-filter-li text-base gr6 pdtb7'>Electronics</li>
-              <li className='single-filter-li text-base gr6 pdtb7'>Smartphones</li>
-              <li className='single-filter-li text-base gr6 pdtb7'>Modern tech</li>
+          <ul className={`products-filter-ul ${seeAll? 'seeall' : ''}`}>
+            {
+              categories.map((item) => (
+                <li key={item.id + 99982664325} className='single-filter-li text-base gr6 pdtb7' onClick={() => setCurrentCategory(item.id)}>{item.name}</li>
+            ))}
           </ul>
           <div className='filter-seeall pdtb7'>
-              <span className='text-base blu'>See all</span>
+              <span className='text-base blu' onClick={() => (setSeeAll(prev => !prev))}>{seeAll? 'Less' : 'See all'}</span>
           </div>
         </div>
     </div>

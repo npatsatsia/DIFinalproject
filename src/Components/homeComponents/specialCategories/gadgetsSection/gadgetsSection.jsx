@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import { Link } from 'react-router-dom'
 import {FaArrowRight} from "react-icons/fa6"
 import { specialCategoriesArr } from '../../../../Static/homeStartingArrays'
 
@@ -13,7 +14,9 @@ const GadgetsSection = () => {
         <div className='homepg-gadgets-img-container'>
             <div>
                 <span>Consumer electronics and gadgets</span>
-                <button>Source now</button>
+                <Link to={'/products'} >
+                  <button>Source now</button>
+                </Link>
             </div>
         </div>
         <div className='home-gadgets-categories-container'>

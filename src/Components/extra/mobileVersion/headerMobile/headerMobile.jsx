@@ -11,7 +11,6 @@ const HeaderMobile = ({show, setShow}) => {
 
   const navigate = useNavigate()
 
-  const [categoriesArr, setCategoriesArr] = useState([])
   const [headerSettings, setHeaderSettings] = useState({
     brand: false,
     burgermenu: false,
@@ -21,18 +20,6 @@ const HeaderMobile = ({show, setShow}) => {
     search: false,
     categories: false
   })
-
-  const fetchData = async () => {
-    try {
-      const result = await fetch('https://digital-react-project.azurewebsites.net/api/product/categories');
-      const data = await result.json();
-      setCategoriesArr([...data])
-      return data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
-    }
-  };
 
   const handleMobileHeader = () => {
     switch (locate.pathname) {
@@ -83,9 +70,6 @@ const HeaderMobile = ({show, setShow}) => {
     }
   }
 
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   useEffect(() => {
     handleMobileHeader()
@@ -124,7 +108,7 @@ const HeaderMobile = ({show, setShow}) => {
         </div>
       </div>
       <SearchBox headerSettings={headerSettings}/>
-      <CategoriesSlider categoriesArr={categoriesArr} headerSettings={headerSettings} />
+      <CategoriesSlider headerSettings={headerSettings} />
     </>
   )
 }

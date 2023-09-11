@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './index.css'
+import { useSelector, useDispatch } from 'react-redux';
 import avatar from '../../../Assets/images/Avatar.png'
+import Categories from './categories/categories';
+import { fetchCategories } from '../../../API/productsAPI';
 
-const Banner = ({categoriesArr}) => {
+const Banner = () => {
+const {categories, loading, error} = useSelector((state) => state.categories)
+
+const dispatch = useDispatch()
+
+useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   return (
     <section className='home-banner-section'>
         <div className='home-main-container'>
-            <div className='home-category-container'>
-                <ul>
-                    {categoriesArr.map((item) => {
-                        return <li key={item.id}>{item.name}</li>
-                    })}
-                </ul>
-            </div>
+            <Categories 
+            categories={categories}
+            loading={loading}
+            error={error}
+            />
             <div className='home-latest-trending'>
                 <div className='banner-info'>
                     <span>Latest trending</span>

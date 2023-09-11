@@ -2,14 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './index.css'
 import { Pagination } from 'antd';
+import Loader from '../../extra/loader/loader';
 
 
-const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, brands}) => {
+const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters}) => {
 
-    let qty = (listView? 10 : 9) * currentPageNumber
-    let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
-    let data = products.slice(nextQty, qty)
-    
+  let qty = (listView? 10 : 9) * currentPageNumber
+  let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
+  let data = products.slice(nextQty, qty)
+
 
   const handlePageChange = (pageNum, pageSize) => {
     setCurrentPageNumber([pageNum])
@@ -24,10 +25,9 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
     setFilterStr([...newFilters])
     setCurrentPageNumber([1])
   }
-
     
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
   
   if (error) {
@@ -70,10 +70,10 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
             </div>
           </div>
         </div>
-        { filterStr.length > 0?
+        { trueFilters.length > 0?
           <div className='products-filter-history-container'>
             <ul className='filters-history-ul'>
-              {filterStr.map((item, index) => {
+              {trueFilters.map((item, index) => {
                 return <li key={index + 523452351542423} className='single-filter-li'>
                   <div className='products-single-filter'>
                     <span className='text-base gr6'>{item}</span>
@@ -98,13 +98,15 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                       <div className='list-single-item-container'>
                         <div className='for-right-setup'>
                           <div className='list-single-image-container'>
-                            <Link to={`/product/${item.id}`}>
+                            <Link to={`/product/${item.id}`} className='router-link'>
                               <img src={item.images[0]} alt="item" />
                             </Link>
                           </div>
                           <div className='list-single-item-info'>
                             <div className='list-product-title'>
-                              <span className='text-title drk'>{item.title}</span>
+                              <Link to={`/product/${item.id}`} className='router-link'>
+                                <span className='text-title drk'>{item.name}</span>
+                              </Link>
                             </div>
                             <div className='list-product-price'>
                               <h4 className='title-h4 drk'>${item.price}</h4>
@@ -133,7 +135,9 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                               <span className='text-info gr6'>{item.description}</span>
                             </div>
                             <div className='product-link-btn'>
-                              <span className='text-btn blu'>View details</span>
+                              <Link to={`/product/${item.id}`} className='router-link'>
+                                <span className='text-btn blu'>View details</span>
+                              </Link>
                             </div>
                           </div>
                       </div>
@@ -150,7 +154,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                 return <li key={item.id}>
                                       <div className='grid-single-item-container'>
                     <div className='grid-product-image-container'>
-                      <Link to={`/product/${item.id}`}>
+                      <Link to={`/product/${item.id}`} className='router-link'>
                         <img src={item.images[0]} alt="item" />
                       </Link>
                     </div>
@@ -170,7 +174,9 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
                           <span className='text-base org'>7.5</span>
                         </div>
                         <div className='grid-products-name'>
-                          <span className='text-info gr8'>{item.title}</span>
+                          <Link to={`/product/${item.id}`} className='router-link'>
+                            <span className='text-info gr8'>{item.name}</span>
+                          </Link>
                         </div>
                       </div>
                       <div className='favorite-icon-container forgrid'>
@@ -192,7 +198,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
           defaultCurrent={currentPageNumber}
           // current={currentPageNumber}
           total={products.length}
-          defaultPageSize={!listView? 9 : 10}
+          defaultPageSize={listView? 10 : 9}
           onChange={(defaultCurrent, defaultPageSize, total) => (handlePageChange(defaultCurrent, defaultPageSize))}
           // showSizeChanger
           />

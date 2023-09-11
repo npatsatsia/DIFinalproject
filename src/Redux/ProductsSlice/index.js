@@ -15,7 +15,8 @@ const productsSlice = createSlice({
     },
     fetchDataSuccess: (state, action) => {
       state.data = action.payload
-      state.brands = action.payload.map((item) => (item.brand))
+      const brandsArr = action.payload.map((item) => (item.brand))
+      state.brands = brandsArr.filter((item, index) => brandsArr.indexOf(item) === index)
       state.loading = false;
       state.error = null;
     },

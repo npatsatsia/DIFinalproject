@@ -17,7 +17,10 @@
 
 .list-single-item-container .for-right-setup {
     display: flex;
+}
 
+.router-link {
+    text-decoration: none;
 }
 
 .products-list-section .products-list-info-container .products-view{
@@ -124,6 +127,9 @@
     padding: 6px 6px 6px 10px;
     display: flex;
     gap: 9px;
+}
+.products-single-filter span {
+    white-space: nowrap;
 }
 .products-clear-filters {
     margin-left: 20px;

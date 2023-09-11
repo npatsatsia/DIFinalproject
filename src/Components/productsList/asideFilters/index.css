@@ -14,6 +14,17 @@
     display: block;
 }
 
+.products-brands-filter-ul {
+    padding: 0;
+    list-style: none;
+    height: 140px;
+    overflow: hidden;
+}
+
+.products-brands-filter-ul.seeallbrands {
+    height: fit-content;
+}
+
 .products-filters-title {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -25,6 +36,12 @@
 .products-filter-ul {
     padding: 0;
     list-style: none;
+    height: 140px;
+    overflow: hidden;
+}
+
+.products-filter-ul.seeall {
+    height: fit-content;
 }
 
 .single-filter-li {

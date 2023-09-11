@@ -1,29 +1,16 @@
-import React, {useState, useRef, useEffect} from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleProduct } from '../../../API/productsAPI';
+import React, {useState, useRef} from 'react'
 import './index.css'
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import italy from '../../../Assets/images/italy.png'
 
 
-const SingleProductInfo = () => {
+const SingleProductInfo = ({images, singleProduct}) => {
     const [more, setMore] = useState(false)
-
-    const {productId} = useParams()
-    const navigate = useNavigate()
 
     const containerRef = useRef(null)
     const slideRef = useRef()
     const imageRef = useRef()
 
-    const dispatch = useDispatch()
-
-    const {singleProduct, images, loading, error} = useSelector((state) => state.singleProduct)
-
-    useEffect(() => {
-        dispatch(fetchSingleProduct(productId));
-      }, [dispatch, productId]);
 
     const handleShowMore = () => {
         setMore((prev) => (!prev))
@@ -32,15 +19,6 @@ const SingleProductInfo = () => {
     const handleImageChange = (image) => {
         imageRef.current.setAttribute('src', image)
     }
-
-    if(loading) {
-        return <div>loading...</div>
-    }
-
-    if(error) {
-        navigate('*')
-    }
-    
 
   const scrollPhoto = (direction) => {
     if (containerRef.current) {
@@ -58,20 +36,18 @@ const SingleProductInfo = () => {
     }
   };
 
-  
-
 
   return (
     <section className='detail-info-section'>
             <div className='detail-container'>
                 <div className='detail-images-container'>
                     <div className='detail-main-image'>
-                        <img src={singleProduct.thumbnail} alt="product" ref={imageRef} />
+                        <img src={images[0]} alt="product" ref={imageRef} />
                     </div>
                     <div className='detail-additional-images' ref={containerRef}>
-                        {images.map((item) => {
+                        {images.map((item, index) => {
                             return (
-                                    <div className='wh60br5' key={singleProduct.id + 99284662891234}>
+                                    <div className='wh60br5' key={index + 99284662891234}>
                                         <img src={item} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
                                     </div>
                             )
@@ -94,7 +70,7 @@ const SingleProductInfo = () => {
                         <span className='text-normal grn'>In stock</span>
                     </div>
                     <div className='detail-title'>
-                        <h4>{singleProduct.title}</h4>
+                        <h4>{singleProduct.name}</h4>
                     </div>
                     <div className='detail-mobile-price amp'>
                         <span className='title-h6 red'>${singleProduct.price}</span>
@@ -131,11 +107,11 @@ const SingleProductInfo = () => {
                             <span className='text-small gr8'>50-100 pcs</span>
                         </div>
                         <div className='medium-q'>
-                            <h5 className='h5-title'>${singleProduct.price - singleProduct.price / 100 * 10}</h5>
+                            <h5 className='h5-title'>${Math.floor(singleProduct.price - singleProduct.price / 100 * 10)}</h5>
                             <span className='text-small gr8'>100-700 pcs</span>
                         </div>
                         <div className='big-q'>
-                            <h5 className='h5-title'>${singleProduct.price - singleProduct.price / 100 * 15}</h5>
+                            <h5 className='h5-title'>${Math.floor(singleProduct.price - singleProduct.price / 100 * 15)}</h5>
                             <span className='text-small gr8'>700+ pcs</span>
                         </div>
                     </div>

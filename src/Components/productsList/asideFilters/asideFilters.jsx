@@ -42,6 +42,7 @@ const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFi
       <aside className={`products-aside-filters ${showfilters? 'active' : ''}`}>
         <Category
           setCurrentCategory={setCurrentCategory}
+          setCurrentPageNumber={setCurrentPageNumber}
         />
         <Brands
           brands={brands}

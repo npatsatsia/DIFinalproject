@@ -28,6 +28,8 @@
 
 .detail-info-section .detail-container .detail-images-container .detail-main-image img{
     width: 100%;
+    height: 350px;
+    object-fit: contain;
 }
 
 .detail-info-container {
@@ -352,11 +354,11 @@
 .detail-additional-images{
     display: flex;
     gap: 7px;
+    flex-wrap: wrap;
 }
 
 .detail-additional-images .wh60br5 {
-    width: 60px;
-    height: 60px;
+    padding: 5px;
     border: 1px solid #DEE2E7;
     border-radius: 4px;
     display: flex;

@@ -1,13 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ProductsReducer from '../Redux/ProductsSlice/index'
-import SingleProductReducer from '../Redux/singleProductSlice/index'
-import categoriesReducer from '../Redux/categoriesSlice/index'
+import ProductsReducer from '../Store/products/index'
+import CategoriesReducer from '../Store/categories/index'
+import SingleProductReducer from '../Store/singleProduct/index'
+import MostDemandProductsReducer from '../Store/mostDemandProducts/index'
+import OfferedProductsReducer from '../Store/offeredProducts/index'
+import LatestProductsReducer from '../Store/latestProducts/index'
 
 const store = configureStore({
     reducer: {
         products: ProductsReducer,
         singleProduct: SingleProductReducer,
-        categories: categoriesReducer
+        categories: CategoriesReducer,
+        mostDemandProducts: MostDemandProductsReducer,
+        offeredProducts: OfferedProductsReducer,
+        latestProducts: LatestProductsReducer
     }
 })
 

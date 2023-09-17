@@ -12,7 +12,7 @@ const NotFound = ({setNotFound}) => {
       <div className='not-found-bkg'>
         <div className='error-text'>
             <h1>404</h1>
-            <h3>Page Not Found</h3>
+            <h3>Request Not Found</h3>
         </div>
         <div className='error-buttons'>
             <Link to={'/'} style={{ textDecoration: 'none' }} onClick={() => setNotFound(false)}>

@@ -6,7 +6,7 @@ import BurgerMenu from '../burgerMenu/burgerMenu'
 import SearchBox from '../searchBox/searchBox'
 import CategoriesSlider from '../categoriesSlider'
 
-const HeaderMobile = ({show, setShow}) => {
+const HeaderMobile = ({show, setShow, setSearchParams}) => {
   const locate = useLocation()
 
   const navigate = useNavigate()
@@ -107,7 +107,7 @@ const HeaderMobile = ({show, setShow}) => {
           </div>
         </div>
       </div>
-      <SearchBox headerSettings={headerSettings}/>
+      <SearchBox headerSettings={headerSettings} setSearchParams={setSearchParams}/>
       <CategoriesSlider headerSettings={headerSettings} />
     </>
   )

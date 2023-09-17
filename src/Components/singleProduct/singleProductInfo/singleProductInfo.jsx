@@ -1,4 +1,5 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './index.css'
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import italy from '../../../Assets/images/italy.png'
@@ -11,6 +12,8 @@ const SingleProductInfo = ({images, singleProduct}) => {
     const slideRef = useRef()
     const imageRef = useRef()
 
+        console.log(singleProduct)
+    const navigate = useNavigate()
 
     const handleShowMore = () => {
         setMore((prev) => (!prev))
@@ -19,6 +22,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
     const handleImageChange = (image) => {
         imageRef.current.setAttribute('src', image)
     }
+
 
   const scrollPhoto = (direction) => {
     if (containerRef.current) {
@@ -36,6 +40,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
     }
   };
 
+  
 
   return (
     <section className='detail-info-section'>

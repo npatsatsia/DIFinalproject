@@ -265,35 +265,10 @@
         flex-wrap: wrap;
         border: none;
     }
-    .home-category-container {
-        width: 100%;
-        padding: 0;
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .home-category-container ul {
+    .home-category-container{
         display: none; 
     }
     
-    .home-category-container ul li {
-        grid-row: 1;
-        font-family: 'Inter';
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        color: #0D6EFD;
-        background-color: #EFF2F4;
-        border-radius: 6px;
-        white-space: nowrap;
-        
-    }
-    .home-category-container ul::-webkit-scrollbar{
-        width: 0;
-        height: 0;
-    }
     .home-latest-trending {
         width: 70%;
     }
@@ -304,7 +279,6 @@
         max-width: 94%;
     }
  }
-
 
  @media (min-width: 1200px){
     .home-main-container {

@@ -7,7 +7,7 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
   useEffect(() => {
     setMinValue(+priceRange[0])
     setMaxValue(+priceRange[1])
-  }, [priceRange, setMinValue, setMaxValue])
+  }, [priceRange])
 
   const handlePriceRange = () => {
     if(
@@ -18,8 +18,7 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
       +minValue < +maxValue
       ){
       setPriceRange([+minValue, +maxValue]);
-
-      setCurrentPageNumber([1])
+      setCurrentPageNumber(1)
     }
   }
 
@@ -40,7 +39,7 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
         <Slider 
           range={{ draggableTrack: true }}
           value={[minValue, maxValue]}
-          defaultValue={[minValue, maxValue]}
+          defaultValue={[0, 4999]}
           min={0} max={5000}
           className='filters-ant-slider'
           onChange={(value) => (handleSliderRange(value))}

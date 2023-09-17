@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../../../../extra/loader/loader'
-import { fetchCategories } from '../../../../../API/productsAPI'
+import { getCategories } from '../../../../../Store/categories'
 
-const Category = ({setCurrentCategory}) => {
+const Category = ({setCurrentCategory, setCurrentPageNumber}) => {
   const [show, setShow] = useState(false)
   const [seeAll, setSeeAll] = useState(false)
 
@@ -11,8 +11,13 @@ const Category = ({setCurrentCategory}) => {
 
   const dispatch = useDispatch()
 
+  const handleCurrentCategory = (id) => {
+    setCurrentCategory(id)
+    setCurrentPageNumber(1)
+  }
+
   useEffect(() => {
-    dispatch(fetchCategories());
+    dispatch(getCategories());
   }, [dispatch]);
 
   if(loading) {
@@ -34,7 +39,7 @@ const Category = ({setCurrentCategory}) => {
           <ul className={`products-filter-ul ${seeAll? 'seeall' : ''}`}>
             {
               categories.map((item) => (
-                <li key={item.id + 99982664325} className='single-filter-li text-base gr6 pdtb7' onClick={() => setCurrentCategory(item.id)}>{item.name}</li>
+                <li key={item.id + 99982664325} className='single-filter-li text-base gr6 pdtb7' onClick={() => handleCurrentCategory(item.id)}>{item.name}</li>
             ))}
           </ul>
           <div className='filter-seeall pdtb7'>

@@ -56,16 +56,9 @@
     padding-bottom: 18px;
 }
 .homepg-gadgets-img-container div button {
-    font-family: 'Inter';
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #1C1C1C;
     text-align: center;
     padding: 0.6rem 0.84rem;
     border-radius: 0.4rem;
-    border: none;
     border: 1px solid #FFF;
     background: #FFF;
     cursor: pointer;
@@ -102,6 +95,14 @@
     font-weight: 400;
     line-height: normal;
     color: #1C1C1C;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+
+}
+.link {
+    text-decoration: none;
 }
 
 .home-gadgets-categories-container ul li .homepg-gadgets-single-category .homepg-gadgets-single-category-text :nth-child(3) {
@@ -116,6 +117,7 @@
 .home-gadgets-categories-container ul li .homepg-gadgets-single-category .homepg-gadgets-single-category-text {
     padding-left: 16px;
     cursor: pointer;
+
 }
 
 .home-gadgets-categories-container ul li .homepg-gadgets-single-category img {
@@ -123,6 +125,8 @@
     height: 82px;
     float: right;
     cursor: pointer;
+    padding: 10px;
+    object-fit: contain;
 }
 
 .homepg-gadgets-categories-container .sourceing-container-active {
@@ -202,6 +206,7 @@
 
     .home-gadgets-categories-container ul li .homepg-gadgets-single-category .homepg-gadgets-single-category-text :nth-child(1){
         padding-top: 7px;
+        width: 115px;
     }
     
     .home-gadgets-categories-container ul li .homepg-gadgets-single-category .homepg-gadgets-single-category-text span .from-br{
@@ -254,7 +259,8 @@
     .homepg-gadgets-img-container div {
         top: 40%;
     }
-    .homepg-gadgets-img-container div :nth-child(1) {
+    .homepg-gadgets-img-container div span {
+        display: inline-block;
         font-size: calc(1.3rem + 0.6vw);
         width: 100%;
     }

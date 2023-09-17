@@ -3,7 +3,7 @@ import './index.css'
 import { useSelector, useDispatch } from 'react-redux';
 import avatar from '../../../Assets/images/Avatar.png'
 import Categories from './categories/categories';
-import { fetchCategories } from '../../../API/productsAPI';
+import { getCategories } from '../../../Store/categories';
 
 const Banner = () => {
 const {categories, loading, error} = useSelector((state) => state.categories)
@@ -11,8 +11,12 @@ const {categories, loading, error} = useSelector((state) => state.categories)
 const dispatch = useDispatch()
 
 useEffect(() => {
-    dispatch(fetchCategories());
+    dispatch(getCategories());
   }, [dispatch]);
+
+  if(loading) {
+    // setMainLoader(true)
+  }
 
   return (
     <section className='home-banner-section'>

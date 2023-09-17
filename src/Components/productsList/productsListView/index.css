@@ -155,6 +155,7 @@
 .products-list-container .products-list-ul .list-single-item-container .list-single-image-container img {
     width: 195px;
     height: 195px;
+    object-fit: contain;
     padding: 17px 12px 13px 13px;
     cursor: pointer;
 }
@@ -249,6 +250,7 @@
 .grid-single-item-container .grid-product-image-container img {
     width: 220px;
     height: 220px;
+    object-fit: contain;
     padding: 13px 13px 14px 14px;
     cursor: pointer;
 }

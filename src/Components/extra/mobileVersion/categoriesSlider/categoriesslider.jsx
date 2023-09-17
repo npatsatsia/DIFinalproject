@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import './index.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCategories } from '../../../../API/productsAPI'
 import Loader from '../../loader/loader'
+import { getCategories } from '../../../../Store/categories'
 
 const CategoriesSlider = ({headerSettings}) => {
 
@@ -11,7 +11,7 @@ const {categories, loading, error} = useSelector((state) => state.categories)
 const dispatch = useDispatch()
 
 useEffect(() => {
-    dispatch(fetchCategories());
+    dispatch(getCategories());
   }, [dispatch]);
 
 if(loading) {

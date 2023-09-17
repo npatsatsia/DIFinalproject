@@ -4,11 +4,11 @@ import LogoContainer from '../Header/logo/logo'
 import Search from '../Header/search/search'
 import RightSide from '../Header/rightside/rightside'
 
-const Header = () => {
+const Header = ({setSearchParams}) => {
   return (
     <div className='main-header'>
         <LogoContainer/>
-        <Search/>
+        <Search setSearchParams={setSearchParams}/>
         <RightSide/>
     </div>
   )

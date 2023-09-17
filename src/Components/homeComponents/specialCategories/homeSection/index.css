@@ -57,16 +57,9 @@
     padding-bottom: 18px;
 }
 .home-outdoor-img-container div button {
-    font-family: 'Inter';
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #1C1C1C;
     text-align: center;
     padding: 0.6rem 0.84rem;
     border-radius: 0.4rem;
-    border: none;
     border: 1px solid #FFF;
     background: #FFF;
     cursor: pointer;
@@ -103,6 +96,10 @@
     font-weight: 400;
     line-height: normal;
     color: #1C1C1C;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
 }
 
 .home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(3) {
@@ -123,6 +120,7 @@
     width: 100px;
     float: right;
     cursor: pointer;
+    padding: 10px;
 }
 
 .homepg-home-categories-container .sourceing-container-active {
@@ -255,7 +253,6 @@
         top: 40%;
     }
     .home-outdoor-img-container div :nth-child(1) {
-        font-size: calc(1.3rem + 0.6vw);
         width: 100%;
     }
  }

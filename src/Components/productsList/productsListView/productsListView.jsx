@@ -5,7 +5,7 @@ import { Pagination } from 'antd';
 import Loader from '../../extra/loader/loader';
 
 
-const ProductsListView = ({listView, setListview, products, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters}) => {
+const ProductsListView = ({listView, setListview, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters, products}) => {
 
   let qty = (listView? 10 : 9) * currentPageNumber
   let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
@@ -13,7 +13,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
 
 
   const handlePageChange = (pageNum, pageSize) => {
-    setCurrentPageNumber([pageNum])
+    setCurrentPageNumber(pageNum)
   }
 
   const handleClearFilters = () => {
@@ -23,7 +23,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
   const handleDeletefilter = (filterName) => {
     let newFilters = filterStr.filter((item) => (item !== filterName))
     setFilterStr([...newFilters])
-    setCurrentPageNumber([1])
+    setCurrentPageNumber(1)
   }
     
   if (loading) {
@@ -40,7 +40,7 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
         <div className='products-view'>
           <div className='quantity-found-products'>
             <span className='text-base drk'>{`${products.length} items in`}</span>
-            <span className='title-h6 drk'>{` Mobile Accessory`}</span>
+            <span className='title-h6 drk'>{` Store `}</span>
           </div>
           <div className='list-info-right'>
             <div className='verified-check'>
@@ -196,11 +196,10 @@ const ProductsListView = ({listView, setListview, products, error, loading, filt
         <div className='products-pagination-container'>
         <Pagination
           defaultCurrent={currentPageNumber}
-          // current={currentPageNumber}
+          current={currentPageNumber}
           total={products.length}
           defaultPageSize={listView? 10 : 9}
           onChange={(defaultCurrent, defaultPageSize, total) => (handlePageChange(defaultCurrent, defaultPageSize))}
-          // showSizeChanger
           />
         </div>
       </div>

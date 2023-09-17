@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Timer from '../../extra/timer/timer';
-import { offersArray } from '../../../Static/homeStartingArrays';
+import { getOfferedProducts } from '../../../Store/offeredProducts/index';
 
 const Offers = () => {
     const targetDate = new Date(2023, 8, 16, 23, 59, 59);
+
+    const dispatch = useDispatch()
+
+    const {offeredProducts, loading, error} = useSelector((state) => state.offeredProducts)
+
+    useEffect(() => {
+        dispatch(getOfferedProducts())
+    }, [dispatch])
+
+
   return (
     <section className='home-offers-section'>
         <div className='home-offers-container'>
@@ -17,14 +29,16 @@ const Offers = () => {
             </div>
             <div className='home-offers-list-container'>
                 <ul>{
-                    offersArray.map((item, index) => {
-                        return <li key={index}>
+                    offeredProducts.map((item) => {
+                        return <li key={item.id}>
                                     <div className='home-offers-image-container'>
-                                        <img src={item.image} alt="" />
+                                        <Link to={`/product/${item.id}`}>
+                                            <img src={item.image} alt={item.name} />
+                                        </Link>
                                     </div>
                                     <div className='home-offers-info-container'>
-                                        <span>{item.category}</span>
-                                        <span>{item.discount}</span>
+                                        <span>{item.name}</span>
+                                        <span>{`-${Math.floor((item.newPrice / item.oldPrice) * 100)}%`}</span>
                                     </div>
                                 </li>
                     })

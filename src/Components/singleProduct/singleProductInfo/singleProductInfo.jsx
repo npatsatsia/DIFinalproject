@@ -12,7 +12,6 @@ const SingleProductInfo = ({images, singleProduct}) => {
     const slideRef = useRef()
     const imageRef = useRef()
 
-        console.log(singleProduct)
     const navigate = useNavigate()
 
     const handleShowMore = () => {
@@ -39,9 +38,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
           });
     }
   };
-
   
-
   return (
     <section className='detail-info-section'>
             <div className='detail-container'>
@@ -196,6 +193,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
                 </div>
             </div>
         </section>
+        
   )
 }
 

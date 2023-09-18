@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import './index.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import Subscribe from '../../Components/homeComponents/subscribe/subscribe';
 import { getSingleProduct } from '../../Store/singleProduct';
 import Loader from '../../Components/extra/loader/loader';
 const DetailMain = () => {
-  const [product, setProduct] = useState({})
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -18,36 +18,27 @@ const DetailMain = () => {
 
   const {singleProduct, statusCode, images, loading, error} = useSelector((state) => state.singleProduct)
 
-  // console.log(singleProduct)
-
 
   useEffect(() => {
       dispatch(getSingleProduct(productId));
-      setProduct(singleProduct)
-    }, [dispatch, productId]);
+    }, [dispatch]);
 
+    useEffect(() => {
+      if(singleProduct === '') {
+        navigate('*')
+      }
+    })
 
-    // useEffect(() => {
-
-    //   else 
-    //   }else
-    //   setProduct(singleProduct)
-    // }, [productId])
-    
-    if(loading) {
-      return <Loader/>
-    }
-
-
-  if(error) {
-    navigate('*')
+  if(loading) {
+    return <Loader/>
   }
+ 
 
 
   return (
       <>
         <SingleProductInfo singleProduct={singleProduct} images={images}/>
-        <DescriptionAndMayLike singleProduct={product}/>
+        <DescriptionAndMayLike singleProduct={singleProduct}/>
         <SinglesRelatedProducts/>
         {/* <SinglesDiscount/> */}
         <Subscribe/>

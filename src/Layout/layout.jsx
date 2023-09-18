@@ -21,10 +21,6 @@ const [searchParams, setSearchParams] = useState({
 const locate = useLocation()
 const authLocation = locate.pathname === '/auth'
 
-if(mainLoader) {
-  return <Loader/>
-}
-
   return (
     <>
       <Sidebar setShow={setShow} show={show}/>
@@ -33,7 +29,9 @@ if(mainLoader) {
         <HeaderMobile show={show} setShow={setShow} setSearchParams={setSearchParams}/>
       </header>
       <main>
-        <Router setNotFound={setNotFound} searchParams={searchParams} setSearchParams={setSearchParams}/>
+        {mainLoader? <Loader/> :
+        <Router setNotFound={setNotFound} searchParams={searchParams} setSearchParams={setSearchParams} setMainLoader={setMainLoader}/>
+        }
       </main>
       <footer style={authLocation || notFound?{display: 'none'} : {display: 'block'}}>
         <FooterMain/>

@@ -7,7 +7,7 @@ import Cart from '../Pages/cart/cart'
 import NotFound from '../Components/notFound/notFound'
 import SingleProductPage from './singleProductPage'
 
-const Router = ({setNotFound, searchParams, setSearchParams}) => {
+const Router = ({setNotFound, searchParams, setSearchParams, setMainLoader}) => {
   return (
     <Routes>
       <Route path='/' element={<HomeMain/>}/>

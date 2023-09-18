@@ -6,9 +6,9 @@ import { initialState } from './initialState'
 export const getSingleProduct = createAsyncThunk('products/getSingleProduct', async (id) => {
     try {
         const response = await axios.get(`https://digitalamazonproject.azurewebsites.net/api/product/products/${id}`);
-        return response
+        return response.data
     }catch (error) {
-         console.log(error)
+         throw error
 }
 });
 
@@ -24,13 +24,12 @@ const singleProductSlice = createSlice({
     },
     [getSingleProduct.fulfilled]: (state, action) => {
         state.loading = false
-        state.singleProduct = action.payload.data
-        state.images = action.payload.data.images
-        state.statusCode = action.payload.status
+        state.singleProduct = action.payload
+        state.images = action.payload.images
     },
     [getSingleProduct.rejected]: (state, action) => {
       state.loading = false
-      state.error = action.payload
+      state.error = action.error
     }
   }
 })

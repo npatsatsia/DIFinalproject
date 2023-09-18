@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Select, ConfigProvider } from 'antd';
+import Swal from 'sweetalert2'
 import { getCategories } from '../../../Store/categories';
 import {FaChevronDown} from 'react-icons/fa6'
 import './index.css'
-import { useNavigate } from 'react-router-dom';
 
 const Search = ({setSearchParams}) => {
   const [inputValue, setInputValue] = useState('')
   const [selectValueId, setSelectValueId] = useState('')
 
   const {categories, loading, error} = useSelector((state) => state.categories)
+
+  const Swal = require('sweetalert2')
 
   const items = categories.map((item) => {
     return {
@@ -28,9 +31,19 @@ const Search = ({setSearchParams}) => {
   }, [dispatch]);
 
   const handleSearch = () => {
+    if(inputValue){
       setSearchParams({searchValue: inputValue,
       category: selectValueId})
       navigate('/products')
+    } else{
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please enter some search keyword',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+    }
+    setInputValue('')
     }
     
   return (

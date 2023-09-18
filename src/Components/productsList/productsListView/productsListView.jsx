@@ -5,7 +5,7 @@ import { Pagination } from 'antd';
 import Loader from '../../extra/loader/loader';
 
 
-const ProductsListView = ({listView, setListview, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters, products}) => {
+const ProductsListView = ({listView, setListview, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters, products, showCategory}) => {
 
   let qty = (listView? 10 : 9) * currentPageNumber
   let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
@@ -40,7 +40,7 @@ const ProductsListView = ({listView, setListview, error, loading, filterStr, set
         <div className='products-view'>
           <div className='quantity-found-products'>
             <span className='text-base drk'>{`${products.length} items in`}</span>
-            <span className='title-h6 drk'>{` Store `}</span>
+            <span className='title-h6 drk'>{showCategory?` ${showCategory.name}`: ` Store`}</span>
           </div>
           <div className='list-info-right'>
             <div className='verified-check'>

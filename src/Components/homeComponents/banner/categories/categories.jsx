@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import { Link } from 'react-router-dom'
 import Loader from '../../../extra/loader/loader'
 
 const Categories = ({categories, loading, error}) => {
@@ -15,8 +16,11 @@ const Categories = ({categories, loading, error}) => {
     <div className='home-category-container'>
         <ul>
             {categories.map((item) => {
-                return <li key={item.id + 1231233124142}>{item.name}</li>
-            })}
+                return (
+                    <Link to={`/products`} state={{id: item.id}} className='link'  key={item.id + 1231233124142}>
+                        <li>{item.name}</li>
+                    </Link>
+            )})}
         </ul>
     </div>
   )

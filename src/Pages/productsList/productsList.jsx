@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import './index.css'
 import AsideFilters from '../../Components/productsList/asideFilters/asideFilters'
 import ProductsListView from '../../Components/productsList/productsListView/productsListView'
 import { getProducts } from '../../Store/products'
+import { getCategories } from '../../Store/categories'
 
 
 const ProductsList = ({searchParams, setSearchParams}) => {
@@ -12,8 +13,8 @@ const ProductsList = ({searchParams, setSearchParams}) => {
   const [listView, setListview] = useState(false)
   const [filterStr, setFilterStr] = useState([])
   const [currentPageNumber, setCurrentPageNumber] = useState(1)
-  const [minValue, setMinValue] = useState(0)
-  const [maxValue, setMaxValue] = useState(4999)
+  const [minValue, setMinValue] = useState()
+  const [maxValue, setMaxValue] = useState()
   const [priceRange, setPriceRange] = useState([minValue, maxValue])
   const [currentCategory, setCurrentCategory] = useState('')
   const [url, setUrl] = useState('')
@@ -26,26 +27,37 @@ const ProductsList = ({searchParams, setSearchParams}) => {
   })
 
 
-  useEffect(() => {
-
-  }, [])
   
   const dispatch = useDispatch()
 
   const location = useLocation()
   const navigate = useNavigate()
+  const {categoryIDFrHome} = useParams()
+  let {state} = useLocation()
+
+  
   
   let urlParams = new URLSearchParams(location.search);
 
 
   const {data, loading, error, brands} = useSelector((state) => state.products);
+  const {categories} = useSelector((state) => state.categories);
+
   let products = data
+  let showCategory
 
   let trueFilters = filterStr.filter((item) => (brands.includes(item)))
+
+  useEffect(() => {
+    if(state){
+      setCurrentCategory(state.id)
+    }
+  },[])
 
 
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getCategories())
   }, [dispatch]);
 
   useEffect(() => {
@@ -63,22 +75,22 @@ const ProductsList = ({searchParams, setSearchParams}) => {
     urlParams.set('brands', trueFilters.join('&'));
     urlParams.set('pageNumber', currentPageNumber);
     urlParams.set('currentCategory', currentCategory);
-    urlParams.set('URLSaveParams', URLSaveParams);
+    // urlParams.set('URLSaveParams', URLSaveParams);
     
     // window.history.pushState({ path: newURL }, '', newURL);
     setUrl(`${location.pathname}?${urlParams.toString()}`)
-  }, [currentCategory, searchParams, priceRange, currentPageNumber, trueFilters, url, location.search]);
+  }, [currentCategory, searchParams, priceRange, currentPageNumber, trueFilters, location.search]);
 
 
   
 
   useEffect(() => {
-    const URLSaveParams = urlParams.get('URLSaveParams');
+    // const URLSaveParams = urlParams.get('URLSaveParams');
 
-    if (URLSaveParams) {
-      const selectedURLParams = URLSaveParams;
-      setURLSaveParams(selectedURLParams)
-    }
+    // if (URLSaveParams) {
+    //   const selectedURLParams = URLSaveParams;
+    //   setURLSaveParams(selectedURLParams)
+    // }
 
 
     const searchTextParam = urlParams.get('searchKey');
@@ -142,6 +154,7 @@ const ProductsList = ({searchParams, setSearchParams}) => {
   // /// category show products
   if(currentCategory !== '') {
     products = products.filter((item) => (item.categoryId === currentCategory ))
+    showCategory = categories.find((item) => item.id === currentCategory)
   }
 
 
@@ -172,6 +185,7 @@ const ProductsList = ({searchParams, setSearchParams}) => {
         listView={listView} 
         setListview={setListview}/>
       <ProductsListView
+        showCategory={showCategory}
         products={products}
         trueFilters={trueFilters}
         currentPageNumber = {currentPageNumber}

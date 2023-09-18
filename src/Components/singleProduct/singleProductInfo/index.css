@@ -485,6 +485,7 @@
     }
     .detail-additional-images {
         gap: 0;
+        flex-wrap: nowrap;
         width: 100%;
         height: fit-content;
         overflow: scroll;

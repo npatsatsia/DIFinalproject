@@ -16,6 +16,7 @@ const GadgetsSection = () => {
     dispatch(getMostDemandProducts())
   }, [dispatch])
 
+
   return (
     <section className='homepg-gadgets-categories'>
       <div className='homepg-gadgets-categories-container'>

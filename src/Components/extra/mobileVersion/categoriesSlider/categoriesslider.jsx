@@ -6,7 +6,7 @@ import { getCategories } from '../../../../Store/categories'
 
 const CategoriesSlider = ({headerSettings}) => {
 
-const {categories, loading, error} = useSelector((state) => state.categories)
+const {categories, error} = useSelector((state) => state.categories)
 
 const dispatch = useDispatch()
 
@@ -14,9 +14,6 @@ useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
 
-if(loading) {
-  return <Loader/>
-}
 if (error) {
     return <div>{error.message}</div>
 }  

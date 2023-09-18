@@ -24,15 +24,16 @@ const DetailMain = () => {
     }, [dispatch]);
 
     useEffect(() => {
-      if(singleProduct === '') {
-        navigate('*')
-      }
+
     })
 
   if(loading) {
     return <Loader/>
   }
- 
+  
+  if(singleProduct === '') {
+    navigate('*')
+  }
 
 
   return (

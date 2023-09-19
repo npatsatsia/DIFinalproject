@@ -1,21 +1,22 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import HomeMain from '../Pages/home/homeMain/homeMain'
 import Login from '../Pages/user/login/login'
 import ProductsList from '../Pages/productsList/productsList'
 import Cart from '../Pages/cart/cart'
 import NotFound from '../Components/notFound/notFound'
-import SingleProductPage from './singleProductPage'
+import DetailMain from '../Pages/singleProduct/detailMain'
 
-const Router = ({setNotFound, searchParams, setSearchParams, setMainLoader}) => {
+const Router = ({setNotFound, setMainLoader}) => {
   return (
     <Routes>
       <Route path='/' element={<HomeMain/>}/>
-      <Route path='/products/*' element={<ProductsList searchParams={searchParams} setSearchParams={setSearchParams}/>}/>
-      <Route path='/product/*' element={<SingleProductPage setNotFound={setNotFound}/>}/>
+      <Route path='/products' element={<ProductsList/>}/>
+      <Route path='/product/:productId' element={<DetailMain setNotFound={setNotFound}/>}/>
       <Route path='/auth' element={<Login/>}/>
       <Route path='/cart' element={<Cart/>} />
-      <Route path='*' element={<NotFound setNotFound={setNotFound} />} />
+      <Route path='/notfound' element={<NotFound setNotFound={setNotFound}/>} />
+      <Route path='*' element={<Navigate to={'/notfound'}/>} />
     </Routes>
   )
 }

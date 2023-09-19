@@ -12,11 +12,7 @@ import Loader from '../Components/extra/loader/loader'
 const Layout = () => {
 const [show, setShow] = useState(false)
 const [notFound, setNotFound] = useState(false)
-const [mainLoader, setMainLoader] = useState(false)
-const [searchParams, setSearchParams] = useState({
-  searchValue: '',
-  category: ''
-})
+const [mainErrpr, setMainErrpr] = useState(false)
 
 const locate = useLocation()
 const authLocation = locate.pathname === '/auth'
@@ -25,13 +21,11 @@ const authLocation = locate.pathname === '/auth'
     <>
       <Sidebar setShow={setShow} show={show}/>
       <header style={authLocation || notFound? {display: 'none'} : {display: 'block'}}>
-        <Header show={show} setShow={setShow} setSearchParams={setSearchParams} />
-        <HeaderMobile show={show} setShow={setShow} setSearchParams={setSearchParams}/>
+        <Header/>
+        <HeaderMobile show={show} setShow={setShow}/>
       </header>
       <main>
-        {mainLoader? <Loader/> :
-        <Router setNotFound={setNotFound} searchParams={searchParams} setSearchParams={setSearchParams} setMainLoader={setMainLoader}/>
-        }
+        <Router setNotFound={setNotFound}/>
       </main>
       <footer style={authLocation || notFound?{display: 'none'} : {display: 'block'}}>
         <FooterMain/>

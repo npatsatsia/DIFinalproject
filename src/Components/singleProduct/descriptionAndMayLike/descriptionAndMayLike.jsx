@@ -7,6 +7,11 @@ import { weMayLikeArr } from '../../../Static/singleProductMayLike';
 
 const DescriptionAndMayLike = ({singleProduct}) => {
     const [navact, setNavact] = useState('poiuy')
+
+    if(singleProduct === '') {
+        return null
+      }
+      
   return (
     <section className='detail-desc-like-section'>
         <div className='detail-desc-like-container'>

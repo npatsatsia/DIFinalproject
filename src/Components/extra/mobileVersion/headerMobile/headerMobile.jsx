@@ -6,10 +6,15 @@ import BurgerMenu from '../burgerMenu/burgerMenu'
 import SearchBox from '../searchBox/searchBox'
 import CategoriesSlider from '../categoriesSlider'
 
-const HeaderMobile = ({show, setShow, setSearchParams}) => {
+const HeaderMobile = ({show, setShow}) => {
   const locate = useLocation()
 
   const navigate = useNavigate()
+
+  let urlParams = new URLSearchParams(locate.search);
+
+  const URLCategory = urlParams.get('category')
+
 
   const [headerSettings, setHeaderSettings] = useState({
     brand: false,
@@ -88,9 +93,11 @@ const HeaderMobile = ({show, setShow, setSearchParams}) => {
             </svg>
           </div>
           <div className={`mobile-header-logo-container ${headerSettings.brand? 'active' : ''}`}>
-            <img src={brand} alt="logo"/>
+            <Link className='link' to={'/'}>
+              <img src={brand} alt="logo"/>
+            </Link>
           </div>
-          <div className={`mobile-header-page-history h5-title drk ${headerSettings.pagetitle? 'active' : ''}`}>Mobile accessory</div>
+          <div className={`mobile-header-page-history h5-title drk ${headerSettings.pagetitle? 'active' : ''}`}>{URLCategory? URLCategory : 'Store'}</div>
         </div>
         <div className={`mobile-header-right ${headerSettings.cartAndProfile? 'active' : ''}`}>
           <Link to={'/cart'}>
@@ -107,7 +114,7 @@ const HeaderMobile = ({show, setShow, setSearchParams}) => {
           </div>
         </div>
       </div>
-      <SearchBox headerSettings={headerSettings} setSearchParams={setSearchParams}/>
+      <SearchBox headerSettings={headerSettings}/>
       <CategoriesSlider headerSettings={headerSettings} />
     </>
   )

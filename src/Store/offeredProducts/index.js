@@ -9,7 +9,7 @@ export const getOfferedProducts = createAsyncThunk('products/getOfferedProducts'
         const data = response.data
         return data
     }catch (error) {
-        return console.log(error.message);
+        return error;
 }
 });
 

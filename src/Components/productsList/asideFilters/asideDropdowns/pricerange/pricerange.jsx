@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { Slider } from 'antd';
+import { useSearchParams } from 'react-router-dom';
 
-const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, maxValue, setMinValue, setMaxValue}) => {
+const Pricerange = () => {
   const [show, setShow] = useState(false)
+  const [minValue, setMinValue] = useState(0)
+  const [maxValue, setMaxValue] = useState(4999)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+
+  const params = Object.fromEntries([...searchParams]);
 
   useEffect(() => {
-    setMinValue(+priceRange[0])
-    setMaxValue(+priceRange[1])
-  }, [priceRange])
+    if(params.priceRange) {
+      setMinValue(+(params.priceRange.split("-"))[0])
+      setMaxValue(+(params.priceRange.split("-"))[1])
+    }
+  }, [])
 
   const handlePriceRange = () => {
-    if(
-      minValue !== '' &&
-      +minValue >= 0 &&
-      maxValue !== '' &&
-      +maxValue > 0 &&
-      +minValue < +maxValue
-      ){
-      setPriceRange([+minValue, +maxValue]);
-      setCurrentPageNumber(1)
-    }
-  }
+    if (minValue !== '' &&
+        +minValue >= 0 &&
+        maxValue !== '' &&
+        +maxValue > 0 &&
+        +minValue < +maxValue) {
+        setSearchParams({
+            ...params,
+            priceRange: minValue + "-" + maxValue,
+            pageNumber: 1
+        })}
+  };
 
   const handleSliderRange = (value) => {
     setMinValue(value[0])
@@ -47,11 +56,11 @@ const Pricerange = ({setCurrentPageNumber, priceRange, setPriceRange, minValue, 
         <div className='slider-inputs-container'>
           <div className='input-min'>
             <label htmlFor="input-min" className='font-family-inter'>Min</label>
-            <input type="number" placeholder={`0`} value={minValue} id='input-min' onChange={(e) => (setMinValue([e.target.value]))}/>
+            <input type="number" placeholder={`0`} value={+minValue} id='input-min' onChange={(e) => (setMinValue(e.target.value))}/>
           </div>
           <div className='input-max'>
             <label htmlFor="input-max" className='font-family-inter'>Max</label>
-            <input type="number" placeholder={`4999`} value={maxValue} id='input-max' onChange={(e) => (setMaxValue([e.target.value]))}/>
+            <input type="number" placeholder={`4999`} value={+maxValue} id='input-max' onChange={(e) => (setMaxValue(e.target.value))}/>
           </div>
         </div>
         <div className='slider-apply-btn'>

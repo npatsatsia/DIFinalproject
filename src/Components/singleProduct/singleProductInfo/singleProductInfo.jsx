@@ -38,6 +38,10 @@ const SingleProductInfo = ({images, singleProduct}) => {
           });
     }
   };
+
+  if(singleProduct === '') {
+    return null
+  }
   
   return (
     <section className='detail-info-section'>

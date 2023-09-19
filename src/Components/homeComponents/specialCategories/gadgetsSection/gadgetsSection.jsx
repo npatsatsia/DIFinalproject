@@ -21,11 +21,11 @@ const GadgetsSection = () => {
     <section className='homepg-gadgets-categories'>
       <div className='homepg-gadgets-categories-container'>
         <div className='homepg-gadgets-header-active'>
-            <h1>Consumer electronics</h1>
+            <h1 className='h3-title drk'>Most Demand Products</h1>
         </div>
         <div className='homepg-gadgets-img-container'>
             <div>
-                <span>Consumer electronics and gadgets</span>
+                <span className='h3-title drk'>Most Demand Products</span>
                 <Link to={'/products'} >
                   <button className='btn-normal drk'>Source now</button>
                 </Link>

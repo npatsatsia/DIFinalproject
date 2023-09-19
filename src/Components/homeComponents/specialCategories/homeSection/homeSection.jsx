@@ -19,11 +19,11 @@ const HomeSection = () => {
     <section className='homepg-home-categories'>
       <div className='homepg-home-categories-container'>
         <div className='home-outdoor-header-active'>
-            <h1>Home and outdoor</h1>
+            <h1 className='h3-title drk'>Latest Products</h1>
         </div>
         <div className='home-outdoor-img-container'>
             <div>
-                <span>Home and outdoor</span>
+                <span className='h3-title drk'>Latest Products</span>
                 <Link to={'/products'} >
                   <button className='btn-normal drk'>Source now</button>
                 </Link>

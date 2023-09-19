@@ -1,28 +1,38 @@
 import React, {useEffect} from 'react'
 import './index.css'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../../loader/loader'
 import { getCategories } from '../../../../Store/categories'
-
 const CategoriesSlider = ({headerSettings}) => {
 
 const {categories, error} = useSelector((state) => state.categories)
 
 const dispatch = useDispatch()
 
+const navigate = useNavigate()
+
+const handleClick = (id, category) => {    
+  const searchParams = new URLSearchParams();
+    searchParams.set('category', category);
+    searchParams.set('currentCategory', id);
+    searchParams.set('pageNumber', '1');
+    
+    navigate(`/products?${searchParams.toString()}`);
+};
+
 useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
 
 if (error) {
-    return <div>{error.message}</div>
+    return
 }  
 
   return (
     <div className={`mobile-categories-slider ${headerSettings.categories? headerSettings.categories : ''}`}>
         <ul>
             {categories.map((item) => {
-                return <li key={item.id + 6234563434622523}>{item.name}</li>
+                return  <li key={item.id + 878926498263} onClick={() => handleClick(item.id, item.name)}>{item.name}</li>
             })}
         </ul>
     </div>

@@ -20,6 +20,7 @@ const singleProductSlice = createSlice({
   },
   extraReducers: {
     [getSingleProduct.pending]: (state) => {
+      state.singleProduct = undefined
       state.loading = true
     },
     [getSingleProduct.fulfilled]: (state, action) => {

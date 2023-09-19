@@ -16,25 +16,25 @@ const DetailMain = () => {
 
   const {productId} = useParams()
 
-  const {singleProduct, statusCode, images, loading, error} = useSelector((state) => state.singleProduct)
+  const {singleProduct, images, loading} = useSelector((state) => state.singleProduct)
 
 
   useEffect(() => {
-      dispatch(getSingleProduct(productId));
-    }, [dispatch]);
+    dispatch(getSingleProduct(productId));
+  }, [dispatch, productId]);
 
-    useEffect(() => {
 
-    })
+  useEffect(() => {
+    if(!singleProduct && !loading) {
+      navigate('/notfound')
+    }
+  }, [singleProduct, loading])
+
 
   if(loading) {
     return <Loader/>
   }
   
-  if(singleProduct === '') {
-    navigate('*')
-  }
-
 
   return (
       <>

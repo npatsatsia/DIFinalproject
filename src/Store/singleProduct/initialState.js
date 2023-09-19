@@ -2,6 +2,6 @@ export const initialState = {
     singleProduct: [],
     images: [],
     statusCode: '', 
-    loading: false,
+    loading: true,
     error: null
   }

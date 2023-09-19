@@ -1,18 +1,29 @@
 import React, {useState} from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 
-const Brands = ({setFilterStr, filterStr, setCurrentPageNumber, brands}) => {
+const Brands = ({brands}) => {
     const [show, setShow] = useState(false)
     const [seeAll, setSeeAll] = useState(false)
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const params = Object.fromEntries([...searchParams]);
 
     const handleCheckboxChange = (brand, event) => {
-        if (event.target.checked) {
-          setFilterStr([...filterStr, brand]);
-          setCurrentPageNumber([1])
-        } else {
-          setFilterStr(filterStr.filter(item => item !== brand));
-        }
 
+        if (event.target.checked) {
+            setSearchParams({
+                ...params,
+                brands: (params.brands || "") + "&" + brand,
+                pageNumber: 1
+            })
+        } else {
+            let newBrands = params.brands.split('&')
+            setSearchParams({
+                ...params,
+                brands: (newBrands.filter((item) => item !== brand)).join('&')
+            })
+        }
       };
       
   return (
@@ -30,7 +41,8 @@ const Brands = ({setFilterStr, filterStr, setCurrentPageNumber, brands}) => {
                         <li className='single-check-container pdtb7' key={index + 44372900523542}>
                             <input type="checkbox" id={item} className='checkbox'
                             onChange={(e) => (handleCheckboxChange(e.target.id, e))}
-                            checked={filterStr.includes(item)}
+                            checked={params.brands? params.brands.includes(item) : false}
+                                
                             />
                             <label htmlFor={item} className='text-base drk pl10'>{item}</label>
                         </li>)

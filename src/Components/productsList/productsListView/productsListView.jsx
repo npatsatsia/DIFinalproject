@@ -1,31 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, useSearchParams } from 'react-router-dom';
 import './index.css'
 import { Pagination } from 'antd';
 import Loader from '../../extra/loader/loader';
 
 
-const ProductsListView = ({listView, setListview, error, loading, filterStr, setFilterStr, currentPageNumber, setCurrentPageNumber, trueFilters, products, showCategory}) => {
+const ProductsListView = ({listView, setListview, error, loading, products}) => {
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  let qty = (listView? 10 : 9) * currentPageNumber
-  let nextQty = (listView? 10 : 9) * (currentPageNumber - 1)
+  const params = Object.fromEntries([...searchParams]);
+
+
+  let qty = (listView? 10 : 9) * params.pageNumber
+  let nextQty = (listView? 10 : 9) * (params.pageNumber - 1)
   let data = products.slice(nextQty, qty)
 
+  useEffect(() => {
+    setSearchParams({
+      ...params,
+      pageNumber: 1
+    })
+  }, [])
 
-  const handlePageChange = (pageNum, pageSize) => {
-    setCurrentPageNumber(pageNum)
-  }
+
+  const handlePageChange = (pageNum) => {
+    setSearchParams({
+      ...params,
+      pageNumber: pageNum
+    })
+}
+  
 
   const handleClearFilters = () => {
-    setFilterStr([])
+    setSearchParams({
+      ...params,
+      pageNumber: 1,
+      brands: ''
+    })
   }
 
   const handleDeletefilter = (filterName) => {
-    let newFilters = filterStr.filter((item) => (item !== filterName))
-    setFilterStr([...newFilters])
-    setCurrentPageNumber(1)
+    setSearchParams({
+      ...params,
+      pageNumber: 1,
+      brands: (params.brands.split('&')).filter((item) => (item !== filterName)).join('&')
+    })
   }
-    
+
   if (loading) {
     return <Loader/>;
   }
@@ -40,7 +61,7 @@ const ProductsListView = ({listView, setListview, error, loading, filterStr, set
         <div className='products-view'>
           <div className='quantity-found-products'>
             <span className='text-base drk'>{`${products.length} items in`}</span>
-            <span className='title-h6 drk'>{showCategory?` ${showCategory.name}`: ` Store`}</span>
+            <span className='title-h6 drk'>{params.category?` ${params.category}`: ` Store`}</span>
           </div>
           <div className='list-info-right'>
             <div className='verified-check'>
@@ -70,10 +91,10 @@ const ProductsListView = ({listView, setListview, error, loading, filterStr, set
             </div>
           </div>
         </div>
-        { trueFilters.length > 0?
+        {params.brands?
           <div className='products-filter-history-container'>
             <ul className='filters-history-ul'>
-              {trueFilters.map((item, index) => {
+              {((params.brands.split('&')).filter((item => item !== ""))).map((item, index) => {
                 return <li key={index + 523452351542423} className='single-filter-li'>
                   <div className='products-single-filter'>
                     <span className='text-base gr6'>{item}</span>
@@ -195,11 +216,11 @@ const ProductsListView = ({listView, setListview, error, loading, filterStr, set
         </div>
         <div className='products-pagination-container'>
         <Pagination
-          defaultCurrent={currentPageNumber}
-          current={currentPageNumber}
+          defaultCurrent={1}
+          current={params.pageNumber}
           total={products.length}
           defaultPageSize={listView? 10 : 9}
-          onChange={(defaultCurrent, defaultPageSize, total) => (handlePageChange(defaultCurrent, defaultPageSize))}
+          onChange={(current) => (handlePageChange(current))}
           />
         </div>
       </div>

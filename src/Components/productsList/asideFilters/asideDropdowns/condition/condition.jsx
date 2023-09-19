@@ -7,7 +7,6 @@ const Condition = () => {
   const [show, setShow] = useState(false)
 
   const onChange = (e) => {
-    console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
   return (

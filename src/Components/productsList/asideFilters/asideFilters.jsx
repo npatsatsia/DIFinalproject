@@ -7,7 +7,7 @@ import Pricerange from './asideDropdowns/pricerange/pricerange'
 import Features from './asideDropdowns/features/features'
 import Condition from './asideDropdowns/condition/condition'
 
-const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFilterStr, filterStr, priceRange, setPriceRange, setCurrentPageNumber, minValue, maxValue, setMinValue, setMaxValue, brands, setCurrentCategory}) => {
+const AsideFilters = ({showfilters, setShowFilters, listView, setListview, brands}) => {
 
   return (
     <>
@@ -40,23 +40,10 @@ const AsideFilters = ({showfilters, setShowFilters, listView, setListview, setFi
         </div>
       </div>
       <aside className={`products-aside-filters ${showfilters? 'active' : ''}`}>
-        <Category
-          setCurrentCategory={setCurrentCategory}
-          setCurrentPageNumber={setCurrentPageNumber}
-        />
+        <Category/>
         <Brands
-          brands={brands}
-          setFilterStr={setFilterStr} 
-          filterStr={filterStr} 
-          setCurrentPageNumber={setCurrentPageNumber}/>
-        <Pricerange 
-          setCurrentPageNumber={setCurrentPageNumber} 
-          priceRange={priceRange} 
-          setPriceRange={setPriceRange}
-          minValue={minValue}
-          setMinValue={setMinValue}
-          maxValue={maxValue}
-          setMaxValue={setMaxValue}/>
+          brands={brands}/>
+        <Pricerange />
         <Features/>
         <Condition/>
         <Ratings/>

@@ -3,19 +3,35 @@ import './index.css'
 import { useNavigate } from 'react-router-dom'
 import {FaSistrix} from 'react-icons/fa6'
 
-const SearchBox = ({headerSettings, setSearchParams}) => {
+const SearchBox = ({headerSettings}) => {
   const [value, setValue] = useState('')
 
   const navigate = useNavigate()
 
+
+
+  //  const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   setSearchParams({
+  //     searchValue: value,
+  //     category: ''
+  //   })
+  //   navigate('/products')
+  //  }
+
    const handleSubmit = (e) => {
     e.preventDefault()
-    setSearchParams({
-      searchValue: value,
-      category: ''
-    })
-    navigate('/products')
-   }
+
+    if (value) {
+      const searchParams = new URLSearchParams();
+      searchParams.set('searchKey', value);
+      searchParams.set('pageNumber', '1');
+
+      navigate(`/products?${searchParams.toString()}`);
+      setValue('');
+    } else return
+  };
+
 
   return (
     <form onSubmit={handleSubmit} className={`secondary-search-form ${headerSettings.search? 'active' : ''}`}>

@@ -8,7 +8,7 @@ import { weMayLikeArr } from '../../../Static/singleProductMayLike';
 const DescriptionAndMayLike = ({singleProduct}) => {
     const [navact, setNavact] = useState('poiuy')
 
-    if(singleProduct === '') {
+    if(!singleProduct) {
         return null
       }
       

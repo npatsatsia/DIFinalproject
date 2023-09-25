@@ -327,6 +327,9 @@
     display: flex;
     gap: 11px;
 }
+.swal2-container {
+    font-family: 'Inter';
+}
 
  @media (min-width: 576px){
     .detail-info-section {

@@ -95,3 +95,8 @@ display: none;
     height: 55px;
     color: white;
 }
+
+.sb-user-img img {
+    width: 50px;
+    object-fit: contain;
+}

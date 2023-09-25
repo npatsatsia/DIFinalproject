@@ -8,17 +8,6 @@ const SearchBox = ({headerSettings}) => {
 
   const navigate = useNavigate()
 
-
-
-  //  const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   setSearchParams({
-  //     searchValue: value,
-  //     category: ''
-  //   })
-  //   navigate('/products')
-  //  }
-
    const handleSubmit = (e) => {
     e.preventDefault()
 

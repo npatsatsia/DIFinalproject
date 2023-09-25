@@ -1,11 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { getBrands } from '../../../../../Store/brands/index'
 
 
-const Brands = ({brands}) => {
+
+const Brands = () => {
     const [show, setShow] = useState(false)
     const [seeAll, setSeeAll] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
+
+    const dispatch = useDispatch()
+
+    
+    useEffect(() => {
+        dispatch(getBrands());
+    }, [dispatch]);
+    
+    const {brands, loading, error} = useSelector((state) => state.Brands);
 
     const params = Object.fromEntries([...searchParams]);
 

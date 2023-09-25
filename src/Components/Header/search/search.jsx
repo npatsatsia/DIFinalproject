@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Select, ConfigProvider } from 'antd';
 import Swal from 'sweetalert2'
 import { getCategories } from '../../../Store/categories';
 import {FaChevronDown} from 'react-icons/fa6'
 import './index.css'
+
 
 const Search = () => {
   const [inputValue, setInputValue] = useState('')
@@ -33,7 +34,6 @@ const Search = () => {
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
-
     
     const handleSearch = () => {
       if (inputValue) {

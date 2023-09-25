@@ -127,6 +127,10 @@
     row-gap: 7px;
 }
 
+.user-buttons a {
+    width: 100%;
+}
+
 .user-buttons .user-join-button {
     width: 100%;
     font-family: 'Inter';
@@ -196,6 +200,10 @@
     line-height: normal;
     color: white;
     display: inline-block;
+}
+
+.btn-dsnone {
+    display: none;
 }
 
 @media (min-width: 576px){

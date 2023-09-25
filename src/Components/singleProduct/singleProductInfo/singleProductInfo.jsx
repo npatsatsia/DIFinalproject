@@ -1,18 +1,45 @@
-import React, {useState, useRef, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, {useState, useRef} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import './index.css'
+import { Alert, Space } from 'antd';
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import italy from '../../../Assets/images/italy.png'
+import { addItemTocart } from '../../../Store/addToCart';
+import {getCartProducts} from '../../../Store/getCartProducts';
+import Swal from 'sweetalert2'
+
 
 
 const SingleProductInfo = ({images, singleProduct}) => {
+    const [visible, setVisible] = useState(false);
+    const [success, setSuccess] = useState(false)
+
+    const JWToken = JSON.parse(localStorage.getItem("user"));
+
+    const { cartProducts } = useSelector((state) => state.cartProducts);
+    
+    const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     dispatch(getCartProducts(JWToken.jwt))
+    // }, [dispatch])
+
+
     const [more, setMore] = useState(false)
+
 
     const containerRef = useRef(null)
     const slideRef = useRef()
     const imageRef = useRef()
 
-    const navigate = useNavigate()
+    const handleAuthNeedAlert = () => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You must be authorized',
+                footer: '<a href="/auth?account=login">Wanna Login</a>'
+              })
+    }
 
     const handleShowMore = () => {
         setMore((prev) => (!prev))
@@ -22,6 +49,18 @@ const SingleProductInfo = ({images, singleProduct}) => {
         imageRef.current.setAttribute('src', image)
     }
 
+    const handleAddToCart = async (id) => {
+        if(JSON.stringify(cartProducts).includes(id)) {
+            setVisible(true)
+            setSuccess(false)
+        }else {
+            setVisible(true)
+            setSuccess(true)
+            dispatch(addItemTocart({id, token: JWToken.jwt}))
+        }
+        dispatch(getCartProducts(JWToken.jwt))
+    };
+    
 
   const scrollPhoto = (direction) => {
     if (containerRef.current) {
@@ -39,12 +78,25 @@ const SingleProductInfo = ({images, singleProduct}) => {
     }
   };
 
-  if(singleProduct === '') {
+  if(visible) {
+    setTimeout(() => {
+        setVisible(false)
+    }, 7000);
+  }
+
+  if(!singleProduct) {
     return null
   }
-  
   return (
     <section className='detail-info-section'>
+        <Space direction="vertical" style={{ width: '100%', padding: '30px 0 20px', fontFamily: 'Inter' }}>
+            {visible && (success?
+                <Alert message="Successfully added!" type="success" closable/>
+             : 
+                <Alert message="item is already in the cart" type="error" closable/>
+            )
+        }
+        </Space>
             <div className='detail-container'>
                 <div className='detail-images-container'>
                     <div className='detail-main-image'>
@@ -82,7 +134,10 @@ const SingleProductInfo = ({images, singleProduct}) => {
                         <span className='title-h6 red'>${singleProduct.price}</span>
                     </div>
                     <div className='detail-mobile-inquiry amb'>
-                        <div className='supplier-btn btn-blue'>Send inquiry</div>
+                        {JWToken?
+                        (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
+                        (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
+                        }
                         <div className='mhc'>
                             <BsHeart className='blu wh24'/>
                         </div>
@@ -185,7 +240,10 @@ const SingleProductInfo = ({images, singleProduct}) => {
                                 </div>
                             </div>
                             <div className='supplier-buttons'>
-                                <div className='supplier-btn btn-blue'>Send inquiry</div>
+                                    {JWToken?
+                                (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
+                                (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
+                                }
                                 <div className='supplier-btn btn-white'>Seller's profile</div>
                             </div>
                         </div>

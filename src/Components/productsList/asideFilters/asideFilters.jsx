@@ -7,7 +7,7 @@ import Pricerange from './asideDropdowns/pricerange/pricerange'
 import Features from './asideDropdowns/features/features'
 import Condition from './asideDropdowns/condition/condition'
 
-const AsideFilters = ({showfilters, setShowFilters, listView, setListview, brands}) => {
+const AsideFilters = ({showfilters, setShowFilters, listView, setListview}) => {
 
   return (
     <>
@@ -41,8 +41,7 @@ const AsideFilters = ({showfilters, setShowFilters, listView, setListview, brand
       </div>
       <aside className={`products-aside-filters ${showfilters? 'active' : ''}`}>
         <Category/>
-        <Brands
-          brands={brands}/>
+        <Brands/>
         <Pricerange />
         <Features/>
         <Condition/>

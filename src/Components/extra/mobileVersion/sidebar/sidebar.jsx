@@ -1,13 +1,71 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { Modal } from 'antd';
 import { HiMiniListBullet, HiOutlineHeart, HiOutlineHome, HiOutlineShoppingCart } from "react-icons/hi2";
 import { TfiHeadphoneAlt, TfiWorld, TfiLayoutMediaLeftAlt } from "react-icons/tfi";
 import avatar from '../../../../Assets/images/Avatar.png';
-
+import authAvatar from '../../../../Assets/images/authAvatar.png'
+import { logout } from '../../../../slices/auth';
 
 const Sidebar = ({show, setShow}) => {
-    const [userAvatar, setUserAvatar] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [navToCartModal, setNavToCartModal] = useState(false)
+
+    const {isLoggedIn} = useSelector((state) => state.auth)
+
     const sideNavRef = useRef();
+    
+    const dispatch = useDispatch()
+
+    const navigate = useNavigate()
+
+    const handleNavLogin = () => {
+        setShow(false)
+        const searchParams = new URLSearchParams();
+          searchParams.set('account', 'login');      
+          navigate(`/auth?${searchParams.toString()}`);
+  }
+
+  const handleNavReg = () => {
+        setShow(false)
+        const searchParams = new URLSearchParams();
+        searchParams.set('account', 'register');      
+        navigate(`/auth?${searchParams.toString()}`);
+  }
+    // /// logout modal
+    const showModal = () => {
+        setOpen(true);
+      };
+
+    
+      const handleOk = () => {
+        setOpen(false);
+        dispatch(logout())
+        navigate('/')
+        setShow(false)
+      };
+    
+      const handleCancel = () => {
+        setOpen(false);
+      };
+
+      // /// cart modal
+      const showSliderModal = () => {
+        setNavToCartModal(true)
+    }
+
+    const handleCartOk = () => {
+        navigate('/auth?account=login')
+        setNavToCartModal(false);
+        setShow(false)
+    };
+
+    const handleCancelCart = () => {
+        setNavToCartModal(false);
+      };
+    
 
     useEffect(() => {
         let sidebarHandler = (e) => {
@@ -29,20 +87,40 @@ const Sidebar = ({show, setShow}) => {
         <div className='sidebar-container'>
             <div className='sidebar-user'>
                 <div className='sb-user-img'>
-                    <img src={userAvatar? avatar : avatar} alt="avatar" />
+                    <img src={isLoggedIn? authAvatar : avatar} alt="avatar" />
                 </div>
-                <div className='sb-user-links'>
-                    <span>Sign In</span> | <span>Register</span>
-                </div>
+                    {isLoggedIn? 
+                        <div className='sb-user-links'>
+                            <span>Profile </span>
+                             | 
+                            <span className='red' onClick={() => showModal()}> Log out</span>
+                            <Modal
+                                okText='Log out'
+                                title="Are you sure you want to log out?"
+                                open={open}
+                                onOk={handleOk}
+                                onCancel={handleCancel}
+                            ></Modal>
+                        </div>
+                    : 
+                        <div className='sb-user-links'>
+                            <span onClick={() => handleNavLogin()}>Sign in </span>
+                             | 
+                            <span onClick={() => handleNavReg()}> Sign Up</span>
+                        </div>}
             </div>
             <div className='sidebar-main'>
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineHome/>
-                    <span>Home</span>
+                    <Link className='link' to={'/'}>
+                        <span>Home</span>
+                    </Link>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiMiniListBullet/>
-                    <span>Categories</span>
+                    <Link className='link' to={'/products'}>
+                        <span>Categories</span>
+                    </Link>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineHeart/>
@@ -50,7 +128,18 @@ const Sidebar = ({show, setShow}) => {
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineShoppingCart/>
-                    <span>Cart</span>
+                    {isLoggedIn?
+                        <span onClick={() => navigate('/cart')}>Cart</span> :
+                        <span onClick={() => showSliderModal()}>Cart</span>
+                    }
+                    <Modal
+                        okText='Log In'
+                        title="You must be authorized"
+                        open={navToCartModal}
+                        onOk={handleCartOk}
+                        onCancel={handleCancelCart}
+                        >
+                    </Modal>
                 </div>
             </div>
             <div className='grey-line'></div>

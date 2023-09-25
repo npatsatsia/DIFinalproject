@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../../../../extra/loader/loader'
 import { getCategories } from '../../../../../Store/categories'
 
 const Category = () => {

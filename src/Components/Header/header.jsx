@@ -4,12 +4,12 @@ import LogoContainer from '../Header/logo/logo'
 import Search from '../Header/search/search'
 import RightSide from '../Header/rightside/rightside'
 
-const Header = () => {
+const Header = ({cartProducts}) => {
   return (
     <div className='main-header'>
         <LogoContainer/>
         <Search/>
-        <RightSide/>
+        <RightSide cartProducts={cartProducts}/>
     </div>
   )
 }

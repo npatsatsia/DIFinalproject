@@ -48,6 +48,7 @@
 .cart-single-image-container img {
     width: 52px;
     height: 59px;
+    object-fit: contain;
 }
 
 .cart-product-info-buttons {
@@ -279,6 +280,15 @@
     border-radius: 4px;
 }
 
+.cart-loader-container {
+    width: 74%;
+}
+
+.nocartitems {
+    width: 74%;
+    text-align: center;    
+}
+
 @media (min-width: 310px){
     .cart-main-section {
         max-width: 100%;
@@ -327,6 +337,9 @@
     }
     .cart-payment-info {
         width: 100%;
+    }
+    .nocartitems {
+        width: 100%
     }
  }
 

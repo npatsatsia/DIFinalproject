@@ -31,6 +31,25 @@
     height: 20px;
 }
 
+.header-cart-icon {
+    position: relative;
+}
+
+div.cart-length-dot {
+    position: absolute;
+    left: 29px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: tomato;
+    text-align: center;
+}
+
+.cart-length-dot.none {
+    display: none;
+}
+
 
 @media only screen and (max-width: 1024px){
    .header-right-side {

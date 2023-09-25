@@ -16,7 +16,7 @@ const Pricerange = () => {
       setMinValue(+(params.priceRange.split("-"))[0])
       setMaxValue(+(params.priceRange.split("-"))[1])
     }
-  }, [])
+  }, [searchParams])
 
   const handlePriceRange = () => {
     if (minValue !== '' &&

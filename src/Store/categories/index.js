@@ -5,11 +5,11 @@ import { initialState } from './initialState'
 
 export const getCategories = createAsyncThunk('products/getCategories', async () => {
     try {
-    const response = await axios.get('https://digitalamazonproject.azurewebsites.net/api/product/categories');
-    const data = response.data
-    return data
+      const response = await axios.get('https://digitalamazonproject.azurewebsites.net/api/product/categories');
+      const data = response.data
+      return data
     }catch (error) {
-    return error;
+      return error;
 }
 });
 

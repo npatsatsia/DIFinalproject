@@ -24,7 +24,13 @@
     align-items: center;
 }
 
-
+.mobile-cart-logo {
+    position: relative;
+}
+.mobile-cart-logo > div {
+    left: 20px;
+    top: 10px;
+}
 
 @media (min-width: 768px){
     .mobile-header-container {

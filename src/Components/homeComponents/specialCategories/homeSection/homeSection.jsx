@@ -3,17 +3,18 @@ import './index.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa6'
-import {getLatestProducts} from '../../../../Store/latestProducts/index'
-
+// import {getLatestProducts} from '../../../../Store/latestProducts/index'
+import { getLatestProducts } from '../../../../slices/sortedProducts'
 const HomeSection = () => {
 
-  const {latestProducts, loading, error} = useSelector((state) => state.latestProducts)
+  const {latestProducts} = useSelector((state) => state.sortedProducts)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getLatestProducts())
   }, [dispatch])
+
 
   return (
     <section className='homepg-home-categories'>
@@ -39,7 +40,7 @@ const HomeSection = () => {
                                 <span>{item.name}</span>
                               </Link>
                               <Link to={`/product/${item.id}`}>
-                                <img src={item.image} alt={item.name}  className='link'/>
+                                <img src={item.image} alt={item.name} className='link'/>
                               </Link>
                               <span>From <br className='from-br'/>{item.price}</span>
                             </div>

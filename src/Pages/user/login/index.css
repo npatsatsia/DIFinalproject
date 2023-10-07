@@ -219,6 +219,15 @@
     width: 100%;
 }
 
+.succmsg {
+    background-color: greenyellow;
+    color: green;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
 .instructions {
     font-size: 0.75rem;
     border-radius: 0.5rem;

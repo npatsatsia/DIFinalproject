@@ -1,5 +1,5 @@
 export const initialState = {
     removed: false,
-    loading: false,
+    cartRmvloading: false,
     error: null
   }

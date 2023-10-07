@@ -4,8 +4,8 @@ import './index.css'
 import { Alert, Space } from 'antd';
 import { BsFillCircleFill, BsGlobe2, BsShieldCheck, BsFillChatLeftTextFill, BsFillBasket3Fill, BsCheck2, BsHeart } from "react-icons/bs";
 import italy from '../../../Assets/images/italy.png'
-import { addItemTocart } from '../../../Store/addToCart';
-import {getCartProducts} from '../../../Store/getCartProducts';
+import { addItemTocart } from '../../../slices/cart/index';
+import { getCartProducts } from '../../../slices/cart/index';
 import Swal from 'sweetalert2'
 
 
@@ -14,15 +14,12 @@ const SingleProductInfo = ({images, singleProduct}) => {
     const [visible, setVisible] = useState(false);
     const [success, setSuccess] = useState(false)
 
-    const JWToken = JSON.parse(localStorage.getItem("user"));
+    const { products } = useSelector((state) => state.cartService);
 
-    const { cartProducts } = useSelector((state) => state.cartProducts);
+    const { isLoggedIn } = useSelector((state) => state.auth);
+
     
     const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getCartProducts(JWToken.jwt))
-    // }, [dispatch])
 
 
     const [more, setMore] = useState(false)
@@ -50,15 +47,15 @@ const SingleProductInfo = ({images, singleProduct}) => {
     }
 
     const handleAddToCart = async (id) => {
-        if(JSON.stringify(cartProducts).includes(id)) {
+        if(JSON.stringify(products).includes(id)) {
             setVisible(true)
             setSuccess(false)
         }else {
             setVisible(true)
             setSuccess(true)
-            dispatch(addItemTocart({id, token: JWToken.jwt}))
+            dispatch(addItemTocart(id))
         }
-        dispatch(getCartProducts(JWToken.jwt))
+        dispatch(getCartProducts())
     };
     
 
@@ -134,7 +131,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
                         <span className='title-h6 red'>${singleProduct.price}</span>
                     </div>
                     <div className='detail-mobile-inquiry amb'>
-                        {JWToken?
+                        {isLoggedIn?
                         (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
                         (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
                         }
@@ -240,7 +237,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
                                 </div>
                             </div>
                             <div className='supplier-buttons'>
-                                    {JWToken?
+                                    {isLoggedIn?
                                 (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
                                 (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
                                 }

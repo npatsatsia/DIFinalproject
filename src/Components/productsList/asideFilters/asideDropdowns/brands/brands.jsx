@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getBrands } from '../../../../../Store/brands/index'
+import { getBrands } from '../../../../../slices/filterItems/index'
 
 
 
@@ -17,7 +17,7 @@ const Brands = () => {
         dispatch(getBrands());
     }, [dispatch]);
     
-    const {brands, loading, error} = useSelector((state) => state.Brands);
+    const {brands} = useSelector((state) => state.filteredProducts);
 
     const params = Object.fromEntries([...searchParams]);
 

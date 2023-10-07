@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories } from '../../../../../Store/categories'
+import { getCategories } from '../../../../../slices/filterItems/index'
 
 const Category = () => {
   const [show, setShow] = useState(false)
@@ -9,7 +9,7 @@ const Category = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
 
-  const {categories, loading, error} = useSelector((state) => state.categories)
+  const {categories, loading, error} = useSelector((state) => state.filteredProducts)
 
   const params = Object.fromEntries([...searchParams]);
 

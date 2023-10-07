@@ -1,0 +1,184 @@
+.edit-profile {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 100%;
+    background: #fff;
+    height: 100vh;
+    border: 1px solid rgba(86, 86, 86, 0.12);
+    border-radius: 7px;
+}
+
+.aside-func-nav {
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 83px;
+}
+
+.aside-func-current {
+    gap: 18px;
+}
+
+.user-profile-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.user-profile-aside {
+    border-right: 1px solid rgba(86, 86, 86, 0.12);
+    padding-top: 40px;
+    height: 100%;
+    width: 25%;
+}
+
+.navlink.active :last-child {
+    color: #0D6EFD;
+}
+.navlink.active path {
+    fill: #0D6EFD;
+}
+
+@media (max-width: 421px){
+    .edit-profile-container .user-profile-edit-heading h1 {
+        font-size: 22px;
+    }
+    .edit-profile .user-profile-container .edit-profile-container {
+        width: 84%;
+    }
+    .edit-profile-container .user-inputs-container {
+        gap: 10px;
+    }
+    .user-buttons-container .edit-cancel-btn, .user-buttons-container .edit-confirm-btn {
+        padding: 4px 20px;
+    }
+    .user-buttons-container {
+        padding-top: 25px;
+    }
+    .edit-profile .user-profile-container .user-security-section {
+        width: 84%;
+    }
+}
+
+@media (max-width: 560px){
+    .user-security-inputs .security-new-password {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .user-security-inputs .security-new-password div {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 680px){
+    .user-profile-aside .user-aside-func span {
+        display: none;
+    }
+    .user-profile-aside {
+        width: 8%;
+        min-width: 50px;
+    }
+    .user-profile-container .edit-profile-container {
+        width: 100%;
+    }
+    .user-profile-container .user-security-section {
+        width: 100%;
+    }
+    .aside-func-current span {
+        display: none;
+    }
+    .user-profile-aside .user-aside-func {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 882px){
+    .user-profile-aside .user-aside-func {
+        padding-left: 10px;
+    }
+    .security-new-password label {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 992px){
+    .aside-func-nav span {
+        font-size: 19px;
+    }
+    .aside-func-nav svg {
+        width: 30px;
+        height: 30px;
+    }
+    .user-inputs-container label {
+        font-size: 16px;
+    }
+    .edit-profile-container .user-inputs-container input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    .user-buttons-container .edit-confirm-btn button {
+        font-size: 16px;
+    }
+    .user-buttons-container .edit-cancel-btn button {
+        font-size: 16px;
+    }
+    .user-security-inputs .security-new-password label {
+        font-size: 16px;
+    }
+    .user-security-inputs .security-old-password label {
+        font-size: 16px;
+    }
+    .user-security-inputs .security-new-password input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    .user-security-inputs .security-old-password input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+ }
+
+@media (min-width: 576px){
+    .edit-profile {
+        max-width: 100%;
+    }
+ }
+
+ @media (min-width: 768px){
+    .edit-profile {
+        max-width: 94%;
+    }
+ }
+ @media (min-width: 992px){
+    .edit-profile {
+        max-width: 94%;
+    }
+ }
+
+ @media (min-width: 1024px){
+    .edit-profile {
+        max-width: 94%;
+    }
+ }
+ @media (min-width: 1200px){
+    .edit-profile {
+        max-width: 1180px;
+    }
+ }
+ @media (min-width: 1441px){
+    .edit-profile {
+        max-width: 1180px;
+    }
+ }
+
+ @media (min-width: 1600px){
+    .edit-profile {
+        max-width: 1440px;
+    }
+ }

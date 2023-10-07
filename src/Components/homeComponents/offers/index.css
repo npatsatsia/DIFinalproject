@@ -61,7 +61,6 @@
 }
 
 .home-offers-list-container ul li {
-    border: 1px solid #DEE2E7;
     width: calc(100% / 5);
     height: 100%;
     display: flex;
@@ -71,6 +70,15 @@
     gap: 20px;
     padding: 11px 15px 19px 15px;
 }
+
+.home-offers-list-container ul li:nth-child(n + 2) {
+    border-left: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+}
+.home-offers-list-container ul li:first-child {
+    border-left: 1px solid #DEE2E7;
+}
+
 .home-offers-image-container {
     cursor: pointer;
     width: 100%;
@@ -192,6 +200,12 @@
         padding: 0;
         padding-left: 16px;
     }
+    .home-offers-list-container ul {
+        border: 1px solid #DEE2E7;
+    }
+    .home-offers-list-container ul li:first-child {
+        border-left: none;
+    }
  }
 
  @media (max-width: 992px) {
@@ -203,6 +217,9 @@
  @media (max-width: 768px){
     .home-offers-container .home-offers-list-container ul {
         flex-wrap: wrap;
+    }
+    .home-offers-list-container ul li:nth-child(-n + 3) {
+        border-bottom: 1px solid #DEE2E7;
     }
     .home-offers-info-container :nth-child(1){
         white-space: nowrap;
@@ -216,6 +233,46 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+ }
+
+ @media (max-width: 767px){
+    .home-offers-list-container ul li:nth-child(-n + 4) {
+        border-bottom: 1px solid #DEE2E7;
+    }
+ }
+
+ @media (max-width: 744px){
+    .home-offers-list-container ul li:nth-child(4) {
+        border-bottom: none;
+    }
+ }
+
+ @media (max-width: 558px){
+    .home-offers-list-container ul li:nth-child(odd) {
+        border-left: none;
+    }
+ }
+ 
+ @media (max-width: 425px){
+    .home-offers-list-container ul {
+        border: none;
+    }
+    .home-offers-list-container ul li {
+        border-bottom: 1px solid #DEE2E7;
+        border-top: 1px solid #DEE2E7;
+    }
+    .home-offers-list-container ul li:last-child{
+        border-right: 1px solid #DEE2E7;
+    }
+    .home-offers-list-container ul li:nth-child(odd) {
+        border-left: 1px solid #DEE2E7;
+    }
+ }
+
+ @media (max-width: 559px){
+    .home-offers-list-container ul li:nth-child(4) {
+        border-bottom: 1px solid #DEE2E7;
     }
  }
 

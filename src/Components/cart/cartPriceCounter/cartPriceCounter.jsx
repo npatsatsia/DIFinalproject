@@ -1,22 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
-const CartPriceCounter = ({product, setTotalPrice, totalPrice}) => {
+const CartPriceCounter = ({product, setTotalPrice, showModal}) => {
     const [itemCounter, setItemCounter] = useState(1)
 
     const totalRef = useRef()
 
-    const handleMinus = () => {
+    const handleMinus = useCallback(() => {
         if(itemCounter > 1){
           setItemCounter(prev => prev - 1)
           setTotalPrice(prev => (prev - parseFloat(product.price)))
+        }else {
+            showModal()
         }
-        console.log(totalPrice)
-      }
+      },[itemCounter])
 
-      const handlePlus = () => {
+      const handlePlus = useCallback(() => {
             setItemCounter(prev => prev + 1)          
             setTotalPrice(prev => (prev + parseFloat(product.price)))
-      }
+      },[itemCounter])
 
   return (
     <div className='cart-price-qty'>

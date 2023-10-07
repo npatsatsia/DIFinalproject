@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom';
 import './index.css'
-import { Pagination } from 'antd';
+import { Pagination, Select, Space, ConfigProvider } from 'antd';
 import Loader from '../../extra/loader/loader';
+
+
 
 
 const ProductsListView = ({listView, setListview, error, loading, products}) => {
@@ -47,6 +49,13 @@ const ProductsListView = ({listView, setListview, error, loading, products}) => 
     })
   }
 
+  const handleUseFeatures = (value) => {
+    setSearchParams({
+      ...params,
+      feature: value
+    })
+  };
+
   if (loading) {
     return <Loader/>;
   }
@@ -69,10 +78,34 @@ const ProductsListView = ({listView, setListview, error, loading, products}) => 
               <label htmlFor="verified" className='text-base drk'>Verified only</label>
             </div>
             <div className='right-selectbox'>
-              <span className='text-base drk'>Featured</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-               <path d="M16.59 8.29504L12 12.875L7.41 8.29504L6 9.70504L12 15.705L18 9.70504L16.59 8.29504Z" fill="#8B96A5"/>
-              </svg>
+              <ConfigProvider
+                  removeIcon
+                  theme={{
+                    token: {
+                      colorBorder: '#fff',
+                      colorPrimaryHover: '#fff',
+                      controlOutline: '#fff',
+                      fontFamily: 'Inter',                            
+                    },
+                  }}
+                >
+                <Space wrap>
+                  <Select
+                    defaultValue="Featured"
+                    style={{ width: 170 }}
+                    onChange={(value) => (handleUseFeatures(value))}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                    }}
+                    options={[
+                      { value: 'A-Z', label: 'Name: A to Z' },
+                      { value: 'Z-A', label: 'Name: Z to A' },
+                      { value: 'High-Low', label: 'Price: High to Low' },
+                      { value: 'Low-High', label: 'Price: Low to High'},
+                    ]}
+                    />
+                </Space>
+              </ConfigProvider>
             </div>
             <div className='products-list-view'>
               <div className={`grid-view ${!listView? 'active' : ''}`} onClick={() => {setListview(false)}}>

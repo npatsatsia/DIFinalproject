@@ -71,19 +71,7 @@ export const specialCategoriesArray = [
         category: 'Soft chairs', 
         priceFrom: 'USD 19', 
         id: '234124141241234124'
-    },
-    {
-        photo: laptop, 
-        category: 'Soft chairs', 
-        priceFrom: 'USD 19', 
-        id: '234124148241234124'
-    },
-    {
-        photo: laptop, 
-        category: 'Soft chairs', 
-        priceFrom: 'USD 19', 
-        id: '234124141211234124'
-    },
+    }
 ]
 
 export const specialCategoriesArr = [
@@ -121,28 +109,7 @@ export const specialCategoriesArr = [
         priceFrom: 'USD 140', 
         id: '3234124141251234124'
     
-    },
-    {
-        photo: headphones, 
-        category: 'Laptops & PC', 
-        priceFrom: 'USD 320', 
-        id: '4234124141241234124'
-    
-    },
-    {
-        photo: headphones, 
-        category: 'Smartphones', 
-        priceFrom: 'USD 19', 
-        id: '5234124148241234124'
-    
-    },
-    {
-        photo: headphones, 
-        category: 'Electric kattle', 
-        priceFrom: 'USD 19', 
-        id: '6234124141211234124'
-    
-    },
+    }
 ]
     
 

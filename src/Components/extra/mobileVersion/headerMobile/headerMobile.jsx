@@ -6,6 +6,7 @@ import brand from '../../../../Assets/images/logo-colored.png'
 import BurgerMenu from '../burgerMenu/burgerMenu'
 import SearchBox from '../searchBox/searchBox'
 import CategoriesSlider from '../categoriesSlider'
+import { useSelector } from 'react-redux';
 
 const HeaderMobile = ({show, setShow, cartProducts}) => {
   const [headerSettings, setHeaderSettings] = useState({
@@ -18,8 +19,6 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
     categories: false
   })
 
-  const JWToken = JSON.parse(localStorage.getItem("user"));
-
   const locate = useLocation()
 
   const navigate = useNavigate()
@@ -30,6 +29,8 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
 
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const { isLoggedIn } = useSelector(state => state.auth)
 
   const showModal = () => {
     setOpen(true);
@@ -121,7 +122,7 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
         </div>
         <div className={`mobile-header-right ${headerSettings.cartAndProfile? 'active' : ''}`}>
           <div className='mobile-header-cart'>
-            {JWToken? 
+            {isLoggedIn? 
             (
             <div className='mobile-cart-logo'>
               <svg onClick={() => navigate('/cart')}  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

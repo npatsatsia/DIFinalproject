@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './index.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import { Modal } from 'antd';
 import {FaCircleUser, FaMessage, FaHeart, FaCartShopping} from 'react-icons/fa6'
 
 const RightSide = ({cartProducts}) => {
-  const JWToken = JSON.parse(localStorage.getItem("user"));
-
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
+  const {isLoggedIn} = useSelector(state => state.auth)
 
   const navigate = useNavigate()
 
@@ -30,10 +30,12 @@ const RightSide = ({cartProducts}) => {
 
   return (
     <div className='header-right-side'>
-        <div><FaCircleUser className='profile icon'/><span>Profile</span></div>
+        <Link to={'/profile/edit-profile'} className='link'>
+          <div><FaCircleUser className='profile icon'/><span>Profile</span></div>
+        </Link>
         <div className='display-none'><FaMessage className='message icon'/><span>Messages</span></div>
         <div className='display-none'><FaHeart className='orders icon'/><span>Orders</span></div>
-        {JWToken? <div className='header-cart-icon' onClick={() => navigate('/cart')}><FaCartShopping className='cart icon'/>
+        {isLoggedIn? <div className='header-cart-icon' onClick={() => navigate('/cart')}><FaCartShopping className='cart icon'/>
                     <span>My Cart</span>
                     <div className={`cart-length-dot text-small wht ${cartProducts.length < 1 && 'none'}`}>{cartProducts.length}</div>
                   </div> :

@@ -1,5 +1,4 @@
-.mobile-search{
-    padding-left:  7px;
+.sc-dcJsrY.hrRVGZ.mobile-search{
     width: 100%;
     height: 40px;
     justify-content: center;
@@ -30,6 +29,21 @@
     font-weight: 400;
     line-height: normal;
 }
+.sc-dcJsrY.hrRVGZ.mobile-search .wrapper {
+    height: 37px;
+    align-items: center;
+    z-index: 9;
+    width: 99%;
+}
+.sc-gEvEer.jDPxKt {
+    width: 100%;
+    z-index: 999;
+    margin-top: 10px;
+}
+.sc-gEvEer.jDPxKt svg {
+    display: none;
+}
+
 
 @media only screen and (max-width: 768px){
     .mobile-search{

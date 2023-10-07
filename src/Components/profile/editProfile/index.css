@@ -1,0 +1,97 @@
+.user-profile-edit-heading, .user-inputs-container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user-profile-edit-heading {
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.user-profile-edit-heading img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.edit-profile-container {
+    width: 70%;
+    height: 100%;
+    padding-top: 40px;
+}
+
+.user-aside-func {
+    padding-left: 30px;
+}
+
+.user-firstname, .user-lastname, .user-email, .user-address, .user-contact-number, .user-city, .user-state, .user-password, .user-username {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-name-surname, .user-country {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-firstname, .user-lastname, .user-city, .user-state {
+    width: 45%;
+}
+
+.user-inputs-container input {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    outline: none;
+    border: 2px solid #858585;
+    border-radius: 5px;
+}
+
+.user-inputs-container, .user-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.user-buttons-container {
+    display: flex;
+    gap: 35px;
+}
+
+.edit-cancel-btn, .edit-confirm-btn {
+    padding: 10px 40px;
+}
+
+.edit-confirm-btn{
+    background-color: #0D6EFD;
+    border-radius: 4px;
+
+}
+
+.edit-cancel-btn{
+    border: 1px solid #0D6EFD;
+    background-color: transparent;
+    border-radius: 4px;
+
+}
+
+.edit-confirm-btn button {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+}
+
+.edit-cancel-btn button {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

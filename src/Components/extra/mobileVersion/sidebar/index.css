@@ -100,3 +100,14 @@ display: none;
     width: 50px;
     object-fit: contain;
 }
+
+.sidebar-cart-items {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 40px;
+    background-color: tomato;
+    line-height: unset;
+}

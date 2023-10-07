@@ -7,7 +7,7 @@ import DescriptionAndMayLike from '../../Components/singleProduct/descriptionAnd
 import SinglesRelatedProducts from '../../Components/singleProduct/singlesRealatedProducts/singlesRelatedProducts';
 // import SinglesDiscount from '../../Components/singleProduct/singlesDiscount/singlesDiscount';
 import Subscribe from '../../Components/homeComponents/subscribe/subscribe';
-import { getSingleProduct } from '../../Store/singleProduct';
+import { getSingleProduct } from '../../slices/filterItems/index';
 import Loader from '../../Components/extra/loader/loader';
 
 const DetailMain = () => {
@@ -15,7 +15,7 @@ const DetailMain = () => {
 
   const {productId} = useParams()
 
-  const {singleProduct, images, loading} = useSelector((state) => state.singleProduct)
+  const {singleProduct, images, loading} = useSelector((state) => state.filteredProducts)
 
   useEffect(() => {
     dispatch(getSingleProduct(productId));

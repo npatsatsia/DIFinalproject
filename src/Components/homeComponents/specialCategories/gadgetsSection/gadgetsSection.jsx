@@ -2,20 +2,20 @@ import React, { useEffect } from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getMostDemandProducts } from '../../../../Store/mostDemandProducts/index'
+// import { getMostDemandProducts } from '../../../../Store/mostDemandProducts/index'
+import { getMostDemandProducts } from '../../../../slices/sortedProducts'
 import {FaArrowRight} from "react-icons/fa6"
 
 
 const GadgetsSection = () => {
 
-  const {mostDemandProducts, loading, error} = useSelector((state) => state.mostDemandProducts)
+  const {mostDemandProducts} = useSelector((state) => state.sortedProducts)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getMostDemandProducts())
   }, [dispatch])
-
 
   return (
     <section className='homepg-gadgets-categories'>
@@ -41,7 +41,7 @@ const GadgetsSection = () => {
                                 <span>{item.name}</span>
                               </Link>
                               <Link to={`/product/${item.id}`} className='link'>
-                                <img src={item.images[0]} alt={item.name}  className='link'/>
+                                <img src={item.images[1]} alt={item.name}  className='link'/>
                               </Link>
                               <span>From <br className='from-br'/>{item.price}</span>
                             </div>

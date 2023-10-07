@@ -6,6 +6,10 @@ import AuthService from '../../Services/auth.service';
 const user = JSON.parse(localStorage.getItem("user"));
 let error = null
 let email
+let loading = false
+let registered = false
+let message
+
 
 export const register = createAsyncThunk(
   "auth/register",
@@ -13,7 +17,7 @@ export const register = createAsyncThunk(
     try {
       const response = await AuthService.register(username, regPassword, regEmail);
       thunkAPI.dispatch(setMessage(response.data.message));
-      return response;
+      return response.data
     } catch (error) {
       let message 
       if (!error?.response) {
@@ -36,7 +40,6 @@ export const login = createAsyncThunk(
       const data = await AuthService.login(signEmail, signPassword);
       return { user: data, email: signEmail};
     } catch (err) {
-        let message
         if (!err?.response) {
             message = 'No Server Response';
         } else if (err.response?.status === 400) {
@@ -57,26 +60,32 @@ export const logout = createAsyncThunk("auth/logout", () => {
 });
 
 const initialState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null, error}
+  ? { isLoggedIn: true, user, loading, registered }
+  : { isLoggedIn: false, user: null, error, loading, registered }
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   extraReducers: {
-    [register.fulfilled]: (state) => {
+    [register.fulfilled]: (state, action) => {
       state.isLoggedIn = false;
+      state.registered = action.payload
     },
     [register.rejected]: (state,action) => {
       state.isLoggedIn = false;
       state.error = action.error.message
     },
+    [login.pending]: (state) => {
+      state.loading = true
+    },
     [login.fulfilled]: (state, action) => {
       state.isLoggedIn = true;
+      state.loading = false
       state.user = action.payload.user;
       state.email = action.payload.email
     },
     [login.rejected]: (state, action) => {
+      state.loading = false
       state.isLoggedIn = false;
       state.user = null;
       state.error = action.error.message

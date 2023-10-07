@@ -68,13 +68,17 @@
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
+    border-collapse: separate;
+    border-spacing: 1px;
 
 }
 
 .home-outdoor-categories-container ul li {
     width: 25%;
     height: 150px;
-    border: 1px solid #DEE2E7;
+    border: 1px solid black;
+    margin: 0;
+  padding: 0;
 }
 
 .home-outdoor-categories-container ul li .home-single-category {

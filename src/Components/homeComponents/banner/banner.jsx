@@ -5,21 +5,21 @@ import { Modal } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import avatar from '../../../Assets/images/Avatar.png'
 import Categories from './categories/categories';
-import { getCategories } from '../../../Store/categories';
+import { getCategories } from '../../../slices/filterItems/index';
 import { logout } from '../../../slices/auth';
 import { getUserInfo } from '../../../Store/userByEmail';
 
 
 
 const Banner = () => {
+const localUserName = JSON.parse(localStorage.getItem('email'))
+
 const [open, setOpen] = useState(false);
-const [confirmLoading, setConfirmLoading] = useState(false);
 
-const {categories, error, loading} = useSelector((state) => state.categories)
+const {categories, error, loading} = useSelector((state) => state.filteredProducts)
 
-const {isLoggedIn, email} = useSelector((state) => state.auth)
+const {isLoggedIn} = useSelector((state) => state.auth)
 
-const {userName} = useSelector((state) => state.userInfo)
 
 const dispatch = useDispatch()
 
@@ -31,7 +31,6 @@ const showModal = () => {
 
   const handleOk = () => {
     dispatch(logout())
-    setConfirmLoading(true);
     setOpen(false);
     navigate('/')
   };
@@ -56,9 +55,7 @@ useEffect(() => {
     dispatch(getCategories());
 }, [dispatch]);
 
-useEffect(() => {
-    dispatch(getUserInfo(email))
-},[])
+
 
 
   return (
@@ -83,7 +80,7 @@ useEffect(() => {
                             <img src={avatar} alt='avatar'/>
                         </div>
                         <div className='span-container'>
-                            <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{isLoggedIn? userName : 'User'}</span></span>
+                            <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{isLoggedIn? localUserName : 'user'}</span></span>
                             <span>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
                         </div>
                     </div>
@@ -97,7 +94,6 @@ useEffect(() => {
                             title="Are you sure you want to log out?"
                             open={open}
                             onOk={handleOk}
-                            confirmLoading={confirmLoading}
                             onCancel={handleCancel}
                         ></Modal>
                     </div>

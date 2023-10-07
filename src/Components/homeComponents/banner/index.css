@@ -18,6 +18,11 @@
     width: 57.5%;
     height: 90%;
     margin: 22px 0 10px 0;
+    z-index: 0;
+}
+
+.sc-dcJsrY.jiMOeR {
+    z-index: 99;
 }
 
 .home-latest-trending .banner-info {

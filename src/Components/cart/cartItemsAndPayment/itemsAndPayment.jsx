@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './index.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { Modal, Alert, Space } from 'antd';
 import { paymentMethods } from '../../../Static/paymentMethods'
-import { getCartProducts } from '../../../Store/getCartProducts/index'
-import { removeItemFromCart } from '../../../Store/removeFromCart'
+import { getCartProducts } from '../../../slices/cart';
+import {removeItemFromCart} from '../../../Store/removeFromCart/index'
 import CartPriceCounter from '../cartPriceCounter/cartPriceCounter';
 import Loader from '../../extra/loader/loader'
 
@@ -23,13 +23,14 @@ const ItemsAndPayment = () => {
   const navigate = useNavigate()
 
 
-  const { removed, loading } = useSelector((state) => state.removeItemFromCart);
+  const { products, postLoading } = useSelector((state) => state.cartService);
 
-  const { cartProducts } = useSelector((state) => state.cartProducts);
+  const { cartRmvloading, removed} = useSelector((state) => state.removeItemFromCart);
+
 
   let priceSum = 0
 
-  for (const item of cartProducts) {
+  for (const item of products) {
     priceSum += parseFloat(item.price);
   }
   
@@ -39,18 +40,19 @@ const ItemsAndPayment = () => {
 
 
   useEffect(() => {
-    dispatch(getCartProducts(JWToken.jwt));
-  }, [dispatch, loading])
+    dispatch(getCartProducts());
+  }, [dispatch, postLoading, cartRmvloading])
 
   const showModal = () => {
     setOpen(true);
   };
 
-  const handleOk = (id) => {
-    dispatch(removeItemFromCart({id, token: JWToken.jwt}))
+  const handleOk = useCallback((id) => {
+    const prp = {JWToken, id}
+    dispatch(removeItemFromCart(prp))
     setOpen(false);
     setVisible(true)
-  };
+  },[dispatch]);
 
   const handleCancel = () => {
     setOpen(false);
@@ -74,14 +76,14 @@ const ItemsAndPayment = () => {
             </Space>
           }
           <div className='cart-title-container'>
-            <h3 className='h3-title'>{`My Cart ${cartProducts.length}`}</h3>
+            <h3 className='h3-title'>{`My Cart ${products.length}`}</h3>
           </div>
       <div className='items-payment-container'>
-        {!loading? 
-        (cartProducts.length > 0? 
+        {!cartRmvloading? 
+        (products.length > 0? 
         (<div className='cart-main-container'>
           <div className='cart-items-container'>
-            {cartProducts.map((item) => {
+            {products.map((item) => {
               return <div key={item.id} className='cart-single-item-container'>
               <div className='cart-single-image-container'>
                 <img src={item.images[0]} alt="product-image"/>
@@ -113,7 +115,7 @@ const ItemsAndPayment = () => {
                   </div>
                 </div>
               </div>
-              <CartPriceCounter product={item} setTotalPrice={setTotalPrice} totalPrice={totalPrice}/>
+              <CartPriceCounter showModal={showModal} product={item} setTotalPrice={setTotalPrice} totalPrice={totalPrice}/>
             </div>
             })}
             <div className='cart-buttons-container'>

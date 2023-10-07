@@ -2,10 +2,10 @@ import React, {useEffect} from 'react'
 import './index.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories } from '../../../../Store/categories'
+import { getCategories } from '../../../../slices/filterItems/index'
 const CategoriesSlider = ({headerSettings}) => {
 
-const {categories, error} = useSelector((state) => state.categories)
+const {categories, error} = useSelector((state) => state.filteredProducts)
 
 const dispatch = useDispatch()
 

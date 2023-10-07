@@ -4,26 +4,21 @@ import { initialState } from './initialState'
 
 export const removeItemFromCart = createAsyncThunk(
     'cart/removeItemFromCart',
-    async ({id, token}) => {
+    async ({JWToken, id}) => {
       try {
         const response = await fetch(
-          `https://digitalamazonproject.azurewebsites.net/api/cart/removefromcart/`,
+          `https://amazon-digital-prod.azurewebsites.net/api/cart/removefromcart`,
           {
             method: 'DELETE',
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${JWToken}`,
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({ productId: id })
           }
         );
-  
-        if (!response.ok) {
-          throw new Error('Failed to remove item from cart');
-        }
         return response.ok
       } catch (error) {
-        console.error(error);
         throw error;
       }
     }
@@ -38,15 +33,15 @@ const removeItemFromCartSilce = createSlice({
   },
   extraReducers: {
     [removeItemFromCart.pending]: (state) => {
-      state.loading = true
+      state.cartRmvloading = true
     },
     [removeItemFromCart.fulfilled]: (state, action) => {
-      state.loading = false
+      state.cartRmvloading = false
       state.removed = action.payload
     },
     [removeItemFromCart.rejected]: (state, action) => {
-      state.loading = false
-      state.error = action.payload.error
+      state.cartRmvloading = false
+      state.error = action.payload
     }
   }
 })

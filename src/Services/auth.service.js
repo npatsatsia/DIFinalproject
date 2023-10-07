@@ -1,11 +1,11 @@
 import axios from "axios";
+import authApi from '../API/auth.axios'
 
-const Url = 'https://digitalamazonproject.azurewebsites.net/api/user/'
 
 
 
 const register = (userName, regPassword, regEmail) => {
-    return axios.post(Url +'registerUser', 
+    return authApi.post('user/registerUser', 
     {
         userName: userName,
         password: regPassword,
@@ -16,22 +16,18 @@ const register = (userName, regPassword, regEmail) => {
 }
 
 const login = async (signEmail, signPassword) => {
-    return await axios.post(Url + 'LogIn', 
+    return await authApi.post('user/LogIn', 
     {
         email: signEmail,
         password: signPassword
-    }
+    },
+    {headers: {'Content-Type': 'application/json'}},
     )
-    .then((response) => {
-        if(response.data.jwt) {
-            localStorage.setItem('user', JSON.stringify(response.data));
-        }
-        return response.data
-    })
 }
 
 const logout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("email");
 };
 
 const authService = {

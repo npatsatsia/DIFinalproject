@@ -2,19 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Select, ConfigProvider } from 'antd';
-import Swal from 'sweetalert2'
-import { getCategories } from '../../../Store/categories';
-import {FaChevronDown} from 'react-icons/fa6'
+import { getCategories } from '../../../slices/filterItems/index';
 import './index.css'
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { getProducts } from '../../../slices/products/index'
 
 
-const Search = () => {
+const Search = ({setMainEclipse}) => {
   const [inputValue, setInputValue] = useState('')
   const [selectValueId, setSelectValueId] = useState('')
   const [searchParams, setSearchParams] = useSearchParams()
+  
+  
 
 
-  const {categories, loading, error} = useSelector((state) => state.categories)
+  const {categories} = useSelector((state) => state.filteredProducts)
+
+  const {data} = useSelector((state) => state.products)
 
   const params = Object.fromEntries([...searchParams])
 
@@ -34,6 +38,10 @@ const Search = () => {
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getProducts({currCategory: '', priceMin: '', priceMax: ''}))
+    }, [dispatch])
     
     const handleSearch = () => {
       if (inputValue) {
@@ -48,7 +56,7 @@ const Search = () => {
   
         // Use navigate to go to the /products page with the updated search parameters
         navigate(`/products?${searchParams.toString()}`);
-              setInputValue('');
+              // setInputValue('');
 
       } else {
         Swal.fire({
@@ -59,9 +67,83 @@ const Search = () => {
               });
             }
     };
+
+    
+    const handleOnSearch = (string) => {
+      setInputValue(string)
+    }
+    
+    const handleOnSelect = (item) => {
+      navigate(`product/${item.id}`)
+  }
+
+  const handleFocusEclipse = () => {
+    setMainEclipse(true)
+  }
+  
+
+  const formatResult = (item) => {
+    return (
+      <div className='live-result' style={{ padding: '12px 0' }}>
+        <img style={
+              { width: '100px',
+                height: '100px',
+                objectFit: 'contain',
+                border: '1px solid #DEE2E7',
+                padding: '5px' }}
+            src={item.images[0]}
+            alt={item.name}/>
+        <div style={
+              { paddingLeft: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'column',
+                gap: '10px'}}>
+          <span style={{ textAlign: 'left',
+                width: '400px',
+                height: '40px',
+                overflow: 'hidden',
+                wordWrap: 'break-word',
+                whiteSpace: 'normal',
+                color: '#8B96A5'}}
+          >{item.name}</span>
+          <span style={{fontWeight: '600'}}>${item.price}</span>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className='header-search-container'>
-      <input type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+      {/* <input type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/> */}
+      <ReactSearchAutocomplete
+          className='livesearch'
+          fuseOptions={{ keys: ["name"] }}
+          items={data}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onFocus={handleFocusEclipse}
+          onSearch={handleOnSearch}
+          onSelect={handleOnSelect}
+          formatResult={formatResult}
+          maxResults={4}
+          styling={{
+              height: "40px",
+              width: '58%',
+              border: "unset",
+              borderRadius: "unset",
+              backgroundColor: "#fff",
+              boxShadow: "unset",
+              hoverBackgroundColor: "unset",
+              color: "unset",
+              fontSize: "16px",
+              fontFamily: "Inter",
+              iconColor: "usnet",
+              lineColor: "transparent",
+              placeholderColor: "grey",
+              // clearIconMargin: '3px 14px 0 0',
+              // searchIconMargin: '0 0 0 16px'
+            }}
+        />
       <ConfigProvider
       theme={{
         token: {

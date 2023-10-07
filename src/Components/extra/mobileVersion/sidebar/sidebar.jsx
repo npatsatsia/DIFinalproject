@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './index.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ import avatar from '../../../../Assets/images/Avatar.png';
 import authAvatar from '../../../../Assets/images/authAvatar.png'
 import { logout } from '../../../../slices/auth';
 
-const Sidebar = ({show, setShow}) => {
+const Sidebar = ({show, setShow, cartProducts}) => {
     const [open, setOpen] = useState(false);
     const [navToCartModal, setNavToCartModal] = useState(false)
 
@@ -40,12 +40,13 @@ const Sidebar = ({show, setShow}) => {
       };
 
     
-      const handleOk = () => {
+      const handleOk = useCallback(() => {
         setOpen(false);
-        dispatch(logout())
-        navigate('/')
-        setShow(false)
-      };
+        dispatch(logout());
+        navigate('/');
+        setShow(false);
+      }, [dispatch, navigate]);
+      
     
       const handleCancel = () => {
         setOpen(false);
@@ -56,15 +57,20 @@ const Sidebar = ({show, setShow}) => {
         setNavToCartModal(true)
     }
 
-    const handleCartOk = () => {
+    const handleCartOk = useCallback(() => {
         navigate('/auth?account=login')
         setNavToCartModal(false);
         setShow(false)
-    };
+    }, [navigate]);
 
     const handleCancelCart = () => {
         setNavToCartModal(false);
       };
+
+      const handleClickOncart = useCallback(() => {
+        setShow(false)
+        navigate('/cart')
+      },[navigate])
     
 
     useEffect(() => {
@@ -129,7 +135,7 @@ const Sidebar = ({show, setShow}) => {
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineShoppingCart/>
                     {isLoggedIn?
-                        <span onClick={() => navigate('/cart')}>Cart</span> :
+                        <span onClick={() => handleClickOncart()}>Cart{cartProducts.length > 0 && <span className='text-normal wht sidebar-cart-items'>{cartProducts.length}</span>}</span> :
                         <span onClick={() => showSliderModal()}>Cart</span>
                     }
                     <Modal
@@ -170,9 +176,6 @@ const Sidebar = ({show, setShow}) => {
                 </div>
             </div>
         </div>
-        {/* <div className='sidebar-close' onClick={() => (setShow(false))}>
-            <TfiArrowCircleLeft className='sidebar-close-icon'/>
-        </div> */}
     </aside>
     </div>
 

@@ -3,19 +3,18 @@ import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Timer from '../../extra/timer/timer';
-import { getOfferedProducts } from '../../../Store/offeredProducts/index';
+import { getOfferedProducts } from '../../../slices/sortedProducts';
 
 const Offers = () => {
     const targetDate = new Date(2023, 8, 30, 23, 59, 59);
 
     const dispatch = useDispatch()
 
-    const {offeredProducts, loading, error} = useSelector((state) => state.offeredProducts)
+    const {offeredProducts} = useSelector((state) => state.sortedProducts)
 
     useEffect(() => {
         dispatch(getOfferedProducts())
     }, [dispatch])
-
 
   return (
     <section className='home-offers-section'>

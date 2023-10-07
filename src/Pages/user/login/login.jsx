@@ -6,7 +6,10 @@ import Socials from '../../../Components/extra/socials/socials'
 import { FaInfoCircle, FaTimesCircle, FaCheckCircle,} from "react-icons/fa";
 import {login} from '../../../slices/auth/index'
 import { register } from '../../../slices/auth/index'
+import {getEmail} from '../../../slices/auth/index'
+import { getUserInfo } from '../../../Store/userByEmail'
 import { clearMessage } from '../../../slices/auth/message'
+import Loader from '../../../Components/extra/loader/loader'
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -56,7 +59,9 @@ const Login = () => {
     const [signPassword, setSignPassword] = useState('')
     const [signErrMsg, setSignErrMsg] = useState('');
 
-    const { isLoggedIn, error } = useSelector((state) => state.auth);
+    const [sucMsg, setSucMsg] = useState(false)
+
+    const { isLoggedIn, error, loading, registered } = useSelector((state) => state.auth);
     const { message } = useSelector((state) => state.message);
 
     const dispatch = useDispatch();
@@ -139,10 +144,12 @@ const Login = () => {
 const handleAuth = async (e) => {
     e.preventDefault()
     // 'setloading: true'
-
+    
     dispatch(login({ signEmail, signPassword }))
+    
     .unwrap()
     .then(() => {
+    dispatch(getUserInfo(signEmail))
         navigate('/')
     })
     
@@ -153,11 +160,23 @@ const handleAuth = async (e) => {
     setSignPassword('');
 
     if (isLoggedIn) {
-        return <Navigate to="/" />;
+        <Navigate to="/" />;
       }
+
+    //   useEffect(() => {
+    //     dispatch(getUserInfo(signEmail))
+    // },[dispatch, isLoggedIn])
 
         signErrRef.current.focus();
    }
+
+
+
+   useEffect(() => {
+    if(registered) {
+        setSucMsg(true)
+    }
+   }, [registered])
 
 useEffect(() => {
     if(message) {
@@ -169,6 +188,10 @@ useEffect(() => {
         setSignErrMsg('')
     }, 10000);
 },[message])
+
+if(loading) {
+    return <Loader/>
+}
 
 
   return (
@@ -233,7 +256,7 @@ useEffect(() => {
                                     <div onClick={() => navigate('/auth?account=login')}>Sign in</div>
                                 </div>
                             </div>
-                            <p ref={errRef} className={errMsg ? "errmsg text-normal" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                            <p ref={errRef} className={`text-normal ${errMsg && "errmsg"}${sucMsg && 'succmsg'}${(!errMsg && !sucMsg)? "offscreen" : ''}`} aria-live="assertive">{errMsg && errMsg}{sucMsg && 'Successfully Registered'}</p>
                             <form className='user-sigup-form' onSubmit={handleRegister}>
                                 <div className='signup-email inpt'>
                                     <label htmlFor="email">Enter your email address</label>

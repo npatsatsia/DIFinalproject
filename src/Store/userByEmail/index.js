@@ -4,17 +4,22 @@ import { initialState } from './initialState'
 
 
 export const getUserInfo = createAsyncThunk('user/getUserInfo', async (email) => {
-    try {
-        const response = await axios.post('https://digitalamazonproject.azurewebsites.net/api/user/getByEmail', 
-        {
-         email
-         },
-         {headers: {'Content-Type': 'application/json'}}
-         )
-         return response.data[0].userName
-    }catch (error) {
-         throw error
-}
+    if(email){
+        try {
+            const response = await axios.post('https://amazon-digital-prod.azurewebsites.net/api/user/getByEmail', 
+            {
+                email
+            },
+            {
+                headers: {'Content-Type': 'application/json'}
+            }
+            )
+            localStorage.setItem('email', JSON.stringify(response.data[0].userName))
+            console.log(response.data[0].userName)
+            return response.data[0].userName
+        }catch (error) {
+            throw error
+    }}
 });
 
 const userInfoSlice = createSlice({
@@ -22,14 +27,14 @@ const userInfoSlice = createSlice({
   initialState,
   extraReducers: {
     [getUserInfo.pending]: (state) => {
-      state.loading = true
+      state.InfoLoading = true
     },
     [getUserInfo.fulfilled]: (state, action) => {
-        state.loading = false
+        state.InfoLoading = false
         state.userName = action.payload
     },
     [getUserInfo.rejected]: (state) => {
-      state.loading = false
+      state.InfoLoading = false
     }
   }
 })

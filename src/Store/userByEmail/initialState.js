@@ -1,5 +1,5 @@
 export const initialState = {
     userName: [],
-    loading: false,
+    InfoLoading: false,
     error: null
   }

@@ -27,7 +27,7 @@ const login = async (signEmail, signPassword) => {
 
 const logout = () => {
     localStorage.removeItem("user");
-    localStorage.removeItem("email");
+    localStorage.removeItem("userinfo");
 };
 
 const authService = {

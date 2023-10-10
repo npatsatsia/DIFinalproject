@@ -12,7 +12,7 @@ import { getUserInfo } from '../../../Store/userByEmail';
 
 
 const Banner = () => {
-const localUserName = JSON.parse(localStorage.getItem('email'))
+const localUserName = JSON.parse(localStorage.getItem('userinfo'))
 
 const [open, setOpen] = useState(false);
 
@@ -55,6 +55,12 @@ useEffect(() => {
     dispatch(getCategories());
 }, [dispatch]);
 
+useEffect(() => {
+    if(localUserName) {
+        dispatch(getUserInfo(localUserName.email))
+    }
+}, [dispatch, isLoggedIn]);
+
 
 
 
@@ -80,7 +86,7 @@ useEffect(() => {
                             <img src={avatar} alt='avatar'/>
                         </div>
                         <div className='span-container'>
-                            <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{isLoggedIn? localUserName : 'user'}</span></span>
+                            <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{localUserName? localUserName.userName : 'user'}</span></span>
                             <span>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
                         </div>
                     </div>

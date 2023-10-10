@@ -4,9 +4,9 @@ import userEditService from "../../Services/userAdditional.service";
 
 export const putUserChange = createAsyncThunk(
     'user/putUserChange',
-    async () => {
+    async (newPassword) => {
         try{
-            const response = await userEditService.changeUser();
+            const response = await userEditService.changeUser(newPassword);
             console.log(response)
             return response
         }catch(error) {

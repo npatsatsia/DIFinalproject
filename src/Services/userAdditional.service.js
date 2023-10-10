@@ -1,12 +1,13 @@
 import userApi from '../API/userAdditional.axios'
 
-const changeUser = async (userName, email, newPassword) => {
+const changeUser = async ({newPassword, userName, email}) => {
+    const user = JSON.parse(localStorage.getItem('userinfo'))
     return await userApi.put('User/updateuserdata',
     {
-        id: 35,
-        userName: 'lari',
-        email: 'lari@gmail.com',
-        newPassword: 'Lari123@'
+        id: user.id.toString(),
+        userName: userName? userName : user.userName ,
+        email: email? email : user.email,
+        newPassword
     },
       )
 }

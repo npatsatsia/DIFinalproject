@@ -14,7 +14,7 @@ export const getUserInfo = createAsyncThunk('user/getUserInfo', async (email) =>
                 headers: {'Content-Type': 'application/json'}
             }
             )
-            localStorage.setItem('email', JSON.stringify(response.data[0].userName))
+            localStorage.setItem('userinfo', JSON.stringify(response.data[0]))
             console.log(response.data[0].userName)
             return response.data[0].userName
         }catch (error) {

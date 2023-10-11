@@ -105,11 +105,11 @@ const Login = () => {
         setSignErrMsg('');
     }, [signEmail, signPassword])
 
-    const handleChangeToLogin = () => {
-        const searchParams = new URLSearchParams();
-          searchParams.set('account', 'login');      
-          navigate(`/auth?${searchParams.toString()}`);
-    }
+    // const handleChangeToLogin = () => {
+    //     const searchParams = new URLSearchParams();
+    //       searchParams.set('account', 'login');      
+    //       navigate(`/auth?${searchParams.toString()}`);
+    // }
 
     // register function
    const handleRegister = async (e) => {

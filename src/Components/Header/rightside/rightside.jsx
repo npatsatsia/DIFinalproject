@@ -27,6 +27,8 @@ const RightSide = ({cartProducts}) => {
     setOpen(false);
   };
 
+  console.log(cartProducts)
+
 
   return (
     <div className='header-right-side'>
@@ -35,10 +37,11 @@ const RightSide = ({cartProducts}) => {
         </Link>
         <div className='display-none'><FaMessage className='message icon'/><span>Messages</span></div>
         <div className='display-none'><FaHeart className='orders icon'/><span>Orders</span></div>
-        {isLoggedIn? <div className='header-cart-icon' onClick={() => navigate('/cart')}><FaCartShopping className='cart icon'/>
-                    <span>My Cart</span>
-                    <div className={`cart-length-dot text-small wht ${cartProducts.length < 1 && 'none'}`}>{cartProducts.length}</div>
-                  </div> :
+        {isLoggedIn?  <div className='header-cart-icon' onClick={() => navigate('/cart')}>
+                        <FaCartShopping className='cart icon'/>
+                        <span>My Cart</span>
+                        <div className={`cart-length-dot text-small wht ${cartProducts.length < 1? 'none' : ''}`}>{cartProducts.length}</div>
+                      </div> :
         <div onClick={() => showModal()}><FaCartShopping className='cart icon'/>
           <span>My Cart</span>
         </div>

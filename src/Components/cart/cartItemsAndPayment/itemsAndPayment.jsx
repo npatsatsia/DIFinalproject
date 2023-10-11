@@ -30,8 +30,10 @@ const ItemsAndPayment = () => {
 
   let priceSum = 0
 
-  for (const item of products) {
-    priceSum += parseFloat(item.price);
+  if(products) {
+    for (const item of products) {
+      priceSum += parseFloat(item.price);
+    }
   }
   
   useEffect(() => {

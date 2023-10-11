@@ -25,7 +25,7 @@ const dispatch = useDispatch()
 const navigate = useNavigate()
 
 const {products, postLoading, removeLoading } = useSelector(state => state.cartService)
-const {isLoggedIn} = useSelector(state => state.auth)
+const {isLoggedIn, loading } = useSelector(state => state.auth)
 
 useEffect(() => {
   if (locate.pathname === '/profile' || locate.pathname === '/profile/') {
@@ -37,7 +37,7 @@ useEffect(() => {
   if(isLoggedIn) {
     dispatch(getCartProducts())
   }
-}, [dispatch, isLoggedIn, postLoading, removeLoading])
+}, [dispatch, isLoggedIn, postLoading, removeLoading, loading])
 
   return (
     <>

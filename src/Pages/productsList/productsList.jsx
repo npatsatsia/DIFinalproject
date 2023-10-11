@@ -5,15 +5,10 @@ import './index.css'
 import AsideFilters from '../../Components/productsList/asideFilters/asideFilters'
 import ProductsListView from '../../Components/productsList/productsListView/productsListView'
 import { getProducts } from '../../slices/products/index'
-import AuthContext from '../../Context/authProvider/authprovider'
-import { productsListArray } from '../../Static/productsList'
-
 
 
 
 const ProductsList = () => {
-  const { auth } = useContext(AuthContext);
-
   const [showfilters, setShowFilters] = useState(false)
   const [listView, setListview] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()

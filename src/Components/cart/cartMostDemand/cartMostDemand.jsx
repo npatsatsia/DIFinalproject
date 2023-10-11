@@ -14,7 +14,7 @@ const CartMostDemand = () => {
             return <li className='cart-most-demand-li' key={item.id}>
               <div className='cart-md-container'>
                 <div className='cart-md-image'>
-                  <img src={item.img} alt="product-image" />
+                  <img src={item.img} alt="product" />
                 </div>
                 <div className='cart-md-info'>
                   <div className='cart-md-price'>

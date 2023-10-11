@@ -17,7 +17,7 @@ const Security = () => {
   const [validRePass, setValidRePass] = useState(false)
 
   const [oldPass, setOldPass] = useState('')
-  const [message, setMessage] = useState('')
+  // const [message, setMessage] = useState('')
 
   const [hovered, setHovered] = useState(false)
 
@@ -27,13 +27,13 @@ const Security = () => {
     e.preventDefault()
     const v1 = PWD_REGEX.test(newPass);
     if (!v1) {
-      setMessage("Invalid Entry");
+      // setMessage("Invalid Entry");
       return;
   }
 
     if(newPass === rePass && newPass.length >= 6 && oldPass.length >= 6) {
       await dispatch(putUserChange({newPassword: newPass, userName: '', email: ''}))
-      .then(() => setMessage('successfully changed'))
+      // .then(() => setMessage('successfully changed'))
       setNewPass('')
       setRePass('')
       setOldPass('')

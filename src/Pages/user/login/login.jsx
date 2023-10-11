@@ -6,7 +6,6 @@ import Socials from '../../../Components/extra/socials/socials'
 import { FaInfoCircle, FaTimesCircle, FaCheckCircle,} from "react-icons/fa";
 import {login} from '../../../slices/auth/index'
 import { register } from '../../../slices/auth/index'
-import {getEmail} from '../../../slices/auth/index'
 import { getUserInfo } from '../../../Store/userByEmail'
 import { clearMessage } from '../../../slices/auth/message'
 import Loader from '../../../Components/extra/loader/loader'

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './index.css'
 import LogoContainer from '../Header/logo/logo'
 import Search from '../Header/search/search'

@@ -1,9 +1,8 @@
 import React from 'react'
 import './index.css'
 import { useNavigate } from 'react-router-dom'
-import Loader from '../../../extra/loader/loader'
 
-const Categories = ({categories, loading, error}) => {
+const Categories = ({categories, error}) => {
 
     const navigate = useNavigate()
 

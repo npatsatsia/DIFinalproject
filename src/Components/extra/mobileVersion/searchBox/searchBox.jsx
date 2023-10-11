@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import { useNavigate } from 'react-router-dom'
-import {FaSistrix} from 'react-icons/fa6'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../../../slices/products/index'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'

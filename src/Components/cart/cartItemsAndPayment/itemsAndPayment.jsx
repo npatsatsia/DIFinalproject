@@ -52,7 +52,7 @@ const ItemsAndPayment = () => {
     dispatch(removeItemFromCart(prp))
     setOpen(false);
     setVisible(true)
-  },[dispatch]);
+  },[dispatch, JWToken]);
 
   const handleCancel = () => {
     setOpen(false);
@@ -86,7 +86,7 @@ const ItemsAndPayment = () => {
             {products.map((item) => {
               return <div key={item.id} className='cart-single-item-container'>
               <div className='cart-single-image-container'>
-                <img src={item.images[0]} alt="product-image"/>
+                <img src={item.images[0]} alt="product"/>
               </div>
               <div className='cart-product-info-buttons'>
                 <div className='cart-product-name'>

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './index.css'
-import { useSelector } from 'react-redux'
 import Banner from '../../../Components/homeComponents/banner/banner'
 import Offers from '../../../Components/homeComponents/offers/offers'
 import HomeSection from '../../../Components/homeComponents/specialCategories/homeSection/homeSection'
@@ -10,7 +9,6 @@ import Recomended from '../../../Components/homeComponents/recomended/recomended
 import ExtraServices from '../../../Components/homeComponents/extraServices/extraServices'
 import Regions from '../../../Components/homeComponents/regions/regions'
 import Subscribe from '../../../Components/homeComponents/subscribe/subscribe'
-import Loader from '../../../Components/extra/loader/loader'
 
 const HomeMain = () => {
 

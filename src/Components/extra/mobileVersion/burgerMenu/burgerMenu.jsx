@@ -1,8 +1,5 @@
 import React from 'react'
 import './index.css'
-import {FaAlignJustify} from 'react-icons/fa6'
-import { FaSearch } from "react-icons/fa";
-import Sidebar from '../sidebar/sidebar';
 
 const BurgerMenu = ({setShow}) => {
   return (

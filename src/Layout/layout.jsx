@@ -8,8 +8,6 @@ import FooterMain from '../Components/Footer/footerMain/footerMain'
 import FooterOwner from '../Components/Footer/footerOwner/footerOwner'
 import Router from '../Routes'
 import HeaderMobile from '../Components/extra/mobileVersion/headerMobile/headerMobile'
-import Loader from '../Components/extra/loader/loader'
-// import {getCartProducts} from '../Store/getCartProducts'
 import { getCartProducts } from '../slices/cart'
 
 
@@ -33,7 +31,7 @@ useEffect(() => {
   if (locate.pathname === '/profile' || locate.pathname === '/profile/') {
     navigate('/profile/edit-profile');
   }
-}, [locate.pathname]);
+}, [locate.pathname, navigate]);
 
 useEffect(() => {
   if(isLoggedIn) {

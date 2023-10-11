@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './index.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import avatar from '../../../Assets/images/Avatar.png'

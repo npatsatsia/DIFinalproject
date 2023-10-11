@@ -5,7 +5,6 @@ import AuthService from '../../Services/auth.service';
 
 const user = JSON.parse(localStorage.getItem("user"));
 let error = null
-let email
 let loading = false
 let registered = false
 let message

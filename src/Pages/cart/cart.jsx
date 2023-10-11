@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './index.css'
 import ItemsAndPayment from '../../Components/cart/cartItemsAndPayment/itemsAndPayment'
 import StaticInfo from '../../Components/cart/cartStaticInfo/staticInfo'

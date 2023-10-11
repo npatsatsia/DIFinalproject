@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import './index.css'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleProductInfo from '../../Components/singleProduct/singleProductInfo/singleProductInfo';
 import DescriptionAndMayLike from '../../Components/singleProduct/descriptionAndMayLike/descriptionAndMayLike';

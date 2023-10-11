@@ -10,17 +10,12 @@ import { getProducts } from '../../../slices/products/index'
 
 const Search = ({setMainEclipse}) => {
   const [inputValue, setInputValue] = useState('')
-  const [selectValueId, setSelectValueId] = useState('')
-  const [searchParams, setSearchParams] = useSearchParams()
-  
-  
-
+  const [selectValueId, setSelectValueId] = useState('')  
 
   const {categories} = useSelector((state) => state.filteredProducts)
 
   const {data} = useSelector((state) => state.products)
 
-  const params = Object.fromEntries([...searchParams])
 
   const Swal = require('sweetalert2')
 

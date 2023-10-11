@@ -1,6 +1,5 @@
-import { useLocation, Outlet, Navigate, Link } from "react-router-dom"
+import { useLocation, Outlet, Navigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import Swal from 'sweetalert2'
 
 
 const RequireAuth = () => {

@@ -8,6 +8,7 @@ import Categories from './categories/categories';
 import { getCategories } from '../../../slices/filterItems/index';
 import { logout } from '../../../slices/auth';
 import { getUserInfo } from '../../../Store/userByEmail';
+import Loader from '../../extra/usernameLoader/loader';
 
 
 
@@ -17,6 +18,8 @@ const localUserName = JSON.parse(localStorage.getItem('userinfo'))
 const [open, setOpen] = useState(false);
 
 const {categories, error, loading} = useSelector((state) => state.filteredProducts)
+
+const {userInfoLoading} = useSelector((state) => state.userInfo)
 
 const {isLoggedIn} = useSelector((state) => state.auth)
 
@@ -85,10 +88,12 @@ useEffect(() => {
                         <div className='user-avatar-container'>
                             <img src={avatar} alt='avatar'/>
                         </div>
-                        <div className='span-container'>
-                            <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{localUserName? localUserName.userName : 'user'}</span></span>
-                            <span>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
-                        </div>
+                        {userInfoLoading? <Loader/> : 
+                            <div className='span-container'>
+                                <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{localUserName? localUserName.userName : 'user'}</span></span>
+                                <span>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
+                            </div>
+                        }
                     </div>
                     <div className='user-buttons'>
                         <button onClick={() => handleNavReg()} className={`user-join-button ${isLoggedIn? 'btn-dsnone' : ''}`} >Sign up</button>

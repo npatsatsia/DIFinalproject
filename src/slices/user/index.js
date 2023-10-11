@@ -16,7 +16,7 @@ export const putUserChange = createAsyncThunk(
 )
 
 const initialState = {
-    loading: false,
+    userInfoLoading: false,
     changeSuccess: [],
     error: null
 }
@@ -26,14 +26,14 @@ const userEditSlice = createSlice({
     initialState,
     extraReducers: {
         [putUserChange.pending]: (state) => {
-            state.loading = true;
+            state.userInfoLoading = true;
         },
         [putUserChange.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.userInfoLoading = false;
             state.changeSuccess = action.payload
         },
         [putUserChange.rejected]: (state,action) => {
-            state.loading = false;
+            state.userInfoLoading = false;
             state.error = action.error.message
         },
     }

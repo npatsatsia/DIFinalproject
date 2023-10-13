@@ -5,6 +5,21 @@ import cattle from '../Assets/images/cattle.png'
 import italy from '../Assets/images/italy.png'
 import arab from '../Assets/images/arab.png'
 import australia from '../Assets/images/australia.png'
+import aa from '../Assets/images/staticimages/0c25ac335a1e2cc7d8d3584a3592fbbf.png'
+import bb from '../Assets/images/staticimages/2c0a4a3071479d3ea04dbef308c19301.png'
+import cc from '../Assets/images/staticimages/4a30e1c40080fa607437adb64caa3545.png'
+import ee from '../Assets/images/staticimages/586039a280de93d50e94bf032efdd75a.png'
+import ff from '../Assets/images/staticimages/67d46067797d63f72c5d238bab2c834f.png'
+import gg from '../Assets/images/staticimages/7844418a11051c24070081697c1e9a58.png'
+import hh from '../Assets/images/staticimages/921125a2f4338a498944624980a164d2.png'
+import ii from '../Assets/images/staticimages/d628afe6f0f52ecee5cf9460f0d0d69d.png'
+import jj from '../Assets/images/staticimages/db935c4b51e951193ddd1064f61e7b77.png'
+import france from '../Assets/images/flags/france.png'
+import gb from '../Assets/images/flags/GB.png'
+import china from '../Assets/images/flags/china.png'
+import russia from '../Assets/images/flags/russia.png'
+import usa from '../Assets/images/flags/usa.png'
+import denmark from '../Assets/images/flags/denmark.png'
 
 export const offersArray = [
     {
@@ -120,54 +135,54 @@ export const recomendedArray = [
         id: '123'
     },
     {
-        image: cattle, 
+        image: aa, 
         price: '12.30', 
         about: 'T-shirts with multiple colors, for men', 
         id: '122'
     },
     {
-        image: cattle, 
+        image: bb, 
         price: '34.00', 
         about: 'Brown winter coat medium size', 
         id: '321'
     },
     {
-        image: cattle, 
+        image: cc, 
         price: '10.30', 
         about: 'T-shirts with multiple colors, for men', 
         id: '532'
     },
     {
-        image: cattle, 
+        image: jj, 
         price: '99.00', 
         about: 'Canon camera black, 100x zoom', 
         id: '621'
     },
     {
-        image: cattle, 
+        image: ee, 
         price: '10.30', 
         about: 'Smartwatch silver color modern', 
         id: '2341'
     },
     {
-        image: cattle, 
+        image: ff, 
         price: '8.99', 
         about: 'Blue wallet for men leather metarfial', 
         id: '6345634'
     },
     {
-        image: cattle, price: '80.95', 
+        image: gg, price: '80.95', 
         about: 'Headset for gaming with mic', 
         id: '124630078462'
     },
     {
-        image: cattle, 
+        image: hh, 
         price: '34.00', 
         about: 'Jeans bag for travel for men', 
         id: '124123463462'
     },
     {
-        image: cattle, 
+        image: ii, 
         price: '39.95', 
         about: 'Smartwatch silver color modern', 
         id: '1246171881133462'
@@ -176,43 +191,43 @@ export const recomendedArray = [
 
 export const regionsArray = [
     {
-        flag: italy, 
+        flag: arab, 
         country: 'Arabic Emirates', 
         web: 'shopname.ae', 
         id: 'aggsdf'
     },
     {
-        flag: arab, 
+        flag: australia, 
         country: 'Australia', 
         web: 'shopname.ae', 
         id: 'aggwrqsdf'
     },
     {
-        flag: australia, 
+        flag: usa, 
         country: 'United States', 
         web: 'shopname.ae', 
         id: 'agasfgsdf'
     },
     {
-        flag: italy, 
+        flag: russia, 
         country: 'Russia', 
         web: 'shopname.aru', 
         id: 'agggasdf'
     },
     {
-        flag: arab, 
+        flag: italy, 
         country: 'Italy', 
         web: 'shopname.it', 
         id: 'agqwegsdf'
     },
     {
-        flag: australia, 
+        flag: denmark, 
         country: 'Denmark', 
         web: 'shopname.com.dk', 
         id: 'aggggsdf'
     },
     {
-        flag: italy, 
+        flag: france, 
         country: 'France ', 
         web: 'shopname.com.fr', 
         id: 'ag124gsdf'
@@ -224,15 +239,15 @@ export const regionsArray = [
         id: 'agg5bb12sdf'
     },
     {
-        flag: italy, 
+        flag: china, 
         country: 'China', 
         web: 'shopname.ae', 
         id: 'asdfggsdf'
     },
     {
-        flag: australia, 
-        country: 'China', 
-        web: 'shopname.co.uk', 
+        flag: gb, 
+        country: 'Great Britain',
+        web: 'shopname.co.uk',
         id: 'aggasdf'
     },
 ]

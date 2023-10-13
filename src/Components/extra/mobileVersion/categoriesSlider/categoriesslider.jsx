@@ -32,7 +32,7 @@ if (error) {
     <div className={`mobile-categories-slider ${headerSettings.categories? headerSettings.categories : ''}`}>
         <ul>
             {categories.map((item) => {
-                return  <li key={item.id + 878926498263} onClick={() => handleClick(item.id, item.name)}>{item.name}</li>
+                return  <li className='text-base blu' key={item.id + 878926498263} onClick={() => handleClick(item.id, item.name)}>{item.name}</li>
             })}
         </ul>
     </div>

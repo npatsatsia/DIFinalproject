@@ -20,11 +20,11 @@ const HomeSection = () => {
     <section className='homepg-home-categories'>
       <div className='homepg-home-categories-container'>
         <div className='home-outdoor-header-active'>
-            <h1 className='h3-title drk'>Latest Products</h1>
+            <h3 className='h3-title drk'>Latest Products</h3>
         </div>
         <div className='home-outdoor-img-container'>
             <div>
-                <span className='h3-title drk'>Latest Products</span>
+                <h3 className='h3-title drk'>Latest Products</h3>
                 <Link to={'/products'} >
                   <button className='btn-normal drk'>Source now</button>
                 </Link>
@@ -37,12 +37,27 @@ const HomeSection = () => {
                         <div className='home-single-category'>
                             <div className='home-single-category-text'>
                               <Link to={`/product/${item.id}`}  className='link'>
-                                <span>{item.name}</span>
+                                <span className='text-base drk'>{item.name}</span>
                               </Link>
                               <Link to={`/product/${item.id}`}>
                                 <img src={item.image} alt={item.name} className='link'/>
                               </Link>
-                              <span>From <br className='from-br'/>{item.price}</span>
+                              <span className='text-small gr5'>From <br className='from-br'/>{item.price}</span>
+                            </div>
+                        </div>
+                    </li>
+                })}
+                {latestProducts.map((item, i) => {
+                    return i < 2 && <li key={item.id}>
+                        <div className='home-single-category'>
+                            <div className='home-single-category-text'>
+                              <Link to={`/product/${item.id}`}  className='link'>
+                                <span className='text-base drk' >{item.name}</span>
+                              </Link>
+                              <Link to={`/product/${item.id}`}>
+                                <img src={item.image} alt={item.name} className='link'/>
+                              </Link>
+                              <span className='text-small gr5'>From <br className='from-br'/>{item.price}</span>
                             </div>
                         </div>
                     </li>
@@ -52,7 +67,7 @@ const HomeSection = () => {
         <div className='sourceing-container-active'>
           <Link to={`/products`} className='link'>
             <div>
-              <p>Source now</p>
+              <p className='text-btn-normal blu'>Source now</p>
               <FaArrowRight/>
             </div>
           </Link>

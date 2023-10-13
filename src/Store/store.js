@@ -20,7 +20,11 @@ const store = configureStore({
         cartService: CartServiceReducer,
         removeItemFromCart: RemoveItemFromCart,
         editUserReducer: EditUserReducer
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+        serializableCheck: false,
+    }),
 })
 
 export default store

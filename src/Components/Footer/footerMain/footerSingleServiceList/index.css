@@ -1,14 +1,6 @@
 .footer-title-toggle .footer-chevron {
     display: none;
 }
-.footer-title {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px;
-    color: #1c1c1c;
-}
 
 @media (max-width: 767px) {
     .footer-main-section .footer-main-container .footer-toggle {

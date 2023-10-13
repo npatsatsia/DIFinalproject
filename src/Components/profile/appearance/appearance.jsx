@@ -4,7 +4,7 @@ import './index.css'
 const Appearance = () => {
   return (
     <div className='nothing-to-show'>
-      <h1>
+      <h1 className='nothing-to-show'>
         nothing to see here
       </h1>
     </div>

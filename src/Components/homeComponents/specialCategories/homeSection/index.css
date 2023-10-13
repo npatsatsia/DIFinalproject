@@ -17,15 +17,6 @@
     display: none;
 }
 
-.home-outdoor-header-active h1 {
-    font-family: 'Inter';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    color: #1C1C1C;
-}
-
 .homepg-home-categories-container .home-outdoor-img-container {
     background-image: url('../../../../Assets/images/homeAndOutdoorBKG.png');
     opacity: 0.8;
@@ -70,16 +61,65 @@
     padding: 0;
     border-collapse: separate;
     border-spacing: 1px;
-
 }
 
 .home-outdoor-categories-container ul li {
     width: 25%;
     height: 150px;
-    border: 1px solid black;
     margin: 0;
-  padding: 0;
+    padding: 0;
 }
+
+
+
+
+
+
+.home-outdoor-categories-container ul li:nth-child(1) {
+    border-top: 1px solid #DEE2E7;
+    border-left: 1px solid #DEE2E7;
+    border: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(2) {
+    border-top: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+    border-bottom: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(3) {
+    border-top: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+    border-bottom: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(4) {
+    border-top: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+    border-bottom: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(5) {
+    border-bottom: 1px solid #DEE2E7;
+    border-left: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(6) {
+    border-bottom: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(7) {
+    border-bottom: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+}
+.home-outdoor-categories-container ul li:nth-child(8) {
+    border-bottom: 1px solid #DEE2E7;
+    border-right: 1px solid #DEE2E7;
+}
+
+
+
+
+
+
+
+
 
 .home-outdoor-categories-container ul li .home-single-category {
     padding-top: 25px;
@@ -87,25 +127,10 @@
 
 .home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(1) {
     display: block;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #1C1C1C;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden; 
-}
-
-.home-outdoor-categories-container ul li .home-single-category .home-single-category-text :nth-child(3) {
-    font-family: 'Inter';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #8B96A5;
 }
 
 .home-outdoor-categories-container ul li .home-single-category .home-single-category-text {
@@ -122,20 +147,12 @@
 
 .homepg-home-categories-container .sourceing-container-active {
     display: none;
-    border-bottom: 1px solid  #DEE2E7;
-    border-left: 1px solid  #DEE2E7;
-    border-right: 1px solid  #DEE2E7;
+    border: 1px solid  #DEE2E7;
     width: 100%;
     padding: 9px 0 10px 9px;
 }
 
 .homepg-home-categories-container .sourceing-container-active div {
-    color: #0D6EFD;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -162,12 +179,21 @@
     .home-outdoor-header-active {
         display: block;
     }
-    .home-outdoor-categories-container ul li {
+    .homepg-home-categories .home-outdoor-categories-container ul li {
         width: calc(100% / 2);
+        border-top: 1px solid #DEE2E7;
+        border-bottom: none;
     }
 
     .homepg-home-categories-container .sourceing-container-active {
         display: block;
+    }
+    .home-outdoor-categories-container ul li:nth-child(odd) {
+        border-left: 1px solid #DEE2E7;
+    }
+    .home-outdoor-categories-container ul li:nth-child(even) {
+        border-right: 1px solid #DEE2E7;
+        border-left: none;
     }
  }
 
@@ -178,10 +204,14 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
     }
-    .home-outdoor-categories-container ul li {
+    .homepg-home-categories .home-outdoor-categories-container ul li {
         grid-row: 1;
         width: 130px;
         height: unset;
+    }
+
+    .homepg-home-categories .home-outdoor-categories-container ul li:nth-child(odd):not(:first-child) {
+        border-left: none;
     }
 
     .home-outdoor-categories-container ul li .home-single-category .home-single-category-text {

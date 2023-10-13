@@ -141,7 +141,7 @@ const ItemsAndPayment = () => {
             <div className='coupon-form'>
               <div className='coupon-input-button'>
                 <div className='coupon-input'>
-                  <input type="text"  placeholder='Add coupon'/>
+                  <input className='text-base gr5' type="text"  placeholder='Add coupon'/>
                 </div>
                 <div className='coupon-button'>
                   <button className='text-btn-normal blu'>Apply</button>

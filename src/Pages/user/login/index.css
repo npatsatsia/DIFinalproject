@@ -35,53 +35,8 @@
     cursor: pointer;
 }
 
-.user-section-page .user-container .container .text-link .welcome span{
-    color: #000;
-    font-family: 'Poppins';
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.user-section-page .user-container .container .text-link .welcome span span {
-    color: #779341;
-    font-family: 'Poppins';
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.user-section-page .user-container .container .text-link .welcome h1 {
-    color: #000;
-    font-family: 'Poppins';
-    font-size: 55px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
 .user-section-page .user-container .container .text-link .link {
     padding-top: 6px;
-}
-
-.user-section-page .user-container .container .text-link .link span {
-    color: #8D8D8D;
-    font-family: 'Poppins';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.user-section-page .user-container .container .text-link .link div {
-    color: #779341;
-    font-family: 'Poppins';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .user-section-page .user-container .container .user-login-form {
@@ -92,15 +47,6 @@
     display: flex;
     flex-direction: column;
     gap: 13px;
-}
-
-.user-section-page .user-container .container label {
-    color: #000;
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .user-section-page .user-container .container .user-login-form .login-password {
@@ -115,12 +61,7 @@
     background: #FFF;
     outline: none;
     padding-left: 1.5rem;
-    color: #000;
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+
 }
 
 .user-section-page .user-container .container .inpt input:focus {
@@ -135,12 +76,6 @@
 .user-section-page .user-container .container .user-login-form span {
     float: right;
     padding-top: 12px;
-    color: #4285F4;
-    font-family: 'Poppins';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .user-section-page .user-container .container .sign-btn-container {
@@ -156,12 +91,6 @@
     border-radius: 10px;
     background: #779341;
     box-shadow: 0px 4px 19px 0px rgba(119, 147, 65, 0.30);
-    color: #FFF;
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
 }
 
 .social-login {
@@ -251,12 +180,6 @@
     background: #FFF;
     outline: none;
     padding-left: 1.5rem;
-    color: #000;
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
 }
 
 

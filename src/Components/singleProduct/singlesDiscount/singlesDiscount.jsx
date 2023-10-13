@@ -18,7 +18,7 @@ const SinglesDiscount = () => {
                         </div>
                     </div>
                     <div>
-                        <button>Shop now</button>
+                        <button className='text-btn wht'>Shop now</button>
                     </div>
                 </div>
             </div>

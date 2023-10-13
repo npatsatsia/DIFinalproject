@@ -31,20 +31,20 @@ const Timer = ({ targetDate }) => {
   return (
     <div className="countdown-timer">
       <div className="countdown-item">
-        <span>{remainingTime.days}</span>
-        <span>Days</span>
+        <span className='text-timer-big wht'>{remainingTime.days}</span>
+        <span className='text-timer-lit wht'>Days</span>
       </div>
       <div className="countdown-item">
-        <span>{remainingTime.hours}</span>
-        <span>Hour</span>
+        <span className='text-timer-big wht'>{remainingTime.hours}</span>
+        <span className='text-timer-lit wht'>Hour</span>
       </div>
       <div className="countdown-item">
-        <span>{remainingTime.minutes}</span>
-        <span>Min</span>
+        <span className='text-timer-big wht'>{remainingTime.minutes}</span>
+        <span className='text-timer-lit wht'>Min</span>
       </div>
       <div className="countdown-item">
-        <span>{remainingTime.seconds}</span>
-        <span>Sec</span>
+        <span className='text-timer-big wht'>{remainingTime.seconds}</span>
+        <span className='text-timer-lit wht'>Sec</span>
       </div>
     </div>
   );

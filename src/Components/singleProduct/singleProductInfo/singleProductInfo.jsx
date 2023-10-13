@@ -125,7 +125,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
                         <span className='text-normal grn'>In stock</span>
                     </div>
                     <div className='detail-title'>
-                        <h4>{singleProduct.name}</h4>
+                        <h4 className='h4-title drk'>{singleProduct.name}</h4>
                     </div>
                     <div className='detail-mobile-price amp'>
                         <span className='title-h6 red'>${singleProduct.price}</span>
@@ -206,10 +206,10 @@ const SingleProductInfo = ({images, singleProduct}) => {
                         </div>
                     </div>
                     <div className='detail-mobile-description'>
-                        <span className={`gr6 m-readmore ${more? 'more' : ''}`}>
+                        <span className={`gr6 m-readmore text-info ${more? 'more' : ''}`}>
                             {singleProduct.description}
                         </span>
-                        <div onClick={() => (handleShowMore())}>{more? 'Read less' : 'Read more'}</div>
+                        <div className='text-btn-normal blu' onClick={() => (handleShowMore())}>{more? 'Read less' : 'Read more'}</div>
                     </div>
                 </div>
                 <div className='detail-supplier-container'>
@@ -238,7 +238,7 @@ const SingleProductInfo = ({images, singleProduct}) => {
                             </div>
                             <div className='supplier-buttons'>
                                     {isLoggedIn?
-                                (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
+                                (<div className='supplier-btn text-btn-normal btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
                                 (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
                                 }
                                 <div className='supplier-btn btn-white'>Seller's profile</div>

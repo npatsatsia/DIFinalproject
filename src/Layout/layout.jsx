@@ -16,7 +16,6 @@ const [show, setShow] = useState(false)
 const [notFound, setNotFound] = useState(false)
 const [mainEclipse, setMainEclipse] = useState(false)
 
-
 const locate = useLocation()
 const authLocation = locate.pathname === '/auth'
 
@@ -38,6 +37,11 @@ useEffect(() => {
     dispatch(getCartProducts())
   }
 }, [dispatch, isLoggedIn, postLoading, removeLoading, loading])
+
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [locate.pathname]);
 
   return (
     <>

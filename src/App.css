@@ -1,35 +1,3 @@
-.jiMOeR {
-    width: 300px;
-}
-.text-btn {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-.text-title {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 22px;
-}
-.text-info {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.2px;
-}
-.text-base {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
 .text-small {
     font-family: 'Inter';
     font-size: 13px;
@@ -66,6 +34,28 @@
     font-weight: 700;
     line-height: normal;
 }
+.text-base {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.text-title {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+.text-info {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+}
 .text-link {
     font-family: 'Inter';
     font-size: 16px;
@@ -74,49 +64,16 @@
     line-height: 24px;
     letter-spacing: -0.1px;
 }
-.h5-title {
-    font-family: 'Inter';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.h6-title {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.h3-title {
-    font-family: 'Inter';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
-    letter-spacing: -0.2px;
-}
-
-.h1-title {
-    font-family: 'Inter';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
-}
-
-.h4-title {
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28px; /* 140% */
-    letter-spacing: -0.2px;
-}
 .text-btn-small {
     font-family: 'Inter';
     font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.text-btn {
+    font-family: 'Inter';
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -135,6 +92,171 @@
     font-weight: 500;
     line-height: normal;
 }
+.title-h6 {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+ }
+.title-h4 {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+}
+.h6-title {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.h5-title {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.h4-title {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+}
+.h3-title {
+    font-family: 'Inter';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+}
+.title-h2 {
+    font-family: 'Inter';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.2px;
+}
+.h1-title {
+    font-family: 'Inter';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+.text-rare {
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.2px;
+}
+.text-timer-big {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.text-timer-lit {
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.banner-text {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.tektur-h1 {
+    font-family: 'Tektur', cursive;
+    font-weight: 800;
+    font-size: 157px;
+    padding-left: 50px;
+}
+.tektur-h3 {
+    font-family: 'Tektur', cursive;
+    font-weight: 500;
+    font-size: 45px;
+    padding-left: 50px;
+}
+.pop214{
+    font-family: 'Poppins';
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.pop216{
+    font-family: 'Poppins';
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.pop55{
+    font-family: 'Poppins';
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.pop13 {
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.pop164{
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.pop165{
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.pop14{
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.jiMOeR {
+    width: 300px;
+}
+.blk{
+    color: #000;
+}
+.ggrn {
+    color: #779341;
+}
+.offred {
+    color: #EB001B;
+}
 .wht {
     color: #FFF;
 }
@@ -146,6 +268,9 @@
 }
 .blu {
     color: #0D6EFD;
+}
+.lblu{
+    color: #4285F4;
 }
 .red {
     color: #FA3434;
@@ -164,6 +289,9 @@
 }
 .gr9 {
     color: #858585;
+}
+.gr10 {
+    color: #8D8D8D;
 }
  .bkg2 {
     background: #EFF2F4;
@@ -185,35 +313,12 @@
  .bbw1px {
     border-bottom: 1px solid #E0E7E9;
  }
- .title-h6 {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
- }
-.title-h4 {
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28px;
-    letter-spacing: -0.2px;
-}
 .pt9 {
     padding-top: 9px;
 }
 .wht {
     color: white;
 }
-.title-h3 {
-    font-family: 'Inter';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
-    letter-spacing: -0.2px;
-  }
 .none {
     display: none;
 }

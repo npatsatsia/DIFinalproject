@@ -55,11 +55,11 @@ const Pricerange = () => {
           />
         <div className='slider-inputs-container'>
           <div className='input-min'>
-            <label htmlFor="input-min" className='font-family-inter'>Min</label>
+            <label htmlFor="input-min" className='text-base drk'>Min</label>
             <input type="number" placeholder={`0`} value={+minValue} id='input-min' onChange={(e) => (setMinValue(e.target.value))}/>
           </div>
           <div className='input-max'>
-            <label htmlFor="input-max" className='font-family-inter'>Max</label>
+            <label htmlFor="input-max" className='text-base drk'>Max</label>
             <input type="number" placeholder={`4999`} value={+maxValue} id='input-max' onChange={(e) => (setMaxValue(e.target.value))}/>
           </div>
         </div>

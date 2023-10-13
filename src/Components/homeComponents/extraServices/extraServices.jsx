@@ -12,7 +12,7 @@ const ExtraServices = () => {
     <section className='homepg-extra-services-section'>
       <div className='extra-services-container'>
         <div className='extra-services-title'>
-          <h3>Our extra services</h3>
+          <h3 className='h3-title drk'>Our extra services</h3>
         </div>
         <div className='extra-services-list'>
           <div className='single-extra-service'>
@@ -21,7 +21,7 @@ const ExtraServices = () => {
             </div> */}
             <img src={boxes} alt="industry hubs" />
             <div>
-              <span>Source from Industry Hubs</span>
+              <span className='text-title drk'>Source from Industry Hubs</span>
             </div>
           </div>
           <div className='single-extra-service'>
@@ -30,7 +30,7 @@ const ExtraServices = () => {
             </div> */}
             <img src={customize} alt="Customize Your Products" />
             <div>
-              <span>Customize Your Products</span>
+              <span className='text-title drk'>Customize Your Products</span>
             </div>
           </div>
           <div className='single-extra-service'>
@@ -39,7 +39,7 @@ const ExtraServices = () => {
             </div> */}
             <img src={shipping} alt="shipping" />
             <div>
-              <span>Fast, reliable shipping by ocean or air</span>
+              <span className='text-title drk'>Fast, reliable shipping by ocean or air</span>
             </div>
           </div>
           <div className='single-extra-service'>
@@ -48,7 +48,7 @@ const ExtraServices = () => {
             </div> */}
             <img src={monitoring} alt="monitoring" />
             <div>
-              <span>Product monitoring and inspection</span>
+              <span className='text-title drk'>Product monitoring and inspection</span>
             </div>
           </div>
         </div>

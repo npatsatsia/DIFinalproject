@@ -14,18 +14,17 @@ import ProfileNav from './profileNav'
 const Router = ({setNotFound}) => {
   return (
     <Routes>
-      
       <Route path='/' element={<OuteletMain/>}>
-      <Route path='/products' element={<ProductsList/>}/>
-        <Route path='/' element={<HomeMain/>}/>
-        <Route path='/product/:productId' element={<DetailMain setNotFound={setNotFound}/>}/>
-        <Route path='/auth' element={<Login/>}/>
-        <Route element={<RequireAuth/>}>
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/profile/:current' element={<Profile/>}/>
-        </Route>
-        <Route path='/notfound' element={<NotFound setNotFound={setNotFound}/>} />
-        <Route path='*' element={<Navigate to={'/notfound'}/>} />
+          <Route path='/products' element={<ProductsList/>}/>
+          <Route path='/' element={<HomeMain/>}/>
+          <Route path='/product/:productId' element={<DetailMain setNotFound={setNotFound}/>}/>
+          <Route path='/auth' element={<Login/>}/>
+          <Route element={<RequireAuth/>}>
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/profile/:current' element={<Profile/>}/>
+          </Route>
+          <Route path='/notfound' element={<NotFound setNotFound={setNotFound}/>} />
+          <Route path='*' element={<Navigate to={'/notfound'}/>} />
       </Route>
     </Routes>
   )

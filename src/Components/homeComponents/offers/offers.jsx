@@ -21,8 +21,8 @@ const Offers = () => {
         <div className='home-offers-container'>
             <div className='home-timer-container'>
                 <div className='home-timer-text'>
-                    <span>Deals and offers</span>
-                    <span>Hygiene equipments</span>
+                    <h4 className='h4-title drk'>Deals and offers</h4>
+                    <span className='text-base gr5'>Hygiene equipments</span>
                 </div>
                 <Timer targetDate={targetDate}/>   
             </div>
@@ -31,13 +31,13 @@ const Offers = () => {
                     offeredProducts.map((item) => {
                         return <li key={item.id}>
                                     <div className='home-offers-image-container'>
-                                        <Link to={`/product/${item.id}`}>
+                                        <Link to={`/notfound`}>
                                             <img src={item.image} alt={item.name} />
                                         </Link>
                                     </div>
                                     <div className='home-offers-info-container'>
-                                        <span>{item.name}</span>
-                                        <span>{`-${Math.floor((item.newPrice / item.oldPrice) * 100)}%`}</span>
+                                        <span className='text-normal drk'>{item.name}</span>
+                                        <span className='text-rare offred'>{`-${Math.floor((item.newPrice / item.oldPrice) * 100)}%`}</span>
                                     </div>
                                 </li>
                     })

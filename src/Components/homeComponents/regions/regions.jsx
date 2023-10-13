@@ -9,7 +9,7 @@ const Regions = () => {
     <section className='homepg-regions-section'>
         <div className='homepg-regions-container'>
             <div className='regions-title'>
-                <h3>Suppliers by region</h3>
+                <h3 className='h3-title drk'>Suppliers by region</h3>
             </div>
             <div className='regions-list-container'>
                 <ul className={`regions-list-ul`}>
@@ -20,15 +20,15 @@ const Regions = () => {
                                             <img src={item.flag} alt={item.country} />
                                         </div>
                                         <div className='regions-info'>
-                                            <span>{item.country}</span>
-                                            <span>{item.web}</span>
+                                            <span className='text-normal drk'>{item.country}</span>
+                                            <span className='text-small gr5'>{item.web}</span>
                                         </div>
                                     </div>
                                 </li>
                     })}
                 </ul>
                 <div className={`show-more-regions${showMore ? ' active' : ''}`} onClick={() => setShowMore(!showMore)}>
-                    <span>{showMore ? 'More...' : 'Show Less'}</span>
+                    <span className='text-title'>{showMore ? 'More...' : 'Show Less'}</span>
                 </div>
             </div>
         </div>

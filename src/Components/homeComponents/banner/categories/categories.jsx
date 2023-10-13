@@ -25,7 +25,7 @@ const Categories = ({categories, error}) => {
         <ul>
             {categories.map((item) => {
                 return (
-                    <li key={item.id + 878926498263} onClick={() => handleClick(item.id, item.name)}>{item.name}</li>
+                    <li className='text-base gr6' key={item.id + 878926498263} onClick={() => handleClick(item.id, item.name)}>{item.name}</li>
             )})}
         </ul>
     </div>

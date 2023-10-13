@@ -91,13 +91,15 @@ const Sidebar = ({show, setShow, cartProducts}) => {
     <div className={`sidebar-aside ${show? 'show' : 'hide'}`} >
     <aside ref={sideNavRef}>
         <div className='sidebar-container'>
-            <div className='sidebar-user'>
+            <div className='sidebar-user text-base drk'>
                 <div className='sb-user-img'>
                     <img src={isLoggedIn? authAvatar : avatar} alt="avatar" />
                 </div>
                     {isLoggedIn? 
                         <div className='sb-user-links'>
-                            <span>Profile </span>
+                            <Link to={'/profile/edit-profile'} className='link' >
+                                <span onClick={() => (setShow(false))}>Profile </span>
+                            </Link>
                              | 
                             <span className='red' onClick={() => showModal()}> Log out</span>
                             <Modal
@@ -116,7 +118,7 @@ const Sidebar = ({show, setShow, cartProducts}) => {
                         </div>}
             </div>
             <div className='sidebar-main'>
-                <div className='sidebar-single-item with-icon'>
+                <div className='sidebar-single-item with-icon text-base drk'>
                     <HiOutlineHome/>
                     <Link className='link' to={'/'}>
                         <span>Home</span>

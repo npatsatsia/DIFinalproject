@@ -25,25 +25,8 @@
 }
 
 .home-supplier-background .home-supplier-container .home-supplier-text h2 {
-    font-family: 'Inter';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.2px;
-    color: #FFF;
     padding-bottom: 13px;
 }
-
-.home-supplier-background .home-supplier-container .home-supplier-text span {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.2px;
-    color: #FFF;
-    }
 
 .home-supplier-background .home-supplier-container form {
     background-color: #fff;
@@ -58,25 +41,11 @@
     padding: 22px 31px 25px 20px;
 }
 
-.home-supplier-background .home-supplier-container form .inquiry-form h3 {
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28px;
-    letter-spacing: -0.2px;
-    color: #1c1c1c;
-}
 .home-supplier-background .home-supplier-container form .inquiry-form input {
     border: 1px solid #DEE2E7;
     border-radius: 3px;
     outline: none;
     height: 40px;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     border-radius: 4px;
     width: 100%;
     
@@ -86,11 +55,6 @@
     outline: none;
     border: 1px solid #DEE2E7;
     border-radius: 3px;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     border-radius: 4px;
 }
 
@@ -103,12 +67,6 @@
 }
 
 .home-supplier-background .home-supplier-container form .inquiry-form button {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #fff;
     width: 128px;
     height: 40px;
     border-radius: 6px;
@@ -122,21 +80,6 @@
     border-radius: 4px;
     border: 1px solid #DEE2E7;
     width: 111px;
-    color: #1C1C1C;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.home-supplier-background .home-supplier-container form .inquiry-form select option {
-    color: #1C1C1C;
-    font-family: 'Inter';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
  @media (min-width: 576px){

@@ -6,12 +6,6 @@
     align-items: center;
 }
 
-.nothing-to-show h1 {
-    font-family: 'Inter';
-    font-size: 36px;
-    font-weight: 600;
-}
-
 .user-security-section {
     width: 70%;
     height: 100%;
@@ -87,6 +81,7 @@
     border: none;
     outline: none;
     height: 100%;
+    padding-left: 15px;
 }
 
 .shouldHoverPRF {
@@ -103,11 +98,17 @@
     z-index: 101;
     width: 230px;
     background-color: #5C85FF;
-    font-size: 16px;
-    color: black;
-    font-family: 'Inter';
 }
 
 .user-buttons-container {
     z-index: 10;
+}
+
+@media (max-width: 992px){
+    .security-old-password div {
+        height: 39px;
+    }
+    .shouldHoverPRF {
+        width: 45px;
+    }
 }

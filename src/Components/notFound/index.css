@@ -15,21 +15,6 @@ background-position: 26%;
 height: 100vh;
 }
 
-.not-found-bkg h1 {
-    font-family: 'Tektur', cursive;
-    font-weight: 800;
-    font-size: 157px;
-    padding-left: 50px;
-    color: #1E2328;
-}
-.not-found-bkg h3 {
-    font-family: 'Tektur', cursive;
-    font-weight: 500;
-    font-size: 45px;
-    padding-left: 50px;
-    color: #1E2328;
-}
-
 .error-back-home {
     width: 240px;
     border-radius: 6px;

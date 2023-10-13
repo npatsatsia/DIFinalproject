@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { initialState } from './initialState'
-
 
 export const getUserInfo = createAsyncThunk('user/getUserInfo', async (email) => {
     if(email){
@@ -15,26 +13,31 @@ export const getUserInfo = createAsyncThunk('user/getUserInfo', async (email) =>
             }
             )
             localStorage.setItem('userinfo', JSON.stringify(response.data[0]))
-            console.log(response.data[0].userName)
             return response.data[0].userName
         }catch (error) {
             throw error
     }}
 });
 
+const initialState = {
+  userName: [],
+  infoLoading: false,
+  error: null
+}
+
 const userInfoSlice = createSlice({
   name: 'userInfo',
   initialState,
   extraReducers: {
     [getUserInfo.pending]: (state) => {
-      state.InfoLoading = true
+      state.infoLoading = true
     },
     [getUserInfo.fulfilled]: (state, action) => {
-        state.InfoLoading = false
+        state.infoLoading = false
         state.userName = action.payload
     },
     [getUserInfo.rejected]: (state) => {
-      state.InfoLoading = false
+      state.infoLoading = false
     }
   }
 })

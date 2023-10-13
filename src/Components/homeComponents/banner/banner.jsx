@@ -19,7 +19,7 @@ const [open, setOpen] = useState(false);
 
 const {categories, error, loading} = useSelector((state) => state.filteredProducts)
 
-const {userInfoLoading} = useSelector((state) => state.userInfo)
+const {infoLoading} = useSelector((state) => state.userInfo)
 
 const {isLoggedIn} = useSelector((state) => state.auth)
 
@@ -77,9 +77,9 @@ useEffect(() => {
             />
             <div className='home-latest-trending'>
                 <div className='banner-info'>
-                    <span>Latest trending</span>
-                    <span>Electronic items</span>
-                    <button>Learn more</button>
+                    <span className='text-large drk'>Latest trending</span>
+                    <span className='banner-text drk'>Electronic items</span>
+                    <button className='text-btn-normal drk'>Learn more</button>
                 </div>
             </div>
             <div className='home-user'>
@@ -88,18 +88,18 @@ useEffect(() => {
                         <div className='user-avatar-container'>
                             <img src={avatar} alt='avatar'/>
                         </div>
-                        {userInfoLoading? <Loader/> : 
+                        {infoLoading? <Loader/> : 
                             <div className='span-container'>
-                                <span>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{localUserName? localUserName.userName : 'user'}</span></span>
-                                <span>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
+                                <span className='text-small'>Hi, <span className={isLoggedIn? 'text-small grn' : 'text-small'}>{localUserName? localUserName.userName : 'user'}</span></span>
+                                <span className='text-small'>{isLoggedIn? 'Welcome Back' : "Let's Get Started"}</span>
                             </div>
                         }
                     </div>
                     <div className='user-buttons'>
-                        <button onClick={() => handleNavReg()} className={`user-join-button ${isLoggedIn? 'btn-dsnone' : ''}`} >Sign up</button>
-                        <button onClick={() => handleNavLogin()} className={`user-login-button ${isLoggedIn? 'btn-dsnone' : ''}`} >Log in</button>
-                        <button className={`user-join-button ${!isLoggedIn? 'btn-dsnone' : ''}`} onClick={() => showModal()}>Log out</button>
-                        <button className={`user-login-button ${!isLoggedIn? 'btn-dsnone' : ''}`}>User Settings</button>
+                        <button onClick={() => handleNavReg()} className={`user-join-button wht ${isLoggedIn? 'btn-dsnone' : ''}`} >Sign up</button>
+                        <button onClick={() => handleNavLogin()} className={`user-login-button blu ${isLoggedIn? 'btn-dsnone' : ''}`} >Log in</button>
+                        <button className={`user-join-button text-btn-small wht ${!isLoggedIn? 'btn-dsnone' : ''}`} onClick={() => showModal()}>Log out</button>
+                        <button className={`user-login-button text-btn-small blu ${!isLoggedIn? 'btn-dsnone' : ''}`} onClick={() => (navigate('/profile/edit-profile'))}>User Settings</button>
                         <Modal
                             okText='Log out'
                             title="Are you sure you want to log out?"
@@ -110,10 +110,10 @@ useEffect(() => {
                     </div>
                 </div>
                 <div className='new-supplier'>
-                    <span>Get US $10 off with a new supplier</span>
+                    <span className='text-base wht'>Get US $10 off with a new supplier</span>
                 </div>
                 <div className='send-quotes'>
-                    <span>Send quotes with supplier preferences</span>
+                    <span className='text-base wht'>Send quotes with supplier preferences</span>
                 </div>
             </div>
         </div>

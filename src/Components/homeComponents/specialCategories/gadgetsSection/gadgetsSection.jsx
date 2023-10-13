@@ -21,7 +21,7 @@ const GadgetsSection = () => {
     <section className='homepg-gadgets-categories'>
       <div className='homepg-gadgets-categories-container'>
         <div className='homepg-gadgets-header-active'>
-            <h1 className='h3-title drk'>Most Demand Products</h1>
+            <h3 className='h3-title drk'>Most Demand Products</h3>
         </div>
         <div className='homepg-gadgets-img-container'>
             <div>
@@ -38,12 +38,27 @@ const GadgetsSection = () => {
                         <div className='homepg-gadgets-single-category'>
                             <div className='homepg-gadgets-single-category-text'>
                               <Link to={`/product/${item.id}`} className='link'>
-                                <span>{item.name}</span>
+                                <span className='text-base drk'>{item.name}</span>
                               </Link>
                               <Link to={`/product/${item.id}`} className='link'>
                                 <img src={item.images[1]} alt={item.name}  className='link'/>
                               </Link>
-                              <span>From <br className='from-br'/>{item.price}</span>
+                              <span className='text-small gr5'>From <br className='from-br'/>{item.price}</span>
+                            </div>
+                        </div>
+                    </li>
+                })}
+                {mostDemandProducts.map((item, i) => {
+                    return i < 3 && <li key={item.id}>
+                        <div className='homepg-gadgets-single-category'>
+                            <div className='homepg-gadgets-single-category-text'>
+                              <Link to={`/product/${item.id}`} className='link'>
+                                <span className='text-base drk'>{item.name}</span>
+                              </Link>
+                              <Link to={`/product/${item.id}`} className='link'>
+                                <img src={item.images[1]} alt={item.name}  className='link'/>
+                              </Link>
+                              <span className='text-small gr5'>From <br className='from-br'/>{item.price}</span>
                             </div>
                         </div>
                     </li>
@@ -53,7 +68,7 @@ const GadgetsSection = () => {
         <div className='sourceing-container-active'>
           <Link to={`/products`} className='link'>
             <div>
-              <p>Source now</p>
+              <p className='text-btn-normal blu'>Source now</p>
               <FaArrowRight/>
             </div>
           </Link>

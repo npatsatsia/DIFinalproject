@@ -36,21 +36,8 @@ display: none;
 .sidebar-aside .sidebar-container .sidebar-user {
     padding: 20px 0 20px 20px;
     background-color: #EFF2F4;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
-.sidebar-aside .sidebar-container .sidebar-single-item{
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-}
 
 .grey-line {
     height: 1px;

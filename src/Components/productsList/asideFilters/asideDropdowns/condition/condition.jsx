@@ -20,10 +20,10 @@ const Condition = () => {
       <div className={`condition-radio ${show? 'show-filters' : ''}`}>
         <Radio.Group onChange={onChange} value={value} >
           <Space direction='vertical'>
-            <Radio value={1} className='ptb6 font-family-inter'>Any</Radio>
-            <Radio value={2} className='ptb6 font-family-inter'>Refurbished</Radio>
-            <Radio value={3} className='ptb6 font-family-inter'>Brand new</Radio>
-            <Radio value={4} className='ptb6 font-family-inter'>Old items</Radio>
+            <Radio value={1} className='ptb6 text-base drk'>Any</Radio>
+            <Radio value={2} className='ptb6 text-base drk'>Refurbished</Radio>
+            <Radio value={3} className='ptb6 text-base drk'>Brand new</Radio>
+            <Radio value={4} className='ptb6 text-base drk'>Old items</Radio>
           </Space>
           <span className='text-base red' style={{display: 'block'}}>radio buttons has no function</span>
         </Radio.Group>

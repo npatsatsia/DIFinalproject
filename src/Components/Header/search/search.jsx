@@ -109,7 +109,7 @@ const Search = ({setMainEclipse}) => {
   }
   return (
     <div className='header-search-container'>
-      {/* <input type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/> */}
+      {/* <input classname-"text-base gr8" type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/> */}
       <ReactSearchAutocomplete
           className='livesearch'
           fuseOptions={{ keys: ["name"] }}

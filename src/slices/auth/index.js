@@ -5,7 +5,8 @@ import AuthService from '../../Services/auth.service';
 
 const user = JSON.parse(localStorage.getItem("user"));
 let error = null
-let loading = false
+let logInLoading = false
+let regLoading = false
 let registered = false
 let message
 
@@ -59,32 +60,37 @@ export const logout = createAsyncThunk("auth/logout", () => {
 });
 
 const initialState = user
-  ? { isLoggedIn: true, user, loading, registered }
-  : { isLoggedIn: false, user: null, error, loading, registered }
+  ? { isLoggedIn: true, user, logInLoading, regLoading, registered }
+  : { isLoggedIn: false, user: null, error, logInLoading, regLoading, registered }
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   extraReducers: {
+    [register.pending]: (state) => {
+      state.regLoading = false
+    },
     [register.fulfilled]: (state, action) => {
       state.isLoggedIn = false;
       state.registered = action.payload
+      state.regLoading = false
     },
     [register.rejected]: (state,action) => {
       state.isLoggedIn = false;
       state.error = action.error.message
+      state.regLoading = false
     },
     [login.pending]: (state) => {
-      state.loading = true
+      state.logInLoading = true
     },
     [login.fulfilled]: (state, action) => {
       state.isLoggedIn = true;
-      state.loading = false
+      state.logInLoading = false
       state.user = action.payload.user;
       state.email = action.payload.email
     },
     [login.rejected]: (state, action) => {
-      state.loading = false
+      state.logInLoading = false
       state.isLoggedIn = false;
       state.user = null;
       state.error = action.error.message

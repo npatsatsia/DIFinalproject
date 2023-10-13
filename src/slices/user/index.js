@@ -7,7 +7,6 @@ export const putUserChange = createAsyncThunk(
     async (newPassword) => {
         try{
             const response = await userEditService.changeUser(newPassword);
-            console.log(response)
             return response
         }catch(error) {
             return error

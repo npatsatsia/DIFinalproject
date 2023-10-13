@@ -34,32 +34,11 @@
     flex-direction: column;
 }
 
-.home-latest-trending .banner-info :nth-child(1) {
-    font-family: 'Inter';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #1C1C1C;
-}
-
 .home-latest-trending .banner-info :nth-child(2) {
-    font-family: 'Inter';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: #1C1C1C;
     padding-bottom: 17px;
 }
 
 .home-latest-trending .banner-info button {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #1C1C1C;
     padding: 0 1em;
     height: 40px;
     border-radius: 6px;
@@ -101,11 +80,6 @@
     font-size: 1.111vw;
 }
 .user-get-started .user-avatar div span {
-    font-family: 'Inter';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     white-space: nowrap;
 }
 
@@ -138,13 +112,7 @@
 
 .user-buttons .user-join-button {
     width: 100%;
-    font-family: 'Inter';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
     padding: 0px 10px;
-    color: white;
     border-radius: 6px;
     height: 30px;
     background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
@@ -156,13 +124,7 @@
 
 .user-login-button {
     background: white;
-    color: #0D6EFD;
     width: 100%;
-    font-family: 'Inter';
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
     padding: 0px 10px;
     border-radius: 6px;
     height: 30px;
@@ -180,12 +142,6 @@
     padding: 16px 40px 22px 16px;
 }
 .new-supplier span {
-    font-family: 'Inter';
-    font-size: 0.9rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: white;
     display: inline-block;
 }
 
@@ -198,12 +154,6 @@
 }
 
 .send-quotes span {
-    font-family: 'Inter';
-    font-size: 0.9rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: white;
     display: inline-block;
 }
 

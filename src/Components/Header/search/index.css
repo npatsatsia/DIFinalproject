@@ -15,7 +15,6 @@
 }
 
 .header-search-container input {
-    color: gray;
     width: 58%;
     height: 100%;
     border: none;
@@ -25,11 +24,6 @@
     border-bottom: 2px solid #0067FF;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .header-search-container .selectfrsearch {

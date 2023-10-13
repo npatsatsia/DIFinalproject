@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import './index.css'
+import { Alert, Space } from 'antd';
 import { putUserChange } from '../../../slices/user'
 import { FaInfoCircle, FaTimesCircle, FaCheckCircle} from "react-icons/fa";
 import avatar from '../../../Assets/images/authAvatar.png'
@@ -21,6 +22,8 @@ const Security = () => {
 
   const [hovered, setHovered] = useState(false)
 
+  const [alert, setAlert] = useState(false)
+
   const dispatch = useDispatch()
 
   const handleChangePassword = async (e) => {
@@ -31,9 +34,12 @@ const Security = () => {
       return;
   }
 
+
+
     if(newPass === rePass && newPass.length >= 6 && oldPass.length >= 6) {
       await dispatch(putUserChange({newPassword: newPass, userName: '', email: ''}))
       // .then(() => setMessage('successfully changed'))
+      .then(() => setAlert(true))
       setNewPass('')
       setRePass('')
       setOldPass('')
@@ -45,6 +51,14 @@ const Security = () => {
     setValidRePass(newPass === rePass);
   }, [newPass, rePass])
 
+  useEffect(() => {
+    if(alert) {
+      setTimeout(() => {
+        setAlert(false)
+      }, 7000);
+    }
+  },[alert])
+
   return (
     <section className='user-security-section'>
       <div className='user-security-container'>
@@ -52,6 +66,11 @@ const Security = () => {
           <h1 className='h1-title drk'>Security</h1>
           <img src={avatar} alt="avatar" />
         </div>
+        {alert &&
+            <Space direction="vertical" style={{ width: '220px', paddingTop: '30px', paddingBottom: '18px', fontFamily: 'Inter', position: 'absolute', top: '200px' }}>
+              <Alert message="succesfully changed profile" type="success" closable />
+            </Space>
+          }
         <form className='user-security-inputs' onSubmit={(e) => handleChangePassword(e)}>
           <div className='security-inputs-title h3-title drk'>Change Password</div>
           <div className='security-new-password'>
@@ -76,7 +95,7 @@ const Security = () => {
               <input type="password" id='secoldpass' value={oldPass} onChange={(e) => (setOldPass(e.target.value))}/>
               <FaInfoCircle className='shouldHoverPRF' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}/> 
             </div>
-            <p className={hovered? "hoveredProfilePass" : "offscreen"} >
+            <p className={hovered? "hoveredProfilePass text-small blk" : "offscreen"} >
               <FaInfoCircle />
               If you enter a fake current password in this input and if you pass other validations successfully too, your request will be confirmed.<br/>
               ძველ პაროლის ველში არასწორი მიმდინარე პაროლის შეყვანის შემთხვევაში, თუ სხვა ვალიდაციები წარმატებით გაიარეთ, თქვენი მოთხოვნა მაინც დადასტურდება.

@@ -158,9 +158,9 @@ const handleAuth = async (e) => {
     setSignEmail('');
     setSignPassword('');
 
-    if (isLoggedIn) {
-        <Navigate to="/" />;
-      }
+    // if (isLoggedIn) {
+    //     <Navigate to="/" />;
+    //   }
 
     //   useEffect(() => {
     //     dispatch(getUserInfo(signEmail))
@@ -201,12 +201,12 @@ if(loading) {
                    ( <>
                         <div className='text-link'>
                             <div className='welcome'>
-                                <span>Welcome to <span>LOREM</span></span>
-                                <h1>Sign in</h1>
+                                <span className='pop214 blk'>Welcome to <span className='pop216 ggrn'>LOREM</span></span>
+                                <h1 className='pop55 blk'>Sign in</h1>
                             </div>
                             <div className='link'>
-                                <span>no account?</span>
-                                <div onClick={() => navigate('/auth?account=register')}>Sign up</div>
+                                <span className='pop13 gr10'>no account?</span>
+                                <div className='pop13 ggrn' onClick={() => navigate('/auth?account=register')}>Sign up</div>
                             </div>
                             <p ref={signErrRef} className={signErrMsg ? "errmsg" : "offscreen"} aria-live="assertive">{signErrMsg}</p>
                         </div>
@@ -215,8 +215,8 @@ if(loading) {
                         </div>
                         <form  onSubmit={handleAuth} className='user-login-form' >
                             <div className='login-user inpt'>
-                                <label htmlFor="user">Enter your email address</label>
-                                <input 
+                                <label className='pop164 blk' htmlFor="user">Enter your email address</label>
+                                <input className='pop14 blk' 
                                     type="email" 
                                     id="user"
                                     autoComplete="off"
@@ -227,8 +227,8 @@ if(loading) {
                                     onChange={(e) => (setSignEmail(e.target.value))}/>
                             </div>
                             <div className='login-password inpt'>
-                                <label htmlFor="signPassword">Enter your Password</label>
-                                <input 
+                                <label className='pop164 blk' htmlFor="signPassword">Enter your Password</label>
+                                <input className='pop14 blk' 
                                     type="password" 
                                     id="signPassword" 
                                     required
@@ -237,9 +237,9 @@ if(loading) {
                                     placeholder='Password'
                                 />
                             </div>
-                            <span>forgot password</span>
+                            <span className='pop13 lblu'>forgot password</span>
                             <div className='sign-btn-container'>
-                                <button className='sign-btn' type='submit'>Sign in</button>
+                                <button className='sign-btn pop165 wht' type='submit'>Sign in</button>
                             </div>
                         </form>
                     </>
@@ -247,19 +247,19 @@ if(loading) {
                         <>
                             <div className='text-link'>
                                 <div className='welcome'>
-                                    <span>Welcome to <span>LOREM</span></span>
-                                    <h1>Sign up</h1>
+                                <span className='pop214 blk'>Welcome to <span className='pop216 ggrn'>LOREM</span></span>
+                                <h1 className='pop55 blk'>Sign up</h1>
                                 </div>
                                 <div className='link'>
-                                    <span>Have an Account ?</span>
-                                    <div onClick={() => navigate('/auth?account=login')}>Sign in</div>
+                                    <span className='pop13 gr10'>Have an Account ?</span>
+                                    <div className='pop13 ggrn' onClick={() => navigate('/auth?account=login')}>Sign in</div>
                                 </div>
                             </div>
                             <p ref={errRef} className={`text-normal ${errMsg && "errmsg"}${sucMsg && 'succmsg'}${(!errMsg && !sucMsg)? "offscreen" : ''}`} aria-live="assertive">{errMsg && errMsg}{sucMsg && 'Successfully Registered'}</p>
                             <form className='user-sigup-form' onSubmit={handleRegister}>
                                 <div className='signup-email inpt'>
-                                    <label htmlFor="email">Enter your email address</label>
-                                    <input
+                                    <label className='pop164 blk' htmlFor="email">Enter your email address</label>
+                                    <input className='pop14 blk'
                                         type="email"
                                         name="email"
                                         id="email"
@@ -275,18 +275,19 @@ if(loading) {
                                         />
                                 </div>
                                 <div className='signup-user-contact'>
-                                    <label htmlFor="username">
+                                    <label className='pop164 blk' htmlFor="username">
                                             Enter Username:
                                         <FaCheckCircle className={validName && username ? "valid" : "hide"} />
                                         <FaTimesCircle className={validName || !username ? "hide" : "invalid"} />
                                     </label>
                                     <input 
+                                        className='pop14 blk' 
                                         ref={userRef}
                                         autoComplete='off'
                                         required
                                         type="text" 
                                         name="username" 
-                                        id="username" 
+                                        id="username"
                                         aria-invalid={validName? 'false' : 'true'}
                                         aria-describedby='uidnote'
                                         value={username} 
@@ -304,12 +305,13 @@ if(loading) {
                                 </p>
                                 <div className='signup-password inpt'> 
                                     <div className='signup-user inpt'>
-                                        <label htmlFor="signup-password">
+                                        <label className='pop164 blk' htmlFor="signup-password">
                                                 Enter your Password:
                                             <FaCheckCircle className={validPwd ? "valid" : "hide"} />
                                             <FaTimesCircle className={validPwd || !regPassword ? "hide" : "invalid"} />
                                         </label>
                                         <input
+                                            className='pop14 blk'
                                             type="password" 
                                             name="signup-password" 
                                             id="signup-password" 
@@ -331,12 +333,13 @@ if(loading) {
                                         </p>
                                     </div>
                                     <div className='signup-contact inpt'>
-                                        <label htmlFor="signup-repass">
+                                        <label className='pop164 blk' htmlFor="signup-repass">
                                                 Re-enter Password:
                                             <FaCheckCircle className={validRepwd && regRePassword ? "valid" : "hide"} />
                                             <FaTimesCircle className={validRepwd || !regRePassword ? "hide" : "invalid"} />
                                         </label>
                                         <input 
+                                            className='pop14 blk'
                                             type="password" 
                                             name="signup-repass" 
                                             id="signup-repass"

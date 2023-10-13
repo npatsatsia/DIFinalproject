@@ -16,7 +16,7 @@ const FooterMain = () => {
                     <img src={brand} alt="brand" />
                 </div>
                 <div className='brand-info'>
-                    <span>Best information about the company gies here but now lorem ipsum is</span>
+                    <span className='text-info gr6'>Best information about the company gies here but now lorem ipsum is</span>
                 </div>
                 <div className='footer-social-icons'>
                     <SiFacebook className='footer-icon'/>
@@ -30,7 +30,7 @@ const FooterMain = () => {
                 return <SingleService key={item.id} list={item.list} title={item.title}/>
             })}
             <div className='footer-download'>
-                <h5 className='footer-title'>Get app</h5>
+                <h6 className='text-title drk'>Get app</h6>
                 <div className='app-stores'>
                     <div className='footer-apple'>
                         <img src={apple} alt="download from app store" />

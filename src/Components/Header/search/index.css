@@ -15,20 +15,21 @@
 }
 
 .header-search-container input {
+    padding-left: 5px;
+    border-left: 2px solid #0067FF;
+    border-top: 2px solid #0067FF;
+    border-bottom: 2px solid #0067FF;
+    border-right: none;
     width: 58%;
     height: 100%;
-    border: none;
     outline: none;
-    border-top: 2px solid #0067FF;
-    border-left: 2px solid #0067FF;
-    border-bottom: 2px solid #0067FF;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
 .header-search-container .selectfrsearch {
-    border-top: 2px solid #0067FF;
     border-left: 1px solid #0067FF;
+    border-top: 2px solid #0067FF;
     border-bottom: 2px solid #0067FF;
     word-break: break-all;
     white-space: nowrap;

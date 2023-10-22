@@ -63,18 +63,6 @@ const Search = ({setMainEclipse}) => {
             }
     };
 
-    
-    const handleOnSearch = (string) => {
-      setInputValue(string)
-    }
-    
-    const handleOnSelect = (item) => {
-      navigate(`product/${item.id}`)
-  }
-
-  const handleFocusEclipse = () => {
-    setMainEclipse(true)
-  }
   
 
   const formatResult = (item) => {
@@ -109,36 +97,7 @@ const Search = ({setMainEclipse}) => {
   }
   return (
     <div className='header-search-container'>
-      {/* <input classname-"text-base gr8" type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/> */}
-      <ReactSearchAutocomplete
-          className='livesearch'
-          fuseOptions={{ keys: ["name"] }}
-          items={data}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onFocus={handleFocusEclipse}
-          onSearch={handleOnSearch}
-          onSelect={handleOnSelect}
-          formatResult={formatResult}
-          maxResults={4}
-          styling={{
-              height: "40px",
-              width: '58%',
-              border: "unset",
-              borderRadius: "unset",
-              backgroundColor: "#fff",
-              boxShadow: "unset",
-              hoverBackgroundColor: "unset",
-              color: "unset",
-              fontSize: "16px",
-              fontFamily: "Inter",
-              iconColor: "usnet",
-              lineColor: "transparent",
-              placeholderColor: "grey",
-              // clearIconMargin: '3px 14px 0 0',
-              // searchIconMargin: '0 0 0 16px'
-            }}
-        />
+      <input className="text-base gr8" type='text' placeholder='Search' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
       <ConfigProvider
       theme={{
         token: {

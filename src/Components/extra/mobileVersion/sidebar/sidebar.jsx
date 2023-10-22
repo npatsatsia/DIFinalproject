@@ -121,24 +121,24 @@ const Sidebar = ({show, setShow, cartProducts}) => {
                 <div className='sidebar-single-item with-icon text-base drk'>
                     <HiOutlineHome/>
                     <Link className='link' to={'/'}>
-                        <span>Home</span>
+                        <span className='text-base drk'>Home</span>
                     </Link>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiMiniListBullet/>
                     <Link className='link' to={'/products'}>
-                        <span>Categories</span>
+                        <span className='text-base drk'>Categories</span>
                     </Link>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineHeart/>
-                    <span>Favorites</span>
+                    <span className='text-base drk'>Favorites</span>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <HiOutlineShoppingCart/>
                     {isLoggedIn?
                         <span onClick={() => handleClickOncart()}>Cart{cartProducts.length > 0 && <span className='text-normal wht sidebar-cart-items'>{cartProducts.length}</span>}</span> :
-                        <span onClick={() => showSliderModal()}>Cart</span>
+                        <span onClick={() => showSliderModal()} className='text-base drk'>Cart</span>
                     }
                     <Modal
                         okText='Log In'
@@ -154,27 +154,27 @@ const Sidebar = ({show, setShow, cartProducts}) => {
             <div className='sidebar-more'>
                 <div className='sidebar-single-item with-icon'>
                     <TfiWorld/>
-                    <span>English | USD</span>
+                    <span className='text-base drk'>English | USD</span>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <TfiHeadphoneAlt/>
-                    <span>Contact Us</span>
+                    <span className='text-base drk'>Contact Us</span>
                 </div>
                 <div className='sidebar-single-item with-icon'>
                     <TfiLayoutMediaLeftAlt/>
-                    <span>About</span>
+                    <span className='text-base drk'>About</span>
                 </div>
             </div>
             <div className='grey-line'></div>
             <div className='sidebar-info'>
                 <div className='sidebar-single-item'>
-                    <span>User agreement</span>
+                    <span className='text-base drk'>User agreement</span>
                 </div>
                 <div className='sidebar-single-item'>
-                    <span>Partnership</span>
+                    <span className='text-base drk'>Partnership</span>
                 </div>
                 <div className='sidebar-single-item'>
-                    <span>Privacy policy</span>
+                    <span className='text-base drk'>Privacy policy</span>
                 </div>
             </div>
         </div>

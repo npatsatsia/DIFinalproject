@@ -1,12 +1,25 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './index.css'
 import {BsCheck2} from "react-icons/bs";
 import SingleProductNav from '../../extra/singlePDescriptionNav/singlePDescNav';
 import { navLinks } from '../../../Static/singleProductNav'
-import { weMayLikeArr } from '../../../Static/singleProductMayLike';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLatestProducts } from '../../../slices/sortedProducts';
+import { useNavigate } from 'react-router-dom';
 
 const DescriptionAndMayLike = ({singleProduct}) => {
     const [navact, setNavact] = useState('poiuy')
+
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+
+    const {latestProducts} = useSelector((state) => state.sortedProducts)
+
+
+    useEffect(() => {
+        dispatch(getLatestProducts())
+    },[dispatch]) 
 
     if(!singleProduct) {
         return null
@@ -77,23 +90,23 @@ const DescriptionAndMayLike = ({singleProduct}) => {
                 </div>
                 <div className='like-items-container'>
                     <ul>
-                        {weMayLikeArr.map((item) => {
-                            return <li key={item.id}>
-                                <div className='single-like'>
-                                    <div className='like-img'>
-                                        <img src={item.image} alt="product" />
-                                    </div>
-                                    <div className='like-info'>
-                                        <div>
-                                            <span className='text-normal drk'>{item.title}</span>
+                        {latestProducts.map((item) => {
+                            return (<li onClick={() => {navigate(`/product/${item.id}`)}} key={item.id}>
+                                        <div className='single-like'>
+                                            <div className='like-img'>
+                                                <img src={item.images[2]} alt="product" />
+                                            </div>
+                                            <div className='like-info'>
+                                                <div>
+                                                    <span className='text-normal drk'>{item.brand}</span>
+                                                </div>
+                                                <div>
+                                                    <span className='text-normal gr5'>${item.price}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <span className='text-normal gr5'>{item.range}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        })}
+                                    </li>)
+                            })}
                     </ul>
                 </div>
             </div>

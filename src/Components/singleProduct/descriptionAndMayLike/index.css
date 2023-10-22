@@ -103,6 +103,9 @@
 }
 
 .like-items-container ul li img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
     padding: 10px 13px 10px 12px;
     border: 1px solid #E0E0E0;
     border-radius: 6px;

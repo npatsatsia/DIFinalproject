@@ -106,6 +106,7 @@
     display: flex;
     justify-content:  space-between;
     align-items: center;
+    
 }
 
 .products-filter-history-container .filters-history-ul {
@@ -115,7 +116,19 @@
     padding: 0;
     list-style: none;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory; 
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+.products-filter-history-container .filters-history-ul:hover {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: auto;
 }
 
 .products-filter-history-container .filters-history-ul .single-filter-li{

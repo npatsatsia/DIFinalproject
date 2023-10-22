@@ -129,11 +129,11 @@ const SingleProductInfo = ({images, singleProduct}) => {
                     </div>
                     <div className='detail-mobile-price amp'>
                         <span className='title-h6 red'>${singleProduct.price}</span>
-                    </div>
+                    </div>  
                     <div className='detail-mobile-inquiry amb'>
                         {isLoggedIn?
-                        (<div className='supplier-btn btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
-                        (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
+                        (<div className='text-btn supplier-btn btn-blue text-btn' onClick={() => {handleAddToCart(singleProduct.id)}}>Add To Cart</div>) :
+                        (<div className='supplier-btn btn-blue text-btn' onClick={() => handleAuthNeedAlert()}>Add To Cart</div>)
                         }
                         <div className='mhc'>
                             <BsHeart className='blu wh24'/>
@@ -238,10 +238,10 @@ const SingleProductInfo = ({images, singleProduct}) => {
                             </div>
                             <div className='supplier-buttons'>
                                     {isLoggedIn?
-                                (<div className='supplier-btn text-btn-normal btn-blue' onClick={() => {handleAddToCart(singleProduct.id)}}>Send inquiry</div>) :
-                                (<div className='supplier-btn btn-blue' onClick={() => handleAuthNeedAlert()}>Send inquiry</div>)
+                                (<div className='supplier-btn text-btn-normal btn-blue text-btn' onClick={() => {handleAddToCart(singleProduct.id)}}>Add To Cart</div>) :
+                                (<div className='supplier-btn btn-blue text-btn' onClick={() => handleAuthNeedAlert()}>Add To Cart</div>)
                                 }
-                                <div className='supplier-btn btn-white'>Seller's profile</div>
+                                <div className='supplier-btn btn-white text-btn'>Seller's profile</div>
                             </div>
                         </div>
                     </div>

@@ -30,21 +30,18 @@
 }
 
 .related-img {
-    background-color: #eee;
     padding: 18px 20px 20px 18px;
     border-radius: 6px;
     width: 172px;
     height: 172px;
     cursor: pointer;
+    border: 1px solid #DEE2E7;
 }
 
-.related-img div{
+.related-img img{
     width: 133.644px;
     height: 133.644px;
-    mix-blend-mode: multiply;
-    background-image: url('../../../Assets/images/tablet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: contain;
 }
 
 @media (min-width: 576px){

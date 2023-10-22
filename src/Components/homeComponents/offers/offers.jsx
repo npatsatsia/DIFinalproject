@@ -6,7 +6,7 @@ import Timer from '../../extra/timer/timer';
 import { getOfferedProducts } from '../../../slices/sortedProducts';
 
 const Offers = () => {
-    const targetDate = new Date(2023, 8, 30, 23, 59, 59);
+    const targetDate = new Date(2023, 11, 30, 23, 59, 59);
 
     const dispatch = useDispatch()
 

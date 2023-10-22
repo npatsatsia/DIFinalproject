@@ -43,45 +43,45 @@ const initialState = {
     latestProducts: [],
     mostDemandProducts: [],
     offeredProducts: [],
-    Loading: false,
+    sortedProductsIsLoading: false,
     error: null
 }
 
 const sortedProducts = createSlice({
-    name: 'cart',
+    name: 'sortedProducts',
     initialState,
     extraReducers: {
         [getLatestProducts.pending]: (state) => {
-            state.Loading = true;
+            state.sortedProductsIsLoading = true;
             },
         [getLatestProducts.fulfilled]: (state, action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.latestProducts = action.payload
             },
         [getLatestProducts.rejected]: (state,action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.error = action.payload
             },
         [getMostDemandProducts.pending]: (state) => {
-            state.Loading = true;
+            state.sortedProductsIsLoading = true;
             },
         [getMostDemandProducts.fulfilled]: (state, action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.mostDemandProducts = action.payload
             },
         [getMostDemandProducts.rejected]: (state, action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.error = action.payload
             },
         [getOfferedProducts.pending]: (state) => {
-            state.Loading = true;
+            state.sortedProductsIsLoading = true;
             },
         [getOfferedProducts.fulfilled]: (state, action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.offeredProducts = action.payload
             },
         [getOfferedProducts.rejected]: (state, action) => {
-            state.Loading = false;
+            state.sortedProductsIsLoading = false;
             state.error = action.payload
             },
     }

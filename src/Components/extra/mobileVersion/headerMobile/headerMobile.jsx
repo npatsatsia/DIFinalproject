@@ -45,7 +45,7 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
   const handleCancel = () => {
     setOpen(false);
   };
-
+  console.log(locate)
 
   const handleMobileHeader = () => {
     switch (locate.pathname) {
@@ -60,7 +60,7 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
           categories: 'products'
         });
         break;
-      case '/product':
+      case '/product/:productId':
         setHeaderSettings({
           brand: false,
           burgermenu: false,

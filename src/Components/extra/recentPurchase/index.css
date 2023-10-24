@@ -1,0 +1,15 @@
+.recent_purchase_container {
+    position: fixed;
+    bottom: 48px;
+    left: 14px;
+    width: 306px;
+    height: 110px;
+    z-index: 1001;
+    background-color: black;
+}
+
+.recent_purchase_image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}

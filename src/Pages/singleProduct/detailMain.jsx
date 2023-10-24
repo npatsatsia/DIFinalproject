@@ -14,8 +14,8 @@ const DetailMain = () => {
   const dispatch = useDispatch()
 
   const {productId} = useParams()
-
-  const {singleProduct, images, loading} = useSelector((state) => state.filteredProducts)
+  
+  const {singleProduct, images, singleProductIsLoading, loading} = useSelector((state) => state.filteredProducts)
 
   useEffect(() => {
     dispatch(getSingleProduct(productId));
@@ -27,7 +27,7 @@ const DetailMain = () => {
   
   return (
       <>
-        <SingleProductInfo singleProduct={singleProduct} images={images}/>
+        <SingleProductInfo singleProduct={singleProduct} images={images} singleProductIsLoading={singleProductIsLoading}/>
         <DescriptionAndMayLike singleProduct={singleProduct}/>
         <SinglesRelatedProducts/>
         {/* <SinglesDiscount/> */}

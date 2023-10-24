@@ -60,12 +60,14 @@ const ItemsAndPayment = () => {
     setOpen(false);
   };
 
-
-
   if(visible) {
     setTimeout(() => {
       setVisible(false);
     }, 10000);
+  }
+
+  const handleShowProduct = (id) => {
+    navigate(`/product/${id}`)
   }
 
   return (
@@ -88,11 +90,11 @@ const ItemsAndPayment = () => {
             {products.map((item) => {
               return <div key={item.id} className='cart-single-item-container'>
               <div className='cart-single-image-container'>
-                <img src={item.images[0]} alt="product"/>
+                <img onClick={() => handleShowProduct(item.id)} className='pointer' src={item.images[0]} alt="product"/>
               </div>
               <div className='cart-product-info-buttons'>
-                <div className='cart-product-name'>
-                  <span className='text-title drk'>{item.name}</span>
+                <div onClick={() => handleShowProduct(item.id)} className='cart-product-name'>
+                  <span className='text-title drk pointer'>{item.name}</span>
                 </div>
                 <div className='cart-product-desc'>
                   <span className='text-info gr5'>Size: medium, Color: blue</span>

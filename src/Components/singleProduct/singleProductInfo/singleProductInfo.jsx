@@ -7,10 +7,11 @@ import italy from '../../../Assets/images/italy.png'
 import { addItemTocart } from '../../../slices/cart/index';
 import { getCartProducts } from '../../../slices/cart/index';
 import Swal from 'sweetalert2'
+import Loader from '../../extra/loader/loader';
 
 
 
-const SingleProductInfo = ({images, singleProduct}) => {
+const SingleProductInfo = ({images, singleProduct, singleProductIsLoading}) => {
     const [visible, setVisible] = useState(false);
     const [success, setSuccess] = useState(false)
 
@@ -95,30 +96,31 @@ const SingleProductInfo = ({images, singleProduct}) => {
         }
         </Space>
             <div className='detail-container'>
-                <div className='detail-images-container'>
-                    <div className='detail-main-image'>
-                        <img src={images[0]} alt="product" ref={imageRef} />
-                    </div>
-                    <div className='detail-additional-images' ref={containerRef}>
-                        {images.map((item, index) => {
-                            return (
-                                    <div className='wh60br5' key={index + 99284662891234}>
-                                        <img src={item} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
-                                    </div>
-                            )
-                        })}
-                        <div className='responsive-photo-slider'>
-                            <div className='lrslider'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('backward'))} >
-                                    <path d="M13.3337 7.33329H5.22033L8.94699 3.60663L8.00033 2.66663L2.66699 7.99996L8.00033 13.3333L8.94033 12.3933L5.22033 8.66663H13.3337V7.33329Z" fill="white"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('forward'))}>
-                                    <path d="M8.00033 2.66663L7.06033 3.60663L10.7803 7.33329H2.66699V8.66663H10.7803L7.06033 12.3933L8.00033 13.3333L13.3337 7.99996L8.00033 2.66663Z" fill="white"/>
-                                </svg>
+                {singleProductIsLoading? <Loader/> : 
+                    <div className='detail-images-container'>
+                        <div className='detail-main-image'>
+                            <img src={images[0]} alt="product" ref={imageRef} />
+                        </div>
+                        <div className='detail-additional-images' ref={containerRef}>
+                            {images.map((item, index) => {
+                                return (
+                                        <div className='wh60br5' key={index + 99284662891234}>
+                                            <img src={item} alt="tshirtimage" onClick={(e) => (handleImageChange(e.target.src))} ref={slideRef}/>
+                                        </div>
+                                )
+                            })}
+                            <div className='responsive-photo-slider'>
+                                <div className='lrslider'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('backward'))} >
+                                        <path d="M13.3337 7.33329H5.22033L8.94699 3.60663L8.00033 2.66663L2.66699 7.99996L8.00033 13.3333L8.94033 12.3933L5.22033 8.66663H13.3337V7.33329Z" fill="white"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" onClick={() => (scrollPhoto('forward'))}>
+                                        <path d="M8.00033 2.66663L7.06033 3.60663L10.7803 7.33329H2.66699V8.66663H10.7803L7.06033 12.3933L8.00033 13.3333L13.3337 7.99996L8.00033 2.66663Z" fill="white"/>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
                 <div className='detail-info-container'>
                     <div className='detail-stock'>
                         <BsCheck2 className='stock-icon'/>

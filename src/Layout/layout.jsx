@@ -9,6 +9,8 @@ import FooterOwner from '../Components/Footer/footerOwner/footerOwner'
 import Router from '../Routes'
 import HeaderMobile from '../Components/extra/mobileVersion/headerMobile/headerMobile'
 import { getCartProducts } from '../slices/cart'
+import RecentPurchase from '../Components/extra/recentPurchase/recentPurchase'
+import { getProducts } from '../slices/products'
 
 
 const Layout = () => {
@@ -25,6 +27,9 @@ const navigate = useNavigate()
 
 const {products, postLoading, removeLoading } = useSelector(state => state.cartService)
 const {sortedProductsIsLoading} = useSelector(state => state.sortedProducts)
+const {data} = useSelector(state => state.products)
+
+
 
 const {isLoggedIn, loading } = useSelector(state => state.auth)
 
@@ -40,37 +45,9 @@ useEffect(() => {
   }
 }, [dispatch, isLoggedIn, postLoading, removeLoading, loading, sortedProductsIsLoading])
 
-
-// Set an item in localStorage with an expiration time
-const setItemWithTimeout = (key, value, expirationInMilliseconds) => {
-  const item = {
-    value: value,
-    expiration: Date.now() + expirationInMilliseconds,
-  };
-  localStorage.setItem(key, JSON.stringify(item));
-  
-  // Set a timeout to remove the item from localStorage when it expires
-  setTimeout(() => {
-    localStorage.removeItem(key);
-  }, expirationInMilliseconds);
-};
-
-// Get an item from localStorage
-const getItem = (key) => {
-  const item = JSON.parse(localStorage.getItem(key));
-  if (item && Date.now() < item.expiration) {
-    return item.value;
-  } else {
-    // The item has expired or doesn't exist
-    localStorage.removeItem(key);
-    return null;
-  }
-};
-
-// Example usage:
-setItemWithTimeout('myToken', 'myTokenValue', 3600000); // Set a token that expires in 1 hour
-
-const token = getItem('myToken'); // Get the token (it will be null if it has expired)
+useEffect(() => {
+  dispatch(getProducts())
+}, [dispatch]);
 
 useEffect(() => {
   window.scrollTo(0, 0);
@@ -90,6 +67,7 @@ useEffect(() => {
         <FooterMain/>
         <FooterOwner/>
       </footer>
+      <RecentPurchase products={data}/>
     </>
   )
 }

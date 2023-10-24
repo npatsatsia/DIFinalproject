@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './index.css'
-import { useLocation, useNavigate, Link } from 'react-router-dom'
+import { useLocation, useNavigate, Link, useParams } from 'react-router-dom'
 import { Modal } from 'antd';
 import brand from '../../../../Assets/images/logo-colored.png'
 import BurgerMenu from '../burgerMenu/burgerMenu'
@@ -45,7 +45,6 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
   const handleCancel = () => {
     setOpen(false);
   };
-  console.log(locate)
 
   const handleMobileHeader = () => {
     switch (locate.pathname) {
@@ -58,17 +57,6 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
           pagetitle: true,
           search: true,
           categories: 'products'
-        });
-        break;
-      case '/product/:productId':
-        setHeaderSettings({
-          brand: false,
-          burgermenu: false,
-          cartAndProfile: true,
-          back: true,
-          pagetitle: false,
-          search: false,
-          categories: false
         });
         break;
       case '/':
@@ -93,23 +81,33 @@ const HeaderMobile = ({show, setShow, cartProducts}) => {
           categories: false
         });
         break;
-        case '/profile':
-        setHeaderSettings({
-          brand: true,
-          burgermenu: true,
-          cartAndProfile: true,
-          back: false,
-          pagetitle: false,
-          search: false,
-          categories: false,
-        });
-        break
     }
   }
 
-
   useEffect(() => {
-    handleMobileHeader()
+    if(locate.pathname.includes('/product/')){
+      setHeaderSettings({
+        brand: false,
+        burgermenu: false,
+        cartAndProfile: true,
+        back: true,
+        pagetitle: false,
+        search: false,
+        categories: false
+      });
+    }else if((locate.pathname.includes('/profile/'))){
+      setHeaderSettings({
+        brand: true,
+        burgermenu: true,
+        cartAndProfile: true,
+        back: false,
+        pagetitle: false,
+        search: false,
+        categories: false,
+      });
+    }else{
+      handleMobileHeader()
+    }
   }, [locate.pathname])
 
   return (

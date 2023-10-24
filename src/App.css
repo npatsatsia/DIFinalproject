@@ -334,3 +334,6 @@
 .gap12 {
     gap: 12px;
 }
+.pointer {
+    cursor: pointer;
+}

@@ -88,8 +88,8 @@ const Sidebar = ({show, setShow, cartProducts}) => {
       });
 
   return (
-    <div className={`sidebar-aside ${show? 'show' : 'hide'}`} >
-    <aside ref={sideNavRef}>
+    <div className={`sidebar-aside ${show? 'show' : ''}`} >
+    <aside className={`${show? 'blkbckg' : ''}`} ref={sideNavRef}>
         <div className='sidebar-container'>
             <div className='sidebar-user text-base drk'>
                 <div className='sb-user-img'>

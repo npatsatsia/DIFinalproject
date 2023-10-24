@@ -43,6 +43,7 @@ const initialState = {
     categories: [],
     brands: [],
     singleProduct: [],
+    singleProductIsLoading: false,
     images: [],
     Loading: false,
     error: null
@@ -75,15 +76,15 @@ const filteredProducts = createSlice({
             state.error = action.payload
             },
         [getSingleProduct.pending]: (state) => {
-            state.Loading = true;
+            state.singleProductIsLoading = true;
             },
         [getSingleProduct.fulfilled]: (state, action) => {
-            state.Loading = false;
+            state.singleProductIsLoading = false;
             state.singleProduct = action.payload
             state.images = action.payload.images
             },
         [getSingleProduct.rejected]: (state, action) => {
-            state.Loading = false;
+            state.singleProductIsLoading = false;
             state.error = action.payload
             },
     }

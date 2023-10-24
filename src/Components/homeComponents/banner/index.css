@@ -122,6 +122,16 @@
     cursor: pointer;
 }
 
+.user-buttons button:hover {
+    scale: 1.03;
+    background-color: #FF6700;
+    color: white;
+}
+
+.user-buttons button {
+    transition: all 0.3s ease-in-out;
+}
+
 .user-login-button {
     background: white;
     width: 100%;
@@ -140,6 +150,11 @@
     background: #F38332;
     border-radius: 6px;
     padding: 16px 40px 22px 16px;
+}
+
+.new-supplier:hover{
+    scale: 1.02;
+    background-color: #FF6700;
 }
 .new-supplier span {
     display: inline-block;

@@ -136,6 +136,10 @@
     border: 1px solid #0D6EFD;
     background: #FFF;
 }
+
+.products-single-filter svg {
+    cursor: pointer;
+}
 .products-single-filter {
     padding: 6px 6px 6px 10px;
     display: flex;
@@ -150,6 +154,7 @@
 }
 .products-clear-filters span {
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .products-list-container .products-list-ul{

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
+import { cities } from '../../../Static/citiesGeorgia'
 
 const RecentPurchase = ({products}) => {
     const [showRecent, setShowRecent] = useState(false)
-    const [recentProduct, setRecentProduct] = useState({})
+    // const [recentProduct, setRecentProduct] = useState({})
+    let randomIndex = Math.floor(Math.random() * products.length);
+    let recentProduct = products[randomIndex]
 
+    let randomCityIndex = Math.floor(Math.random() * cities.length);
+    let city = cities[randomCityIndex]
 
     useEffect(() => {
         const setTrue = () => {
@@ -12,9 +17,9 @@ const RecentPurchase = ({products}) => {
         };
     
         const setFalse = () => {
-          setShowRecent(false);
-          setRecentProduct({})
-        };
+          setShowRecent(false)
+          recentProduct = {}
+      };
     
         setTrue();
     
@@ -28,25 +33,26 @@ const RecentPurchase = ({products}) => {
       }, []);
 
       useEffect(() => {
-          const randomIndex = Math.floor(Math.random() * products.length);
-          console.log(products[randomIndex])
-        setRecentProduct(products[randomIndex])
-      },[showRecent])
+          let randomIndex = Math.floor(Math.random() * products.length);
+          let randomCityIndex = Math.floor(Math.random() * cities.length);
+          recentProduct = products[randomIndex]
+          city = cities[randomCityIndex]
+      },[showRecent, products])
 
-      const productImages = data.images
-      console.log(productImages)
+      // const productImages = recentProduct.images[1]
+      // console.log(recentProduct)
 
   return ( recentProduct &&
-        <div className='recent_purchase_container' style={{display: showRecent? 'block' : 'none'}}>
+        <div className='recent_purchase_container' style={{display: showRecent? 'flex' : 'none'}}>
             <div className='recent_purchase_image'>
-                <img  alt=" product image" />
+                <img src={recentProduct.images[0]} alt="product image" />
             </div>
             <div className="recent_purchase_info">
                 <div className="purchase_buyer">
-                    <span className='text-small wht'>Someone in Kutaisi, Georgia bought: </span>
+                    <span className='text-small wht'>Someone in {city.city}, {city.country} bought: </span>
                 </div>
                 <div className="purchased_item">
-                    <span>{recentProduct.brand}</span>
+                    <span className='text-normal wht'>{recentProduct.brand}</span>
                 </div>
             </div>
         </div>

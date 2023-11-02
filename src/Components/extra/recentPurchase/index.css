@@ -5,11 +5,25 @@
     width: 306px;
     height: 110px;
     z-index: 1001;
-    background-color: black;
+    background-color: #f0602c;
+    justify-content: center;
+    align-items: center; 
+    gap: 14px;
+    border-radius: 7px;
+}
+
+.recent_purchase_image {
+    padding-left: 12px;
+    width: 110px;
+    height: 110px;
 }
 
 .recent_purchase_image img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+}
+
+.recent_purchase_info .purchased_item {
+    text-align: center;
 }

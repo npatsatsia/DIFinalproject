@@ -331,7 +331,7 @@ if(loading) {
                                     </div>
                                 </div>
                                 <div className='sign-btn-container'>
-                                    <button className='sign-btn' type='submit'>Sign up</button>
+                                    <button className='pop165 wht sign-btn' type='submit'>Sign up</button>
                                 </div>
                             </form>
                         </>

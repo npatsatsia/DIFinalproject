@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getUserInfo = createAsyncThunk('user/getUserInfo', async (email) => {
     if(email){
         try {
-            const response = await axios.post('https://amazon-digital-prod.azurewebsites.net/api/user/getByEmail', 
+            const response = await axios.post('https://digitalinstitute-amazon.azurewebsites.net/api/user/getByEmail', 
             {
                 email
             },

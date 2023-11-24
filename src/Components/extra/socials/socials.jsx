@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import Social from './social/social'
 import { socials } from '../../../Static/socialLogos'
 

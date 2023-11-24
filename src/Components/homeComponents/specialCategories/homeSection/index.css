@@ -20,7 +20,6 @@
 .homepg-home-categories-container .home-outdoor-img-container {
     background-image: url('../../../../Assets/images/homeAndOutdoorBKG.png');
     opacity: 0.8;
-    /* background: linear-gradient(0deg, rgba(255, 232, 186, 0.40) 0%, rgba(255, 232, 186, 0.40) 100%), url('../../../../../assets/images/homeAndOutdoorBKG.png'), lightgray -0.026px -35.875px / 111.262% 116.216% no-repeat; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

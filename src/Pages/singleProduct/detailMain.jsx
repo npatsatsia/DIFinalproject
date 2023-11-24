@@ -29,7 +29,6 @@ const DetailMain = () => {
         <SingleProductInfo singleProduct={singleProduct} images={images} singleProductIsLoading={singleProductIsLoading}/>
         <DescriptionAndMayLike singleProduct={singleProduct}/>
         <SinglesRelatedProducts/>
-        {/* <SinglesDiscount/> */}
         <Subscribe/>
       </>
     )

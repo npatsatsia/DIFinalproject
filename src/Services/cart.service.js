@@ -1,4 +1,4 @@
-import api from '../API/cart.axios'
+import api from '../API/axios'
 
 const getCartProducts = async () => {
     return await api.get('cart/getmycartproducts',)

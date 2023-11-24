@@ -22,14 +22,10 @@ const Login = () => {
     const signEmailRef = useRef();
     const signErrRef = useRef();    
     
-    // ///
     const navigate = useNavigate()
     const [searchParams, setSearchparams] = useSearchParams()
     
     const params = Object.fromEntries([...searchParams])
-
-    // const location = useLocation()
-    // const from = location.state?.from?.pathname || "/"
     
     // registration needs
     const [regEmail, setRegEmail] = useState('')
@@ -78,10 +74,6 @@ const Login = () => {
       }, [dispatch]);
 
 
-    useEffect(() => {
-        // userRef.current.focus();
-    }, [])
-
     // register needs
     useEffect(() => {
         setValidName(USER_REGEX.test(username));
@@ -105,12 +97,6 @@ const Login = () => {
         setSignErrMsg('');
     }, [signEmail, signPassword])
 
-    // const handleChangeToLogin = () => {
-    //     const searchParams = new URLSearchParams();
-    //       searchParams.set('account', 'login');      
-    //       navigate(`/auth?${searchParams.toString()}`);
-    // }
-
     // register function
    const handleRegister = async (e) => {
     e.preventDefault()
@@ -123,15 +109,12 @@ const Login = () => {
         return;
     }
     
-    // setSuccessful(false);
 
     dispatch(register({ username, regPassword, regEmail}))
       .unwrap()
       .then(() => {
-        // setSuccessful(true);
       })
       .catch(() => {
-        // setSuccessful(false);
       });
         setUsername('');
         setRegEmail('')
@@ -142,7 +125,6 @@ const Login = () => {
 
 const handleAuth = async (e) => {
     e.preventDefault()
-    // 'setloading: true'
     
     dispatch(login({ signEmail, signPassword }))
     
@@ -153,20 +135,11 @@ const handleAuth = async (e) => {
     })
     
     .catch(() => {
-        // 'setloading: false'
     })
     setSignEmail('');
     setSignPassword('');
 
-    // if (isLoggedIn) {
-    //     <Navigate to="/" />;
-    //   }
-
-    //   useEffect(() => {
-    //     dispatch(getUserInfo(signEmail))
-    // },[dispatch, isLoggedIn])
-
-        signErrRef.current.focus();
+    signErrRef.current.focus();
    }
 
 

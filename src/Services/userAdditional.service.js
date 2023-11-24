@@ -1,4 +1,4 @@
-import userApi from '../API/userAdditional.axios'
+import userApi from '../API/axios'
 
 const changeUser = async ({newPassword, userName, email}) => {
     const user = JSON.parse(localStorage.getItem('userinfo'))

@@ -3,7 +3,6 @@ import './index.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa6'
-// import {getLatestProducts} from '../../../../Store/latestProducts/index'
 import { getLatestProducts } from '../../../../slices/sortedProducts'
 const HomeSection = () => {
 

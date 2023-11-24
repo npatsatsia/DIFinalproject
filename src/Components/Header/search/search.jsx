@@ -49,9 +49,7 @@ const Search = ({setMainEclipse}) => {
           searchParams.set('currentCategory', selectValueId.value) 
         }
   
-        // Use navigate to go to the /products page with the updated search parameters
         navigate(`/products?${searchParams.toString()}`);
-              // setInputValue('');
 
       } else {
         Swal.fire({

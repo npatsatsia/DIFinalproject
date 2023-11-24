@@ -1,4 +1,4 @@
-import productsApi from '../API/products.axios'
+import productsApi from '../API/axios'
 
 const products = async (props) => {
     const {currCategory = '', priceMin = '', priceMax = ''} = props

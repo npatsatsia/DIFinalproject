@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-// import { getMostDemandProducts } from '../../../../Store/mostDemandProducts/index'
 import { getMostDemandProducts } from '../../../../slices/sortedProducts'
 import {FaArrowRight} from "react-icons/fa6"
 

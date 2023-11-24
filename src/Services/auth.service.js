@@ -1,4 +1,4 @@
-import authApi from '../API/auth.axios'
+import authApi from '../API/axios'
 
 
 

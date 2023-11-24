@@ -4,7 +4,6 @@ import { cities } from '../../../Static/citiesGeorgia'
 
 const RecentPurchase = ({products}) => {
     const [showRecent, setShowRecent] = useState(false)
-    // const [recentProduct, setRecentProduct] = useState({})
     let randomIndex = Math.floor(Math.random() * products.length);
     let recentProduct = products[randomIndex]
 
@@ -38,9 +37,6 @@ const RecentPurchase = ({products}) => {
           recentProduct = products[randomIndex]
           city = cities[randomCityIndex]
       },[showRecent, products])
-
-      // const productImages = recentProduct.images[1]
-      // console.log(recentProduct)
 
   return ( recentProduct &&
         <div className='recent_purchase_container' style={{display: showRecent? 'flex' : 'none'}}>

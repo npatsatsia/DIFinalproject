@@ -1,4 +1,4 @@
-import products from '../API/products.axios'
+import products from '../API/axios'
 
 const categories = async () => {
     return await products.get('product/categories',)
